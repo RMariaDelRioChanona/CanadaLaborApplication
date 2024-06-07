@@ -106,25 +106,31 @@ class LaborABM:
             from_unemp_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
         )
 
-    def compute_spontaneous_separations(self, e: torch.Tensor):
-        return self.separation_rate * e
+    @classmethod
+    def from_transition_matrix(
+        cls, transition_matrix: torch.Tensor, model_configuration: ModelConfiguration
+    ):
+        model_configuration.n = transition_matrix.shape[0]
 
-    def state_dep_separations(self, diff_demand):
+    def compute_spontaneous_separations(self, employment: torch.Tensor):
+        return self.separation_rate * employment
+
+    def state_dep_separations(self, excess_demand: torch.Tensor) -> torch.Tensor:
         return (
             (1 - self.separation_rate)
             * self.adaptation_rate_u
-            * torch.maximum(torch.zeros(self.n), diff_demand)
+            * torch.maximum(torch.zeros(self.n), excess_demand)
         )
 
-    def spontaneous_openings(self, e):
-        return self.opening_rate * e
+    def spontaneous_openings(self, employment: torch.Tensor) -> torch.Tensor:
+        return self.opening_rate * employment
 
-    def state_dep_openings(self, diff_demand):
+    def state_dep_openings(self, excess_demand: torch.Tensor):
         return (
             (1 - self.opening_rate)
             * self.adaptation_rate_v
             # * torch.maximum(torch.zeros(self.N), -diff_demand)
-            * torch.clip(-diff_demand, min=0)
+            * torch.clip(-excess_demand, min=0)
         )
 
     def calc_attractiveness_vacancy(self):
@@ -180,11 +186,11 @@ class LaborABM:
     def time_step(self, t: int):
         # workers separationa and job openings
         d = self.employment[:, t - 1] + self.vacancies[:, t - 1]
-        diff_demand = d - self.demand_scenario[:, t]
+        excess_demand = d - self.demand_scenario[:, t]
         spon_sep = self.compute_spontaneous_separations(self.employment[:, t - 1])
-        state_sep = self.state_dep_separations(diff_demand)
+        state_sep = self.state_dep_separations(excess_demand)
         spon_vac = self.spontaneous_openings(self.employment[:, t - 1])
-        state_vac = self.state_dep_openings(diff_demand)
+        state_vac = self.state_dep_openings(excess_demand)
 
         separated_workers = spon_sep + state_sep
         opened_vacancies = spon_vac + state_vac
