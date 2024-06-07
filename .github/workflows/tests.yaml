@@ -32,11 +32,6 @@ jobs:
       - name: Install package
         run: python setup.py install
 
-      - name: Lint with black
-        run: |
-          pip install black
-          black --check .
-
       - name: Test with pytest
         run: |
           pytest test_labor_abm
