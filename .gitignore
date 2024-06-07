@@ -2,6 +2,11 @@
 *.ipynb_checkpoints
 data/CanadaData/
 data/*
-./data2/* 
+data2/* 
 *.docx
 data/CanadaData/*
+.idea/
+results/
+notebook/
+.DS_Store
+
