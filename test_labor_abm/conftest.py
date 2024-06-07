@@ -1,10 +1,10 @@
 from pathlib import Path
 
-import torch
-
-from labor_abm import ModelConfiguration, LaborABM
 import pytest
+import torch
 import yaml
+
+from labor_abm import LaborABM, ModelConfiguration
 
 
 @pytest.fixture()
