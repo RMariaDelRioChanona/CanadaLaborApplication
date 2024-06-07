@@ -1,0 +1,7 @@
+*.png
+*.ipynb_checkpoints
+data/CanadaData/
+data/*
+./data2/* 
+*.docx
+data/CanadaData/*
