@@ -11,7 +11,7 @@ with open(join(this_dir, "requirements.txt")) as f:
     requirements = f.read().split("\n")
 
 setup(
-    name="energy-abm",
+    name="labor-abm",
     version="0.1.0",
     description="Labor ABM",
     url="",
