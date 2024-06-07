@@ -1,8 +1,10 @@
-import numpy as np
-import torch
-import scipy.stats as stats
-import pandas as pd
 import copy
+
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+import torch
+
 
 class LabourABM:
     def __init__(
@@ -11,7 +13,7 @@ class LabourABM:
         N: int,
         # number of time steps to run model
         T: int,
-        #seed for initial A_hat
+        # seed for initial A_hat
         seed: int,
         # Parameters
         # separation and opening rate
@@ -34,19 +36,19 @@ class LabourABM:
         initial_unemployment: torch.Tensor,  # Initial unemployment data
         initial_vacancies: torch.Tensor,  # Initial vacancies data
         wages: torch.Tensor,
-        device: torch.device = torch.device('cpu'),  # Default to CPU
-        dtype: torch.dtype = torch.float32  # Default to float32
+        device: torch.device = torch.device("cpu"),  # Default to CPU
+        dtype: torch.dtype = torch.float32,  # Default to float32
     ):
         self.N = N
         self.T = T
         self.seed = seed
-        self.δ_u = δ_u
-        self.δ_v = δ_v
-        self.γ_u = γ_u
-        self.γ_v = γ_v
-        self.λ = λ
-        self.β_e = β_e
-        self.β_u = β_u
+        self.separation_rate = δ_u
+        self.opening_rate = δ_v
+        self.adaptation_u = γ_u
+        self.adaptation_v = γ_v
+        self.otjob_search_prob = λ
+        self.n_applications_emp = β_e
+        self.n_applications_unemp = β_u
         self.A = A.to(device=device, dtype=dtype)
         self.d_dagger = d_dagger.to(device=device, dtype=dtype)
         self.device = device
@@ -72,14 +74,13 @@ class LabourABM:
         self.vacancies[:, 0] = initial_vacancies
 
         self.wages = wages.to(device=device, dtype=dtype)
-     
 
     # @classmethod
     # def from_data(
-    #     cls, 
-    #     employment: pd.DataFrame, 
-    #     A: pd.DataFrame, 
-    #     d_dagger: pd.DataFrame, 
+    #     cls,
+    #     employment: pd.DataFrame,
+    #     A: pd.DataFrame,
+    #     d_dagger: pd.DataFrame,
     #     parameters: pd.DataFrame
     # ) -> Self:
     #     d_dagger =  torch.tensor(d_dagger["d_dagger"].values, dtype=torch.float32)
@@ -104,15 +105,14 @@ class LabourABM:
     #     β_e = float(parameters['beta_e'].values[0])
     #     β_u = float(parameters['beta_u'].values[0])
 
-    #     return cls(N, T, seed, δ_u, δ_v, γ_u, γ_v, λ, β_e, β_u, A_tensor, d_dagger, 
+    #     return cls(N, T, seed, δ_u, δ_v, γ_u, γ_v, λ, β_e, β_u, A_tensor, d_dagger,
     #                employment, unemployment, vacancies)
-    
+
     def initialize_variables(self):
-    
         e = self.employment[:, 0].clone()
         u = self.unemployment[:, 0].clone()
-        v = self.vacancies[:,0].clone()
-    
+        v = self.vacancies[:, 0].clone()
+
         # Variables that keep trakc on things
         spon_sep = self.spon_separations[:, 0].clone()
         state_sep = self.state_separations[:, 0].clone()
@@ -122,55 +122,54 @@ class LabourABM:
         utj = self.from_unemp_to_occ[:, 0].clone()
 
         return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
-           
+
     # Separation and job opennings
     def spontaneous_separations(self, e):
-        return self.δ_u * e
-    
+        return self.separation_rate * e
+
     def spontaneous_openings(self, e):
-        return self.δ_v * e
-    
+        return self.opening_rate * e
+
     def state_dep_separations(self, diff_demand):
-        return (1 - self.δ_u) * self.γ_u * torch.maximum(torch.zeros(self.N), diff_demand)
-    
+        return (
+            (1 - self.separation_rate) * self.adaptation_u * torch.maximum(torch.zeros(self.N), diff_demand)
+        )
+
     def state_dep_openings(self, diff_demand):
-        return (1 - self.δ_v) * self.γ_v * torch.maximum(torch.zeros(self.N), - diff_demand)
+        return (1 - self.opening_rate) * self.adaptation_v * torch.maximum(torch.zeros(self.N), -diff_demand)
 
     # Search process
     def calc_attractiveness_vacancy(self):
-        ''' wage(np.array) average wage in category
+        """wage(np.array) average wage in category
         A ease of transitioning between categories
-        '''
+        """
         attractiveness = torch.mul(self.wages, self.A)
         return attractiveness
 
     def calc_probability_applying(self, v):
-        ''' How attractive a is a vacancy depending on skills, geography, wage, etc
-        '''
+        """How attractive a is a vacancy depending on skills, geography, wage, etc"""
         attractiveness = self.calc_attractiveness_vacancy()
         Av = torch.mul(v, attractiveness)
         Q = Av / torch.sum(Av, axis=1, keepdims=True)
         return Q
 
     def calc_applicants_and_applications_sent(self, e, u, v):
-        ''' expected number of applications sent from one category to another
-        '''
+        """expected number of applications sent from one category to another"""
         Q = self.calc_probability_applying(v)
         # applicants
-        aij_e = self.λ * torch.mul(e[:, None], Q)
+        aij_e = self.otjob_search_prob * torch.mul(e[:, None], Q)
         aij_u = torch.mul(u[:, None], Q)
 
         # sij(e) = β_e*ei*qij
-        sij_e =  self.β_e * aij_e
+        sij_e = self.n_applications_emp * aij_e
         # sij(u) = β_u*ui*qij
-        sij_u = self.β_u * aij_u
+        sij_u = self.n_applications_unemp * aij_u
 
         return aij_e, aij_u, sij_e, sij_u
-    
+
     # Matching process
     def calc_job_offers(self, v, sj):
-        '''Calculate number of vacancies that received at least one applicant
-        '''
+        """Calculate number of vacancies that received at least one applicant"""
         v_inv = torch.reciprocal(v)
         v_inv[torch.isinf(v_inv)] = 0
 
@@ -180,19 +179,19 @@ class LabourABM:
 
         return job_offers
 
-    def calc_prob_workers_with_offers(self, v, sj): 
+    def calc_prob_workers_with_offers(self, v, sj):
         job_offers = self.calc_job_offers(v, sj)
         # (beta_apps - l); where l = 0 to beta
-        active_applications_from_u = torch.repeat_interleave(sj, self.β_u)\
-            .reshape(self.N, self.β_u) - torch.tensor(range(self.β_u))
-        active_applications_from_e = torch.repeat_interleave(sj, self.β_e)\
-            .reshape(self.N, self.β_e) - torch.tensor(range(self.β_e))
-        # prob of an app x not being drawn 
+        active_applications_from_u = torch.repeat_interleave(sj, self.n_applications_unemp).reshape(
+            self.N, self.n_applications_unemp
+        ) - torch.tensor(range(self.n_applications_unemp))
+        active_applications_from_e = torch.repeat_interleave(sj, self.n_applications_emp).reshape(
+            self.N, self.n_applications_emp
+        ) - torch.tensor(range(self.n_applications_emp))
+        # prob of an app x not being drawn
         # 1 - job_offers / (beta_apps - l); where l = 0 to beta
-        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None]\
-                                               , 1.0 / active_applications_from_u)
-        prob_no_app_selected_e = 1 -  torch.mul(job_offers[:, None]\
-                                                , 1.0 / active_applications_from_e)
+        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)
+        prob_no_app_selected_e = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)
         # prob none of those apps is drawn
         no_offer_u = torch.prod(prob_no_app_selected_u, axis=1)
         no_offer_e = torch.prod(prob_no_app_selected_e, axis=1)
@@ -204,26 +203,25 @@ class LabourABM:
 
     # simulation
     def time_step(self, e, u, v, t):
-        
         # workers separationa and job openings
         d = e + v
-        diff_demand = d - self.d_dagger[:, t] 
+        diff_demand = d - self.d_dagger[:, t]
         spon_sep = self.spontaneous_separations(e)
         state_sep = self.state_dep_separations(diff_demand)
         spon_vac = self.spontaneous_openings(e)
         state_vac = self.state_dep_openings(diff_demand)
 
-        separated_workers =  spon_sep + state_sep
-        opened_vacancies =  spon_vac + state_vac
+        separated_workers = spon_sep + state_sep
+        opened_vacancies = spon_vac + state_vac
 
         # search
         aij_e, aij_u, sij_e, sij_u = self.calc_applicants_and_applications_sent(e, u, v)
         ### NOTE / to-do, make sj come be calculated inside a function
         sj = (sij_u + sij_e).sum(axis=0)
-        
+
         # matching
         prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(v, sj)
-        #what about acceptance?
+        # what about acceptance?
         Fij_u = aij_u * prob_offer_u
         Fij_e = aij_e * prob_offer_e
         Fij = Fij_u + Fij_e
@@ -237,12 +235,32 @@ class LabourABM:
         v += opened_vacancies - Fij.sum(axis=0)
 
         return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
-    
-    def run_model(self):
-        e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj = self.initialize_variables()
 
-        for t in range(1,self.T):
-            e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj = self.time_step(e, u, v, t)
+    def run_model(self):
+        (
+            e,
+            u,
+            v,
+            spon_sep,
+            state_sep,
+            spon_vac,
+            state_vac,
+            jtj,
+            utj,
+        ) = self.initialize_variables()
+
+        for t in range(1, self.T):
+            (
+                e,
+                u,
+                v,
+                spon_sep,
+                state_sep,
+                spon_vac,
+                state_vac,
+                jtj,
+                utj,
+            ) = self.time_step(e, u, v, t)
             self.employment[:, t] = e
             self.unemployment[:, t] = u
             self.vacancies[:, t] = v
@@ -253,14 +271,13 @@ class LabourABM:
             self.spon_vacancies[:, t] = spon_vac
             self.state_vacancies[:, t] = state_vac
 
-            self.from_job_to_occ[:, t]  = jtj
+            self.from_job_to_occ[:, t] = jtj
             self.from_unemp_to_occ[:, t] = utj
 
-            
         return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
-    
+
     def calculate_aggregates(self):
-        total_unemployment = self.unemployment.sum(axis=0) 
+        total_unemployment = self.unemployment.sum(axis=0)
         total_vacancies = self.vacancies.sum(axis=0)
         total_employment = self.employment.sum(axis=0)
         total_demand = self.d_dagger.sum(axis=0)
@@ -273,52 +290,74 @@ class LabourABM:
         jtj = self.from_job_to_occ[:, 0].clone()
         utj = self.from_unemp_to_occ[:, 0].clone()
 
-        return total_unemployment, total_vacancies, total_employment, total_demand\
-            , total_spon_sep, total_state_sep, total_spon_vac, total_state_vac\
-            , jtj, utj
-    
+        return (
+            total_unemployment,
+            total_vacancies,
+            total_employment,
+            total_demand,
+            total_spon_sep,
+            total_state_sep,
+            total_spon_vac,
+            total_state_vac,
+            jtj,
+            utj,
+        )
+
     def calculate_rates(self):
+        (
+            total_unemployment,
+            total_vacancies,
+            total_employment,
+            total_demand,
+            total_spon_sep,
+            total_state_sep,
+            total_spon_vac,
+            total_state_vac,
+            jtj,
+            utj,
+        ) = self.calculate_aggregates()
 
-        total_unemployment, total_vacancies, total_employment, total_demand\
-            , total_spon_sep, total_state_sep, total_spon_vac, total_state_vac\
-            , jtj, utj = self.calculate_aggregates()
-
-        unemployment_rate = 100*total_unemployment/(total_employment + total_unemployment)
+        unemployment_rate = 100 * total_unemployment / (total_employment + total_unemployment)
         employment_rate = 100 - unemployment_rate
-        vacancy_rate = 100*total_vacancies/(total_vacancies + total_employment)
+        vacancy_rate = 100 * total_vacancies / (total_vacancies + total_employment)
 
         # rates in terms of separations
-        sep_ratio = total_spon_sep/total_state_sep
-        vac_ratio = total_spon_vac/total_state_vac
+        sep_ratio = total_spon_sep / total_state_sep
+        vac_ratio = total_spon_vac / total_state_vac
 
         # rates in terms of job transitions
-        jtj_over_utj = jtj/utj
+        jtj_over_utj = jtj / utj
 
-        return unemployment_rate, employment_rate, vacancy_rate, sep_ratio, vac_ratio\
-            , jtj_over_utj
-
-
+        return (
+            unemployment_rate,
+            employment_rate,
+            vacancy_rate,
+            sep_ratio,
+            vac_ratio,
+            jtj_over_utj,
+        )
 
 
 N = 10
 T = 100
 seed = 111
-delta_u =  0.016
-delta_v =  0.017
+delta_u = 0.016
+delta_v = 0.017
 gamma_u = 10 * delta_u
 gamma_v = gamma_u
 lam = 0.01
 beta_u = 10
 beta_e = 1
 
+
 def create_symmetric_A_euv_d_daggers(n, t, seed=None):
-    '''Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
-       and create vectors e, u, v, and matrix d_dagger where each column is e + u.
-    '''
+    """Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
+    and create vectors e, u, v, and matrix d_dagger where each column is e + u.
+    """
     # Set the seed for reproducibility
     if seed is not None:
         torch.manual_seed(seed)
-    
+
     # Create a symmetric matrix
     random_matrix = torch.rand(n, n)
     symmetric_matrix = 0.5 * (random_matrix + random_matrix.T)
@@ -336,6 +375,7 @@ def create_symmetric_A_euv_d_daggers(n, t, seed=None):
     wages = torch.rand(n)
 
     return symmetric_matrix, e, u, v, d_dagger, wages
+
 
 # A, e, u, v, d_dagger, wages = create_symmetric_A_euv_d_daggers(N, T, seed)
 
@@ -359,7 +399,6 @@ def create_symmetric_A_euv_d_daggers(n, t, seed=None):
 # initial_unemployment: torch.Tensor,  # Initial unemployment data
 # initial_vacancies: torch.Tensor,  # Initial vacancies data
 # wages: torch.Tensor,
-
 
 
 # LabourABM()
