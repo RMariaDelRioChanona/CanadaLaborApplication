@@ -1,7 +1,7 @@
 import torch
 
-from LaborABM.configuration.model_configuration import ModelConfiguration
-from LaborABM.model.aggregates import Aggregates
+from labor_abm.configuration.model_configuration import ModelConfiguration
+from labor_abm.model.aggregates import Aggregates
 
 
 def calc_job_offers(v, sj):
