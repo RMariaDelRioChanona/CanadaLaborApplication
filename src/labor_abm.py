@@ -132,17 +132,11 @@ class LabourABM:
 
     def state_dep_separations(self, diff_demand):
         return (
-            (1 - self.separation_rate)
-            * self.adaptation_u
-            * torch.maximum(torch.zeros(self.N), diff_demand)
+            (1 - self.separation_rate) * self.adaptation_u * torch.maximum(torch.zeros(self.N), diff_demand)
         )
 
     def state_dep_openings(self, diff_demand):
-        return (
-            (1 - self.opening_rate)
-            * self.adaptation_v
-            * torch.maximum(torch.zeros(self.N), -diff_demand)
-        )
+        return (1 - self.opening_rate) * self.adaptation_v * torch.maximum(torch.zeros(self.N), -diff_demand)
 
     # Search process
     def calc_attractiveness_vacancy(self):
@@ -188,24 +182,16 @@ class LabourABM:
     def calc_prob_workers_with_offers(self, v, sj):
         job_offers = self.calc_job_offers(v, sj)
         # (beta_apps - l); where l = 0 to beta
-        active_applications_from_u = torch.repeat_interleave(
-            sj, self.n_applications_unemp
-        ).reshape(self.N, self.n_applications_unemp) - torch.tensor(
-            range(self.n_applications_unemp)
-        )
-        active_applications_from_e = torch.repeat_interleave(
-            sj, self.n_applications_emp
-        ).reshape(self.N, self.n_applications_emp) - torch.tensor(
-            range(self.n_applications_emp)
-        )
+        active_applications_from_u = torch.repeat_interleave(sj, self.n_applications_unemp).reshape(
+            self.N, self.n_applications_unemp
+        ) - torch.tensor(range(self.n_applications_unemp))
+        active_applications_from_e = torch.repeat_interleave(sj, self.n_applications_emp).reshape(
+            self.N, self.n_applications_emp
+        ) - torch.tensor(range(self.n_applications_emp))
         # prob of an app x not being drawn
         # 1 - job_offers / (beta_apps - l); where l = 0 to beta
-        prob_no_app_selected_u = 1 - torch.mul(
-            job_offers[:, None], 1.0 / active_applications_from_u
-        )
-        prob_no_app_selected_e = 1 - torch.mul(
-            job_offers[:, None], 1.0 / active_applications_from_e
-        )
+        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)
+        prob_no_app_selected_e = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)
         # prob none of those apps is drawn
         no_offer_u = torch.prod(prob_no_app_selected_u, axis=1)
         no_offer_e = torch.prod(prob_no_app_selected_e, axis=1)
@@ -331,9 +317,7 @@ class LabourABM:
             utj,
         ) = self.calculate_aggregates()
 
-        unemployment_rate = (
-            100 * total_unemployment / (total_employment + total_unemployment)
-        )
+        unemployment_rate = 100 * total_unemployment / (total_employment + total_unemployment)
         employment_rate = 100 - unemployment_rate
         vacancy_rate = 100 * total_vacancies / (total_vacancies + total_employment)
 

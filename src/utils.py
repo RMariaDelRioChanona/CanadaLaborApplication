@@ -193,9 +193,7 @@ def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycl
     # repeting constant employment across time
     d_dagger[:, :T_steady] = sum_e_u.unsqueeze(1).repeat(1, T_steady)
     # now emp (emp per occ) smoothing
-    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(
-        0
-    ).repeat(N, 1)
+    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
     # now constant emp (emp per occ) cycle
     d_dagger[:, T_steady + T_smooth :] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
 
@@ -257,9 +255,7 @@ def from_gdp_uniform_across_occ_nodeltasgammas(
     # repeting constant employment across time
     d_dagger[:, :T_steady] = sum_e_u.unsqueeze(1).repeat(1, T_steady)
     # now emp (emp per occ) smoothing
-    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(
-        0
-    ).repeat(N, 1)
+    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
     # now constant emp (emp per occ) cycle
     d_dagger[:, T_steady + T_smooth :] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
 
@@ -283,9 +279,7 @@ def from_gdp_uniform_across_occ_nodeltasgammas(
 
 def generate_seeds(initial_seed, n_samples):
     np.random.seed(initial_seed)  # Seed the random number generator
-    seeds = np.random.randint(
-        0, 2**32 - 1, size=n_samples
-    )  # Generate n_samples random seeds
+    seeds = np.random.randint(0, 2**32 - 1, size=n_samples)  # Generate n_samples random seeds
     return seeds
 
 
