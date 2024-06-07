@@ -1,22 +1,22 @@
-import torch
 import numpy as np
 import pandas as pd
-import labor_abm
-from labor_abm import LabourABM
+import torch
 
+from labor_abm import LabourABM
 
 ########
 # functions for intialisation
 ########
 
+
 def create_symmetric_A_euv_d_daggers(n, t, l, seed=None):
-    '''Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
-       and create vectors e, u, v, and matrix d_dagger where each column is e + u.
-    '''
+    """Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
+    and create vectors e, u, v, and matrix d_dagger where each column is e + u.
+    """
     # Set the seed for reproducibility
     if seed is not None:
         torch.manual_seed(seed)
-    
+
     # Create a symmetric matrix
     random_matrix = torch.rand(n, n)
     symmetric_matrix = 0.5 * (random_matrix + random_matrix.T)
@@ -35,18 +35,19 @@ def create_symmetric_A_euv_d_daggers(n, t, l, seed=None):
 
     return symmetric_matrix, e, u, v, d_dagger, wages
 
+
 def test_2_nodes():
-    toy_adjacency = [[0.8, 0.2],
-          [0.3, 0.7]]
-    return  torch.tensor(toy_adjacency)
+    toy_adjacency = [[0.8, 0.2], [0.3, 0.7]]
+    return torch.tensor(toy_adjacency)
+
 
 def test_2node_scenario():
     N = 2
     T = 50
     L = 2000
     seed = 111
-    delta_u =  0.016
-    delta_v =  0.012
+    delta_u = 0.016
+    delta_v = 0.012
     gamma_u = 10 * delta_u
     gamma_v = gamma_u
     lam = 0.01
@@ -54,7 +55,7 @@ def test_2node_scenario():
     beta_e = 1
 
     A = test_2_nodes()
-    e = torch.tensor([1200,800])
+    e = torch.tensor([1200, 800])
     u = 0.05 * e  # 5% of e
     v = 0.05 * e  # 5% of e
     # u = 0.0451 * e  # 5% of e
@@ -63,21 +64,39 @@ def test_2node_scenario():
     e = e - u
     # Create d_dagger using broadcasting
     sum_e_u = e + u
-    d_dagger = sum_e_u.unsqueeze(1).repeat(1, T) 
+    d_dagger = sum_e_u.unsqueeze(1).repeat(1, T)
 
-    wages = torch.rand([1,1])
+    wages = torch.rand([1, 1])
 
-    return N, T, L, seed, delta_u, delta_v, gamma_u, gamma_v,\
-        lam, beta_u, beta_e, A, e, u, v, d_dagger, wages
+    return (
+        N,
+        T,
+        L,
+        seed,
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+        A,
+        e,
+        u,
+        v,
+        d_dagger,
+        wages,
+    )
+
 
 def test_2_nodes_complete():
-    toy_adjacency = [[0.5, 0.5],
-          [0.5, 0.5]]
-    return  torch.tensor(toy_adjacency)
+    toy_adjacency = [[0.5, 0.5], [0.5, 0.5]]
+    return torch.tensor(toy_adjacency)
+
 
 def career_changers():
-    df = pd.read_csv('../data/ONET/career_changers_mobility_edgelist.csv')
-    # df_emp = 
+    df = pd.read_csv("../data/ONET/career_changers_mobility_edgelist.csv")
+    # df_emp =
     # df_cc = pd.read_csv(path_data +file_cc )
     # df_emp = pd.read_csv(path_emp + file_employment)
     #  make dictionaries at different levels
@@ -87,8 +106,10 @@ def career_changers():
     df_cc["TOT_EMP"] = df_cc["OCC_source"].map(dict_soc_emp)
 
     df_cc[np.isnan(df_cc["TOT_EMP"])]
-    df_cc = df_cc.rename({'trans_prob_cc': 'weight'}, axis='columns')
-    G = nx.from_pandas_edgelist(df_cc, 'OCC_source', 'OCC_target', edge_attr='weight', create_using=nx.DiGraph())
+    df_cc = df_cc.rename({"trans_prob_cc": "weight"}, axis="columns")
+    G = nx.from_pandas_edgelist(
+        df_cc, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
+    )
     # Note that nodes are ordered differently with network x
     nodes_order = list(G.nodes)
     nx.is_strongly_connected(G)
@@ -98,10 +119,9 @@ def career_changers():
     S = [G.subgraph(c).copy() for c in nx.strongly_connected_components(G)]
     G_strongly = S[0]
     nodes_order = list(G_strongly.nodes)
-    A_cc = nx.adjacency_matrix(G_strongly, weight='weight').todense()
+    A_cc = nx.adjacency_matrix(G_strongly, weight="weight").todense()
     A_cc = np.array(A_cc)
     n = A_cc.shape[0]
-
 
 
 def test_2node_scenario_complete():
@@ -109,8 +129,8 @@ def test_2node_scenario_complete():
     T = 50
     L = 2000
     seed = 111
-    delta_u =  0.016
-    delta_v =  0.012
+    delta_u = 0.016
+    delta_v = 0.012
     gamma_u = 10 * delta_u
     gamma_v = gamma_u
     lam = 0.01
@@ -118,7 +138,7 @@ def test_2node_scenario_complete():
     beta_e = 1
 
     A = test_2_nodes_complete()
-    e = torch.tensor([1000,1000])
+    e = torch.tensor([1000, 1000])
     # u = 0.05 * e  # 5% of e
     # v = 0.05 * e  # 5% of e
     u = 0.0463 * e  # 5% of e
@@ -127,16 +147,33 @@ def test_2node_scenario_complete():
     e = e - u
     # Create d_dagger using broadcasting
     sum_e_u = e + u
-    d_dagger = sum_e_u.unsqueeze(1).repeat(1, T) 
+    d_dagger = sum_e_u.unsqueeze(1).repeat(1, T)
 
-    wages = torch.rand([1,1])
+    wages = torch.rand([1, 1])
 
-    return N, T, L, seed, delta_u, delta_v, gamma_u, gamma_v,\
-        lam, beta_u, beta_e, A, e, u, v, d_dagger, wages
+    return (
+        N,
+        T,
+        L,
+        seed,
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+        A,
+        e,
+        u,
+        v,
+        d_dagger,
+        wages,
+    )
 
 
-def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name='cycle12'):
-    emp_per_occ = L/N 
+def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycle12"):
+    emp_per_occ = L / N
     # at some point this should be update to non uniform distribution
     e = torch.tensor([emp_per_occ for i in range(N)])
     u = 0.0463 * e  # 5% of e
@@ -156,14 +193,14 @@ def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name='cycl
     # repeting constant employment across time
     d_dagger[:, :T_steady] = sum_e_u.unsqueeze(1).repeat(1, T_steady)
     # now emp (emp per occ) smoothing
-    d_dagger[:, T_steady:T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
+    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
     # now constant emp (emp per occ) cycle
-    d_dagger[:, T_steady + T_smooth:] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
+    d_dagger[:, T_steady + T_smooth :] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
 
     T = T_steady + T_cycle + T_smooth
     seed = 111
-    delta_u =  0.016
-    delta_v =  0.012
+    delta_u = 0.016
+    delta_v = 0.012
     gamma_u = 10 * delta_u
     gamma_v = gamma_u
     lam = 0.01
@@ -172,16 +209,33 @@ def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name='cycl
 
     A = test_2_nodes_complete()
 
-    wages = torch.rand([1,1])
+    wages = torch.rand([1, 1])
+
+    return (
+        N,
+        T,
+        L,
+        seed,
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+        A,
+        e,
+        u,
+        v,
+        d_dagger,
+        wages,
+    )
 
 
-    return N, T, L, seed, delta_u, delta_v, gamma_u, gamma_v,\
-        lam, beta_u, beta_e, A, e, u, v, d_dagger, wages
-
-def from_gdp_uniform_across_occ_nodeltasgammas(df_gdp, col_name='cycle12', \
-                                            L=20000, N=2, T_steady=10, T_smooth=10):
-
-    emp_per_occ = L/N 
+def from_gdp_uniform_across_occ_nodeltasgammas(
+    df_gdp, col_name="cycle12", L=20000, N=2, T_steady=10, T_smooth=10
+):
+    emp_per_occ = L / N
     # at some point this should be update to non uniform distribution
     e = torch.tensor([emp_per_occ for i in range(N)])
     u = 0.0463 * e  # 5% of e
@@ -201,9 +255,9 @@ def from_gdp_uniform_across_occ_nodeltasgammas(df_gdp, col_name='cycle12', \
     # repeting constant employment across time
     d_dagger[:, :T_steady] = sum_e_u.unsqueeze(1).repeat(1, T_steady)
     # now emp (emp per occ) smoothing
-    d_dagger[:, T_steady:T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
+    d_dagger[:, T_steady : T_steady + T_smooth] = emp_per_occ * smoothing.unsqueeze(0).repeat(N, 1)
     # now constant emp (emp per occ) cycle
-    d_dagger[:, T_steady + T_smooth:] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
+    d_dagger[:, T_steady + T_smooth :] = emp_per_occ * cycle.unsqueeze(0).repeat(N, 1)
 
     T = T_steady + T_cycle + T_smooth
     seed = 111
@@ -213,8 +267,7 @@ def from_gdp_uniform_across_occ_nodeltasgammas(df_gdp, col_name='cycle12', \
 
     A = test_2_nodes_complete()
 
-    wages = torch.rand([1,1])
-
+    wages = torch.rand([1, 1])
 
     return N, T, L, seed, lam, beta_u, beta_e, A, e, u, v, d_dagger, wages
 
@@ -223,27 +276,28 @@ def from_gdp_uniform_across_occ_nodeltasgammas(df_gdp, col_name='cycle12', \
 # functions for calibration
 ########
 
+
 def generate_seeds(initial_seed, n_samples):
     np.random.seed(initial_seed)  # Seed the random number generator
     seeds = np.random.randint(0, 2**32 - 1, size=n_samples)  # Generate n_samples random seeds
     return seeds
 
-def sample_delta_gammas():
 
+def sample_delta_gammas():
     delta_u = np.random.uniform(0.01, 0.1)
     delta_v = np.random.uniform(0.005, 0.05)
-    gamma_u = np.random.uniform(delta_u*5, 1)
-    gamma_v = np.random.uniform(delta_v*5, 1)
+    gamma_u = np.random.uniform(delta_u * 5, 1)
+    gamma_v = np.random.uniform(delta_v * 5, 1)
 
     return delta_u, delta_v, gamma_u, gamma_v
 
 
-
 ###### TODO, make a function that returns baseline params
-##### TODO make a function that reads gpd/baromets/etc signal and makes 
-# a smoothed target demand 
+##### TODO make a function that reads gpd/baromets/etc signal and makes
+# a smoothed target demand
 
-def sample_target_demand(df_gdp, column='cycle12', seed=123):
+
+def sample_target_demand(df_gdp, column="cycle12", seed=123):
     # TODO remove seed set
     torch.seed(seed)
     cycle = torch.tensor(df_gdp[column])
@@ -252,16 +306,16 @@ def sample_target_demand(df_gdp, column='cycle12', seed=123):
     for i in range(n):
         cycle_new[n] = cycle[n] + torch.random()
 
-    
-
 
 def time_series_l2_diff(series_data, series_model):
     # mean squared error between time series
     return torch.sqrt(torch.sum((series_data - series_model) ** 2))
 
+
 def batch_time_series_l2_diff(series_batch_data, series_batch_model):
     # mean squared error of multiple time series (given as n_timeseries, n_time) tensor
     return torch.sqrt(torch.sum((series_batch_data - series_batch_model) ** 2, dim=1))
+
 
 def time_series_mse(series_data, series_model):
     # Convert pandas series to torch tensors, assuming series_data might contain NaNs
@@ -290,36 +344,69 @@ def time_series_mse(series_data, series_model):
 def calibrate_delta_gamma(df_gdp, n_samples, seed, threshold):
     # start wtih say threshold = 0.01
     n_seeds = generate_seeds(seed, n_samples)
-    unemployment_rate_data = df_gdp['unemployment']
-    vacancy_rate_data = df_gdp['vacancy']
+    unemployment_rate_data = df_gdp["unemployment"]
+    vacancy_rate_data = df_gdp["vacancy"]
     accepted_parameters = []
     tested_params = []
     mse_list = []
     mse_av = []
 
     for s in n_seeds:
-        N, T, L, seed, lam, beta_u, beta_e, A, e, u, v, d_dagger, wages = \
-        from_gdp_uniform_across_occ_nodeltasgammas(df_gdp)
+        (
+            N,
+            T,
+            L,
+            seed,
+            lam,
+            beta_u,
+            beta_e,
+            A,
+            e,
+            u,
+            v,
+            d_dagger,
+            wages,
+        ) = from_gdp_uniform_across_occ_nodeltasgammas(df_gdp)
 
         delta_u, delta_v, gamma_u, gamma_v = sample_delta_gammas()
-        
 
-        lab_abm = LabourABM(N, T, s, delta_u, delta_v, gamma_u, gamma_v, lam, \
-                        beta_e, beta_u, A, d_dagger, e, u, v, wages)
+        lab_abm = LabourABM(
+            N,
+            T,
+            s,
+            delta_u,
+            delta_v,
+            gamma_u,
+            gamma_v,
+            lam,
+            beta_e,
+            beta_u,
+            A,
+            d_dagger,
+            e,
+            u,
+            v,
+            wages,
+        )
 
         lab_abm.run_model()
 
-        unemployment_rate, employment_rate, vacancy_rate, sep_ratio, vac_ratio\
-            , jtj_over_utj = lab_abm.calculate_rates()
-        
+        (
+            unemployment_rate,
+            employment_rate,
+            vacancy_rate,
+            sep_ratio,
+            vac_ratio,
+            jtj_over_utj,
+        ) = lab_abm.calculate_rates()
+
         mse_u = time_series_mse(unemployment_rate_data, unemployment_rate)
-        mse_v = time_series_mse(vacancy_rate_data, vacancy_rate) 
+        mse_v = time_series_mse(vacancy_rate_data, vacancy_rate)
         mse_list.append([mse_u, mse_v])
-        mse_av.append(0.5*(mse_u + mse_v))
+        mse_av.append(0.5 * (mse_u + mse_v))
         tested_params.append([delta_u, delta_v, gamma_u, gamma_v])
 
         if mse_u < threshold and mse_v < threshold:
-            
             accepted_parameters.append([delta_u, delta_v, gamma_u, gamma_v])
             mse_list.append([mse_u, mse_v])
 
