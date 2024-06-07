@@ -1,13 +1,13 @@
-import numpy as np
-import torch
-import scipy.stats as stats
-import pandas as pd
 import copy
+
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+import torch
 
 # from matplotlib import pylab as plt
 import labor_abm as lbm
 import utils as ut
-
 
 #################
 # Basic test

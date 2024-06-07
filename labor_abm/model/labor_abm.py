@@ -98,24 +98,12 @@ class LaborABM:
             unemployment=unemployment,
             vacancies=vacancies,
             wages=wages,
-            spontaneous_separations=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
-            state_separations=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
-            spontaneous_vacancies=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
-            state_vacancies=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
-            from_job_to_occ=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
-            from_unemp_to_occ=torch.zeros(
-                (model_configuration.n, model_configuration.t_max)
-            ),
+            spontaneous_separations=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            state_separations=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            spontaneous_vacancies=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            state_vacancies=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            from_job_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            from_unemp_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
         )
 
     def compute_spontaneous_separations(self, e: torch.Tensor):
@@ -170,24 +158,16 @@ class LaborABM:
     def calc_prob_workers_with_offers(self, v, sj):
         job_offers = calc_job_offers(v, sj)
         # (beta_apps - l); where l = 0 to beta
-        active_applications_from_u = torch.repeat_interleave(
-            sj, self.n_applications_unemp
-        ).reshape(self.n, self.n_applications_unemp) - torch.tensor(
-            range(self.n_applications_unemp)
-        )
-        active_applications_from_e = torch.repeat_interleave(
-            sj, self.n_applications_emp
-        ).reshape(self.n, self.n_applications_emp) - torch.tensor(
-            range(self.n_applications_emp)
-        )
+        active_applications_from_u = torch.repeat_interleave(sj, self.n_applications_unemp).reshape(
+            self.n, self.n_applications_unemp
+        ) - torch.tensor(range(self.n_applications_unemp))
+        active_applications_from_e = torch.repeat_interleave(sj, self.n_applications_emp).reshape(
+            self.n, self.n_applications_emp
+        ) - torch.tensor(range(self.n_applications_emp))
         # prob of an app x not being drawn
         # 1 - job_offers / (beta_apps - l); where l = 0 to beta
-        prob_no_app_selected_u = 1 - torch.mul(
-            job_offers[:, None], 1.0 / active_applications_from_u
-        )
-        prob_no_app_selected_e = 1 - torch.mul(
-            job_offers[:, None], 1.0 / active_applications_from_e
-        )
+        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)
+        prob_no_app_selected_e = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)
         # prob none of those apps is drawn
         no_offer_u = torch.prod(prob_no_app_selected_u, dim=1)
         no_offer_e = torch.prod(prob_no_app_selected_e, dim=1)
@@ -219,9 +199,7 @@ class LaborABM:
         sj = (sij_u + sij_e).sum(dim=0)
 
         # matching
-        prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(
-            self.vacancies[:, t - 1], sj
-        )
+        prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(self.vacancies[:, t - 1], sj)
         # what about acceptance?
         Fij_u = aij_u * prob_offer_u
         Fij_e = aij_e * prob_offer_e
@@ -236,19 +214,12 @@ class LaborABM:
         # v += opened_vacancies - Fij.sum(dim=0)
 
         self.employment[:, t] = (
-            self.employment[:, t - 1]
-            - separated_workers
-            + Fij.sum(dim=0)
-            - Fij_e.sum(dim=1)
+            self.employment[:, t - 1] - separated_workers + Fij.sum(dim=0) - Fij_e.sum(dim=1)
         )
 
-        self.unemployment[:, t] = (
-            self.unemployment[:, t - 1] + separated_workers - Fij_u.sum(dim=0)
-        )
+        self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - Fij_u.sum(dim=0)
 
-        self.vacancies[:, t] = (
-            self.vacancies[:, t - 1] + opened_vacancies - Fij.sum(dim=0)
-        )
+        self.vacancies[:, t] = self.vacancies[:, t - 1] + opened_vacancies - Fij.sum(dim=0)
 
         self.spontaneous_separations[:, t] = spon_sep
         self.state_separations[:, t] = state_sep

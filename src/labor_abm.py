@@ -1,8 +1,9 @@
-import numpy as np
-import torch
-import scipy.stats as stats
-import pandas as pd
 import copy
+
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+import torch
 
 
 class LabourABM:
@@ -250,14 +251,30 @@ class LabourABM:
         return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
 
     def run_model(self):
-        e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj = (
-            self.initialize_variables()
-        )
+        (
+            e,
+            u,
+            v,
+            spon_sep,
+            state_sep,
+            spon_vac,
+            state_vac,
+            jtj,
+            utj,
+        ) = self.initialize_variables()
 
         for t in range(1, self.T):
-            e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj = (
-                self.time_step(e, u, v, t)
-            )
+            (
+                e,
+                u,
+                v,
+                spon_sep,
+                state_sep,
+                spon_vac,
+                state_vac,
+                jtj,
+                utj,
+            ) = self.time_step(e, u, v, t)
             self.employment[:, t] = e
             self.unemployment[:, t] = u
             self.vacancies[:, t] = v
