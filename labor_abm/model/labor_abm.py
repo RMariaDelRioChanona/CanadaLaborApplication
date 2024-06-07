@@ -41,8 +41,8 @@ class LaborABM:
         from_unemp_to_occ: torch.Tensor,
         wages: torch.Tensor,
     ):
-        self.N = n
-        self.T = t_max
+        self.n = n
+        self.t_max = t_max
         self.separation_rate = separation_rate
         self.opening_rate = opening_rate
         self.adaptation_rate_u = adaptation_rate_u
@@ -125,7 +125,7 @@ class LaborABM:
         return (
             (1 - self.separation_rate)
             * self.adaptation_rate_u
-            * torch.maximum(torch.zeros(self.N), diff_demand)
+            * torch.maximum(torch.zeros(self.n), diff_demand)
         )
 
     def spontaneous_openings(self, e):
@@ -172,12 +172,12 @@ class LaborABM:
         # (beta_apps - l); where l = 0 to beta
         active_applications_from_u = torch.repeat_interleave(
             sj, self.n_applications_unemp
-        ).reshape(self.N, self.n_applications_unemp) - torch.tensor(
+        ).reshape(self.n, self.n_applications_unemp) - torch.tensor(
             range(self.n_applications_unemp)
         )
         active_applications_from_e = torch.repeat_interleave(
             sj, self.n_applications_emp
-        ).reshape(self.N, self.n_applications_emp) - torch.tensor(
+        ).reshape(self.n, self.n_applications_emp) - torch.tensor(
             range(self.n_applications_emp)
         )
         # prob of an app x not being drawn
@@ -257,6 +257,10 @@ class LaborABM:
 
         self.from_job_to_occ[:, t] = jtj
         self.from_unemp_to_occ[:, t] = utj
+
+    def run_model(self):
+        for t in range(1, self.t_max):
+            self.time_step(t)
 
     @property
     def aggregates(self) -> Aggregates:
