@@ -1,8 +1,8 @@
-import torch
 import numpy as np
 import pandas as pd
-from labor_abm import LabourABM
+import torch
 
+from labor_abm import LabourABM
 
 ########
 # functions for intialisation
@@ -237,7 +237,6 @@ def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycl
 def from_gdp_uniform_across_occ_nodeltasgammas(
     df_gdp, col_name="cycle12", L=20000, N=2, T_steady=10, T_smooth=10
 ):
-
     emp_per_occ = L / N
     # at some point this should be update to non uniform distribution
     e = torch.tensor([emp_per_occ for i in range(N)])
@@ -291,7 +290,6 @@ def generate_seeds(initial_seed, n_samples):
 
 
 def sample_delta_gammas():
-
     delta_u = np.random.uniform(0.01, 0.1)
     delta_v = np.random.uniform(0.005, 0.05)
     gamma_u = np.random.uniform(delta_u * 5, 1)
@@ -360,9 +358,21 @@ def calibrate_delta_gamma(df_gdp, n_samples, seed, threshold):
     mse_av = []
 
     for s in n_seeds:
-        N, T, L, seed, lam, beta_u, beta_e, A, e, u, v, d_dagger, wages = (
-            from_gdp_uniform_across_occ_nodeltasgammas(df_gdp)
-        )
+        (
+            N,
+            T,
+            L,
+            seed,
+            lam,
+            beta_u,
+            beta_e,
+            A,
+            e,
+            u,
+            v,
+            d_dagger,
+            wages,
+        ) = from_gdp_uniform_across_occ_nodeltasgammas(df_gdp)
 
         delta_u, delta_v, gamma_u, gamma_v = sample_delta_gammas()
 
@@ -403,7 +413,6 @@ def calibrate_delta_gamma(df_gdp, n_samples, seed, threshold):
         tested_params.append([delta_u, delta_v, gamma_u, gamma_v])
 
         if mse_u < threshold and mse_v < threshold:
-
             accepted_parameters.append([delta_u, delta_v, gamma_u, gamma_v])
             mse_list.append([mse_u, mse_v])
 
