@@ -7,21 +7,22 @@ on: [push, pull_request]
 jobs:
   style:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
-    - name: Install dependencies
+        python-version: 3.12
+
+    - name: Install Black and isort
       run: |
         python -m pip install --upgrade pip
-        pip install black==23.12.1
-        pip install "black[jupyter]"
-        pip install isort
-    - name: Check code formatting with black
-      run: |
-        black --check --config="pyproject.toml" .
-    - name: Check code formatting with isort
-      run: |
-        isort . --check-only --settings-path pyproject.toml
+        pip install black isort
+
+    - name: Run Black
+      run: black labor_abm/ test_labor_abm/ --check --line-length 109
+
+    - name: Run isort
+      run: isort labor_abm/ test_labor_abm/ --check-only --profile black --line-length 109
