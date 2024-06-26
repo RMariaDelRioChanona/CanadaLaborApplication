@@ -16,7 +16,17 @@ from matplotlib import pylab as plt
 #################
 
 seed = 123
-T = 500
+T = 1000
+
+# (
+#     delta_u,
+#     delta_v,
+#     gamma_u,
+#     gamma_v,
+#     lam,
+#     beta_u,
+#     beta_e
+# ) = ut.baseline_parameters_jtj()
 
 (
     delta_u,
@@ -26,8 +36,7 @@ T = 500
     lam,
     beta_u,
     beta_e
-) = ut.baseline_parameters()
-
+) = ut.baseline_parameters_jtj_multapps()
 
 (
     A,
@@ -43,6 +52,7 @@ T = 500
 
 d_dagger = ut.set_d_dagger_uniform(T, sum_e_v)
 
+print(lam)
 
 lab_abm = lbm.LabourABM(
     N,
