@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import torch
-
+import networkx as nx
 from labor_abm import LabourABM
 
 ########
@@ -43,7 +43,7 @@ def test_2_nodes():
 
 def test_2node_scenario():
     N = 2
-    T = 50
+    T = 3000
     L = 2000
     seed = 111
     delta_u = 0.016
@@ -94,8 +94,133 @@ def test_2_nodes_complete():
     return torch.tensor(toy_adjacency)
 
 
+def baseline_parameters_multapps():
+    delta_u = 0.016
+    delta_v = 0.012
+    gamma_u = 10 * delta_u
+    gamma_v = gamma_u
+    lam = 0.01
+    lam = 0.001
+    beta_u = 10
+    beta_e = 1
+
+    return (
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+    )
+
+def baseline_parameters():
+    delta_u = 0.016
+    delta_v = 0.012
+    gamma_u = 10 * delta_u
+    gamma_v = gamma_u
+    lam = 0.00
+    beta_u = 1
+    beta_e = 1
+
+    return (
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+    )
+
+def network_and_employment_fromadj(file_adj="../data/networks/occupational_mobility_network.csv",\
+                           file_emp = "../data/networks/ipums_employment_2016.csv"):
+    df = pd.read_csv(file_emp)
+    e = torch.tensor(df["IPUMS_CPS_av_monthly_employment_whole_period"])
+    A = np.genfromtxt(file_adj, delimiter=',')
+
+    u = 0.016*e#0.0463 * e  # 5% of e
+    v = 0.012*e#0.019 * e  # 5% of e
+    # u = 10*(0.0001*e)**2/e
+    # v = 10*(0.0001*e)**2/e
+
+    # get lab force
+    sum_e_u = e + u
+    L = sum_e_u.sum()
+
+    n = A.shape[0]
+
+    A = torch.from_numpy(A)
+
+    print("A[3, 5]" ,A[3, 5])
+    print( "e[5]", e[5])
+
+    wages = torch.ones(n)
+    
+    return A, e, u, v, L, n, sum_e_u, wages
+
+def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility_merge.csv",\
+                           network="merge"):
+    df = pd.read_csv(file_path_name)
+    dict_soc_emp = dict(zip(df["OCC_target"], df["TOT_EMP_OCC"]))
+
+    if network == "merge":
+        df = df.rename({"trans_merge_alpha05": "weight"}, axis="columns")
+        G = nx.from_pandas_edgelist(
+        df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
+        )
+    elif network == "cc":
+        df = df.rename({"trans_prob_cc": "weight"}, axis="columns")
+        G = nx.from_pandas_edgelist(
+        df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
+        )
+
+    # Note that nodes are ordered differently with network x
+    nodes_order = list(G.nodes)
+    [len(c) for c in sorted(nx.strongly_connected_components(G), key=len, reverse=True)]
+    largest_cc = max(nx.strongly_connected_components(G), key=len)
+    print("nodes dropped ", set(nodes_order).difference(largest_cc))
+    S = [G.subgraph(c).copy() for c in nx.strongly_connected_components(G)]
+    G_strongly = S[0]
+    nodes_order = list(G_strongly.nodes)
+    assert(nx.is_strongly_connected(G_strongly))
+    print(dict_soc_emp)
+
+    ### employment part
+    e = torch.tensor([dict_soc_emp[node] for node in nodes_order])
+    # u = 0.08 * e#0.0463 * e  # 5% of e
+    # v = 0.05 * e #0.019 * e  # 5% of e
+    u = 10*(0.0001*e)**2/e
+    v = 10*(0.0001*e)**2/e
+
+
+    # still preserve total labor force
+    e = e - u
+    sum_e_u = e + u
+    L = sum_e_u.sum()
+
+    
+    A = nx.adjacency_matrix(G_strongly, weight="weight").todense()
+    A = np.array(A)
+    n = A.shape[0]
+
+
+    A = torch.from_numpy(A)
+
+    wages = torch.ones(n)
+    
+    return A, e, u, v, L, n, sum_e_u, wages
+
+def set_d_dagger_uniform(T, sum_e_u):
+    d_dagger = sum_e_u.unsqueeze(1).repeat(1, T)
+    return d_dagger
+
+def employment_merge_mob_cc(file_path_name="../data/networks/edgelist_cc_mobility_merge_joris.csv"):
+    df = pd.read_csv(file_path_name)
+    dict_soc_emp = dict(zip(df["OCC_target"], df["TOT_EMP_OCC"]))
+
 def career_changers():
-    df = pd.read_csv("../data/ONET/career_changers_mobility_edgelist.csv")
+    df = pd.read_csv("../data/networks/career_changers_mobility_edgelist.csv")
     # df_emp =
     # df_cc = pd.read_csv(path_data +file_cc )
     # df_emp = pd.read_csv(path_emp + file_employment)
@@ -126,7 +251,7 @@ def career_changers():
 
 def test_2node_scenario_complete():
     N = 2
-    T = 50
+    T = 1000
     L = 2000
     seed = 111
     delta_u = 0.016

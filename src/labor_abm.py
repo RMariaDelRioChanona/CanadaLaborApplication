@@ -156,6 +156,7 @@ class LabourABM:
     def calc_applicants_and_applications_sent(self, e, u, v):
         """expected number of applications sent from one category to another"""
         Q = self.calc_probability_applying(v)
+        print("Q[3,5] ", Q[3,5])
         # applicants
         aij_e = self.otjob_search_prob * torch.mul(e[:, None], Q)
         aij_u = torch.mul(u[:, None], Q)
@@ -204,34 +205,49 @@ class LabourABM:
     # simulation
     def time_step(self, e, u, v, t):
         # workers separationa and job openings
+        print("time ", t)
+        print("e5, u5, v5 ", e[5], u[5], v[5])
         d = e + v
         diff_demand = d - self.d_dagger[:, t]
         spon_sep = self.spontaneous_separations(e)
         state_sep = self.state_dep_separations(diff_demand)
         spon_vac = self.spontaneous_openings(e)
         state_vac = self.state_dep_openings(diff_demand)
-
+        print("spon sep ", spon_sep[5])
+        print("state sep ", state_sep[5])
         separated_workers = spon_sep + state_sep
         opened_vacancies = spon_vac + state_vac
 
         # search
         aij_e, aij_u, sij_e, sij_u = self.calc_applicants_and_applications_sent(e, u, v)
+        print("siju 3,5", sij_u[3,5])
         ### NOTE / to-do, make sj come be calculated inside a function
         sj = (sij_u + sij_e).sum(axis=0)
-
+        print("sj 5", sj[5])
         # matching
-        prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(v, sj)
+        ### NOTE modifying below to debug
+        #prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(v, sj)
         # what about acceptance?
-        Fij_u = aij_u * prob_offer_u
-        Fij_e = aij_e * prob_offer_e
+        # Fij_u = aij_u * prob_offer_u
+        # Fij_e = aij_e * prob_offer_e
+        job_offers = self.calc_job_offers(v, sj)
+        print("job offers ", job_offers[5]/sj[5])
+        Fij_u = sij_u * job_offers/sj
+        Fij_e = sij_e * job_offers/sj
         Fij = Fij_u + Fij_e
+        print("F[3,5], ", Fij[3,5])
+        print("F_e[3,5] should be 0 , ", Fij_e[3,5])
 
         # TODO check right sum
         jtj = Fij_e.sum(axis=1)
         utj = Fij_u.sum(axis=1)
         # updating values
+        print("got employed Fij_u.sum(axis=1)[5]", Fij_u.sum(axis=1)[5])
+        print("sep workers[5]", separated_workers[5])
+        print("u[5]", u[5])
         e += -separated_workers + Fij.sum(axis=0) - Fij_e.sum(axis=1)
-        u += separated_workers - Fij_u.sum(axis=0)
+        # NOTE tell Anna about axis=1 below
+        u += separated_workers - Fij_u.sum(axis=1)
         v += opened_vacancies - Fij.sum(axis=0)
 
         return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
