@@ -94,7 +94,7 @@ def test_2_nodes_complete():
     return torch.tensor(toy_adjacency)
 
 
-def baseline_parameters_multapps():
+def baseline_parameters_jtj_multapps():
     delta_u = 0.016
     delta_v = 0.012
     gamma_u = 10 * delta_u
@@ -102,6 +102,25 @@ def baseline_parameters_multapps():
     lam = 0.01
     lam = 0.001
     beta_u = 10
+    beta_e = 1
+
+    return (
+        delta_u,
+        delta_v,
+        gamma_u,
+        gamma_v,
+        lam,
+        beta_u,
+        beta_e,
+    )
+
+def baseline_parameters_jtj():
+    delta_u = 0.016
+    delta_v = 0.012
+    gamma_u = 10 * delta_u
+    gamma_v = gamma_u
+    lam = 0.001
+    beta_u = 1
     beta_e = 1
 
     return (
