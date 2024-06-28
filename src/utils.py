@@ -316,8 +316,53 @@ def test_2node_scenario_complete():
     )
 
 
+
+def target_from_gdp_e_u(
+    df_gdp, e, u, col_name="cycle12", L=20000, N=2, T_steady=10, T_smooth=10
+):
+    sum_e_u = e + u
+    # getting cycle shape and length
+    cycle = torch.tensor(df_gdp[col_name])
+    T_cycle = len(cycle)
+    # getting the first value of cycle for smoothing (ease into cycle)
+    ini_val_cycle = cycle[0]
+    dif_1 = ini_val_cycle - 1
+    increment = dif_1 / T_smooth
+    smoothing = torch.tensor([1 + increment * n_s for n_s in range(T_smooth)])
+
+    # d_dagger = torch.zeros([N, T_steady + T_smooth + T_cycle])
+    # # repeting constant employment across time
+    # d_dagger[:, :T_steady] = sum_e_u.unsqueeze(1).repeat(1, T_steady)
+    # # now emp (emp per occ) smoothing
+    # d_dagger[:, T_steady : T_steady + T_smooth] = sum_e_u * smoothing.unsqueeze(0).repeat(N, 1)
+    # # now constant emp (emp per occ) cycle
+    # d_dagger[:, T_steady + T_smooth :] = sum_e_u * cycle.unsqueeze(0).repeat(N, 1)
+
+
+    d_dagger = torch.zeros(N, T_steady + T_smooth + T_cycle)
+    # Expand sum_e_u for broadcasting
+    sum_e_u_expanded = sum_e_u.unsqueeze(1)  # shape becomes [534, 1]
+
+    # Expand smoothing for each of the 534 units
+    smoothing_expanded = smoothing.unsqueeze(0).repeat(N, 1)  # shape becomes [534, 10]
+
+    # Populate d_dagger
+    d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)  # Steady state
+    d_dagger[:, T_steady:T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
+    d_dagger[:, T_steady + T_smooth:] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
+
+    T = T_steady + T_cycle + T_smooth
+
+
+    A = test_2_nodes_complete()
+
+    wages = torch.rand([1, 1])
+
+    return T, d_dagger
+
 def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycle12"):
     emp_per_occ = L / N
+    # Use col_name='cycle_bb_mix' for using also business barometer
     # at some point this should be update to non uniform distribution
     e = torch.tensor([emp_per_occ for i in range(N)])
     u = 0.0463 * e  # 5% of e
