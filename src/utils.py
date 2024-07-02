@@ -1,24 +1,26 @@
+import networkx as nx
 import numpy as np
 import pandas as pd
 import torch
-import networkx as nx
+
 from labor_abm import LabourABM
 
 ########
 # functions for parameters
 ########
 
+
 def parameters_calibrated():
     # Load parameters from the CSV file
-    csv_path = '../data/parameters/parameters_finegrained.csv'
+    csv_path = "../data/parameters/parameters_finegrained.csv"
     data = pd.read_csv(csv_path)
-    
+
     # Read the first row of the CSV file
-    delta_u = data.loc[0, 'delta_u']
-    delta_v = data.loc[0, 'delta_v']
-    gamma_u = data.loc[0, 'gamma_u']
-    gamma_v = data.loc[0, 'gamma_v']
-    
+    delta_u = data.loc[0, "delta_u"]
+    delta_v = data.loc[0, "delta_v"]
+    gamma_u = data.loc[0, "gamma_u"]
+    gamma_v = data.loc[0, "gamma_v"]
+
     # Static values
     lam = 0.01
     beta_u = 10
@@ -33,46 +35,34 @@ def parameters_calibrated():
         beta_u,
         beta_e,
     )
+
 
 def parameters_calibrated_inc_target_demand():
     # Load parameters from the CSV file
-    csv_path = '../data/parameters/parameters_finegrained.csv'
+    csv_path = "../data/parameters/parameters_finegrained.csv"
     data = pd.read_csv(csv_path)
-    
+
     # Read the first row of the CSV file
-    delta_u = data.loc[0, 'delta_u']
-    delta_v = data.loc[0, 'delta_v']
-    gamma_u = data.loc[0, 'gamma_u']
-    gamma_v = data.loc[0, 'gamma_v']
-    a0 = data.loc[0, 'a0']
-    a1 = data.loc[0, 'a1']
-    a2 = data.loc[0, 'a2']
-    a3 = data.loc[0, 'a3']
-    a4 = data.loc[0, 'a4']
-    a5 = data.loc[0, 'a5']
+    delta_u = data.loc[0, "delta_u"]
+    delta_v = data.loc[0, "delta_v"]
+    gamma_u = data.loc[0, "gamma_u"]
+    gamma_v = data.loc[0, "gamma_v"]
+    a0 = data.loc[0, "a0"]
+    a1 = data.loc[0, "a1"]
+    a2 = data.loc[0, "a2"]
+    a3 = data.loc[0, "a3"]
+    a4 = data.loc[0, "a4"]
+    a5 = data.loc[0, "a5"]
 
     # include parameters for target demand
-    
+
     # Static values
     lam = 0.01
     beta_u = 10
     beta_e = 1
 
-    return (
-        delta_u,
-        delta_v,
-        gamma_u,
-        gamma_v,
-        lam,
-        beta_u,
-        beta_e,
-        a0,
-        a1,
-        a2,
-        a3,
-        a4,
-        a5
-    )
+    return (delta_u, delta_v, gamma_u, gamma_v, lam, beta_u, beta_e, a0, a1, a2, a3, a4, a5)
+
 
 def baseline_parameters_original_model():
     delta_u = 0.016
@@ -93,6 +83,7 @@ def baseline_parameters_original_model():
         beta_e,
     )
 
+
 def baseline_parameters_jtj_multapps():
     delta_u = 0.016
     delta_v = 0.012
@@ -112,6 +103,7 @@ def baseline_parameters_jtj_multapps():
         beta_e,
     )
 
+
 def baseline_parameters_jtj_multapps_from_data():
     lam = 0.01
     beta_u = 10
@@ -122,6 +114,7 @@ def baseline_parameters_jtj_multapps_from_data():
         beta_u,
         beta_e,
     )
+
 
 def baseline_parameters_jtj():
     delta_u = 0.016
@@ -143,7 +136,6 @@ def baseline_parameters_jtj():
     )
 
 
-
 ###########
 # Networks and employment
 ###########
@@ -152,17 +144,17 @@ def baseline_parameters_jtj():
 def network_and_scenario(region, T_steady=200, smooth=3):
     adj_matrix_path = f"../data/networks/occ_mobility_fromusa.csv"
     df_path = f"../data/copper/scenario_{region.replace('.', '_')}.csv"
-    
+
     # Load adjacency matrix A
     A = np.loadtxt(adj_matrix_path, delimiter=",")
-    
+
     # Load new_df and convert to numpy array
     new_df = pd.read_csv(df_path)
-    demand_scenario = new_df.drop(columns='OCC').values  # Drop OCC column and convert to numpy array
+    demand_scenario = new_df.drop(columns="OCC").values  # Drop OCC column and convert to numpy array
     # list of times (for plotting purposes)
-    time_columns = [col for col in new_df.columns if col.startswith('emp')]
+    time_columns = [col for col in new_df.columns if col.startswith("emp")]
     times = [col.split()[1] for col in time_columns]
-    times = [pd.to_datetime(col.split()[1], format='%Y-%m') for col in time_columns]
+    times = [pd.to_datetime(col.split()[1], format="%Y-%m") for col in time_columns]
     # get n and convert to tensors
     N = A.shape[0]
     A = torch.from_numpy(A)
@@ -181,14 +173,13 @@ def network_and_scenario(region, T_steady=200, smooth=3):
     sum_e_u = e + u
     L = sum_e_u.sum()
 
-
     # make target demand so that first it is constant so it converges and then scenario
     d_dagger = torch.zeros(N, T_steady + T_scenario)
 
     # Expand sum_e_u for broadcasting
     sum_e_u_expanded = sum_e_u.unsqueeze(1)  # shape becomes [534, 1]
     # Populate d_dagger
-    d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady) 
+    d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)
 
     d_dagger[:, T_steady:] = demand_scenario
 
@@ -202,7 +193,7 @@ def network_and_scenario(region, T_steady=200, smooth=3):
     # Convert back to tensor
     d_dagger = torch.from_numpy(df_d_dagger.values)
 
-    # check postiive demand
+    # check positive demand
     assert torch.all(d_dagger > 0), "Scenarios must not have negative demand"
 
     # since no data use uniform wages
@@ -211,21 +202,16 @@ def network_and_scenario(region, T_steady=200, smooth=3):
     return A, e, u, v, L, N, T, wages, d_dagger, times
 
 
-def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility_merge.csv",\
-                           network="merge"):
+def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility_merge.csv", network="merge"):
     df = pd.read_csv(file_path_name)
     dict_soc_emp = dict(zip(df["OCC_target"], df["TOT_EMP_OCC"]))
 
     if network == "merge":
         df = df.rename({"trans_merge_alpha05": "weight"}, axis="columns")
-        G = nx.from_pandas_edgelist(
-        df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
-        )
+        G = nx.from_pandas_edgelist(df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph())
     elif network == "cc":
         df = df.rename({"trans_prob_cc": "weight"}, axis="columns")
-        G = nx.from_pandas_edgelist(
-        df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
-        )
+        G = nx.from_pandas_edgelist(df, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph())
 
     # Note that nodes are ordered differently with network x
     nodes_order = list(G.nodes)
@@ -235,7 +221,7 @@ def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility
     S = [G.subgraph(c).copy() for c in nx.strongly_connected_components(G)]
     G_strongly = S[0]
     nodes_order = list(G_strongly.nodes)
-    assert(nx.is_strongly_connected(G_strongly))
+    assert nx.is_strongly_connected(G_strongly)
 
     ### employment part
     e = torch.tensor([dict_soc_emp[node] for node in nodes_order])
@@ -248,16 +234,14 @@ def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility
     sum_e_u = e + u
     L = sum_e_u.sum()
 
-    
     A = nx.adjacency_matrix(G_strongly, weight="weight").todense()
     A = np.array(A)
     n = A.shape[0]
 
-
     A = torch.from_numpy(A)
 
     wages = torch.ones(n)
-    
+
     return A, e, u, v, L, n, sum_e_u, wages
 
 
@@ -265,9 +249,9 @@ def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility
 # Target demand
 ##################
 
+
 def from_timeseries_to_tensors(df, col_names=["cycle12"]):
-    ''' read dataframe and output the tensors of time series with signals
-    '''
+    """read dataframe and output the tensors of time series with signals"""
 
     col_name1, col_name2, col_name3, col_name4, col_name5 = col_names[:5]
 
@@ -276,12 +260,11 @@ def from_timeseries_to_tensors(df, col_names=["cycle12"]):
     ts3 = torch.tensor(df[col_name3].values)
     ts4 = torch.tensor(df[col_name4].values)
     ts5 = torch.tensor(df[col_name5].values)
-    
+
     return ts1, ts2, ts3, ts4, ts5
 
-def target_from_gdp_e_u(
-    df_gdp, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10
-):
+
+def target_from_gdp_e_u(df_gdp, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10):
 
     sum_e_u = e + u
     # getting cycle shape and length
@@ -302,8 +285,8 @@ def target_from_gdp_e_u(
 
     # Populate d_dagger
     d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)  # Steady state
-    d_dagger[:, T_steady:T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
-    d_dagger[:, T_steady + T_smooth:] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
+    d_dagger[:, T_steady : T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
+    d_dagger[:, T_steady + T_smooth :] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
 
     T = T_steady + T_cycle + T_smooth
 
@@ -312,9 +295,7 @@ def target_from_gdp_e_u(
     return T, d_dagger
 
 
-def target_from_gdp_e_u_and_shock(
-    df_gdp, df_shock, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10
-):
+def target_from_gdp_e_u_and_shock(df_gdp, df_shock, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10):
 
     sum_e_u = e + u
     # getting cycle shape and length
@@ -335,8 +316,8 @@ def target_from_gdp_e_u_and_shock(
 
     # Populate d_dagger
     d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)  # Steady state
-    d_dagger[:, T_steady:T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
-    d_dagger[:, T_steady + T_smooth:] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
+    d_dagger[:, T_steady : T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
+    d_dagger[:, T_steady + T_smooth :] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
 
     T = T_steady + T_cycle + T_smooth
 
@@ -345,21 +326,19 @@ def target_from_gdp_e_u_and_shock(
     return T, d_dagger
 
 
-def target_from_parametrized_timeseries(
-    timeseries, e, u, parameters=[0,1,1,1,1,1], T_steady=90, T_smooth=10
-):
-    ''' Get pytorch tensors that are timeserieswith canada indicators to compute target demand. First a constant one + smoothing into
+def target_from_parametrized_timeseries(timeseries, e, u, parameters=[0, 1, 1, 1, 1, 1], T_steady=90, T_smooth=10):
+    """Get pytorch tensors that are timeserieswith canada indicators to compute target demand. First a constant one + smoothing into
     the actual signals
     e and u are pytorch tensors with initial employment used also to split target demand accoridngly
-    '''
+    """
     N = e.shape[0]
     sum_e_u = e + u
     # getting cycle shape and length
     ts1, ts2, ts3, ts4, ts5 = timeseries
     T_cycle = len(ts1)
-    a0, a1, a2, a3, a4, a5 =  parameters
+    a0, a1, a2, a3, a4, a5 = parameters
 
-    cycle = a0 + a1*ts1 + a2*ts2 + a3*ts3 + a4*ts4 + a5*ts5
+    cycle = a0 + a1 * ts1 + a2 * ts2 + a3 * ts3 + a4 * ts4 + a5 * ts5
     # getting the first value of cycle for smoothing (ease into cycle)
     ini_val_cycle = cycle[0]
     dif_1 = ini_val_cycle - 1
@@ -376,25 +355,28 @@ def target_from_parametrized_timeseries(
     # Populate d_dagger
     d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)  # Steady state
 
-    d_dagger[:, T_steady:T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded   # Smoothing transition
-    d_dagger[:, T_steady + T_smooth:] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
+    d_dagger[:, T_steady : T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
+    d_dagger[:, T_steady + T_smooth :] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
 
     T = T_steady + T_cycle + T_smooth
     return T, d_dagger
 
+
 ################
-#Networks 
+# Networks
 ################
 
 
-def network_and_employment_fromadj(file_adj="../data/networks/occupational_mobility_network.csv",\
-                           file_emp = "../data/networks/ipums_employment_2016.csv"):
+def network_and_employment_fromadj(
+    file_adj="../data/networks/occupational_mobility_network.csv",
+    file_emp="../data/networks/ipums_employment_2016.csv",
+):
     df = pd.read_csv(file_emp)
     e = torch.tensor(df["IPUMS_CPS_av_monthly_employment_whole_period"])
-    A = np.genfromtxt(file_adj, delimiter=',')
+    A = np.genfromtxt(file_adj, delimiter=",")
 
-    u = 0.016*e#0.0463 * e  # 5% of e
-    v = 0.012*e#0.019 * e  # 5% of e
+    u = 0.016 * e  # 0.0463 * e  # 5% of e
+    v = 0.012 * e  # 0.019 * e  # 5% of e
     # u = 10*(0.0001*e)**2/e
     # v = 10*(0.0001*e)**2/e
 
@@ -410,8 +392,9 @@ def network_and_employment_fromadj(file_adj="../data/networks/occupational_mobil
     # print( "e[5]", e[5])
 
     wages = torch.ones(n)
-    
+
     return A, e, u, v, L, n, sum_e_u, wages
+
 
 # def network_and_employment(file_path_name="../data/networks/edgelist_cc_mobility_merge.csv",\
 #                            network="merge"):
@@ -453,7 +436,7 @@ def network_and_employment_fromadj(file_adj="../data/networks/occupational_mobil
 #     sum_e_u = e + u
 #     L = sum_e_u.sum()
 
-    
+
 #     A = nx.adjacency_matrix(G_strongly, weight="weight").todense()
 #     A = np.array(A)
 #     n = A.shape[0]
@@ -462,16 +445,19 @@ def network_and_employment_fromadj(file_adj="../data/networks/occupational_mobil
 #     A = torch.from_numpy(A)
 
 #     wages = torch.ones(n)
-    
+
 #     return A, e, u, v, L, n, sum_e_u, wages
+
 
 def set_d_dagger_uniform(T, sum_e_u):
     d_dagger = sum_e_u.unsqueeze(1).repeat(1, T)
     return d_dagger
 
+
 def employment_merge_mob_cc(file_path_name="../data/networks/edgelist_cc_mobility_merge_joris.csv"):
     df = pd.read_csv(file_path_name)
     dict_soc_emp = dict(zip(df["OCC_target"], df["TOT_EMP_OCC"]))
+
 
 def career_changers():
     df = pd.read_csv("../data/networks/career_changers_mobility_edgelist.csv")
@@ -486,9 +472,7 @@ def career_changers():
 
     df_cc[np.isnan(df_cc["TOT_EMP"])]
     df_cc = df_cc.rename({"trans_prob_cc": "weight"}, axis="columns")
-    G = nx.from_pandas_edgelist(
-        df_cc, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph()
-    )
+    G = nx.from_pandas_edgelist(df_cc, "OCC_source", "OCC_target", edge_attr="weight", create_using=nx.DiGraph())
     # Note that nodes are ordered differently with network x
     nodes_order = list(G.nodes)
     nx.is_strongly_connected(G)
@@ -551,10 +535,7 @@ def test_2node_scenario_complete():
     )
 
 
-
-def target_from_gdp_e_u(
-    df_gdp, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10
-):
+def target_from_gdp_e_u(df_gdp, e, u, col_name="cycle12", L=20000, N=2, T_steady=90, T_smooth=10):
     sum_e_u = e + u
     # getting cycle shape and length
     cycle = torch.tensor(df_gdp[col_name])
@@ -573,7 +554,6 @@ def target_from_gdp_e_u(
     # # now constant emp (emp per occ) cycle
     # d_dagger[:, T_steady + T_smooth :] = sum_e_u * cycle.unsqueeze(0).repeat(N, 1)
 
-
     d_dagger = torch.zeros(N, T_steady + T_smooth + T_cycle)
     # Expand sum_e_u for broadcasting
     sum_e_u_expanded = sum_e_u.unsqueeze(1)  # shape becomes [534, 1]
@@ -583,17 +563,17 @@ def target_from_gdp_e_u(
 
     # Populate d_dagger
     d_dagger[:, :T_steady] = sum_e_u_expanded.repeat(1, T_steady)  # Steady state
-    d_dagger[:, T_steady:T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
-    d_dagger[:, T_steady + T_smooth:] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
+    d_dagger[:, T_steady : T_steady + T_smooth] = sum_e_u_expanded * smoothing_expanded  # Smoothing transition
+    d_dagger[:, T_steady + T_smooth :] = sum_e_u_expanded * cycle.unsqueeze(0).repeat(N, 1)  # Apply cycle
 
     T = T_steady + T_cycle + T_smooth
-
 
     A = test_2_nodes_complete()
 
     wages = torch.rand([1, 1])
 
     return T, d_dagger
+
 
 def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycle12"):
     emp_per_occ = L / N
@@ -656,9 +636,7 @@ def from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp, col_name="cycl
     )
 
 
-def from_gdp_uniform_across_occ_nodeltasgammas(
-    df_gdp, col_name="cycle12", L=20000, N=2, T_steady=10, T_smooth=10
-):
+def from_gdp_uniform_across_occ_nodeltasgammas(df_gdp, col_name="cycle12", L=20000, N=2, T_steady=10, T_smooth=10):
     emp_per_occ = L / N
     # at some point this should be update to non uniform distribution
     e = torch.tensor([emp_per_occ for i in range(N)])

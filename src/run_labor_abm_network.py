@@ -4,12 +4,11 @@ import numpy as np
 import pandas as pd
 import scipy.stats as stats
 import torch
+from matplotlib import pylab as plt
 
 # from matplotlib import pylab as plt
 import labor_abm as lbm
 import utils as ut
-
-from matplotlib import pylab as plt
 
 #################
 # Basic test
@@ -28,26 +27,9 @@ T = 1000
 #     beta_e
 # ) = ut.baseline_parameters_jtj()
 
-(
-    delta_u,
-    delta_v,
-    gamma_u,
-    gamma_v,
-    lam,
-    beta_u,
-    beta_e
-) = ut.baseline_parameters_jtj_multapps()
+(delta_u, delta_v, gamma_u, gamma_v, lam, beta_u, beta_e) = ut.baseline_parameters_jtj_multapps()
 
-(
-    A,
-    e,
-    u,
-    v,
-    L,
-    N,
-    sum_e_v,
-    wages
-)=ut.network_and_employment(network="merge")
+(A, e, u, v, L, N, sum_e_v, wages) = ut.network_and_employment(network="merge")
 
 
 d_dagger = ut.set_d_dagger_uniform(T, sum_e_v)
@@ -85,25 +67,25 @@ d_dagger = lab_abm.d_dagger
 
 # Plot the data
 plt.figure(figsize=(10, 5))
-plt.plot(total_unemployment.numpy()/L, 'o-',label='Total Unemployment')
+plt.plot(total_unemployment.numpy() / L, "o-", label="Total Unemployment")
 # plt.plot(total_demand.numpy(), label='Total demand')
-plt.title('Aggregated Unemployment and Vacancies Over Time')
-plt.xlabel('Time')
-plt.ylabel('Count')
+plt.title("Aggregated Unemployment and Vacancies Over Time")
+plt.xlabel("Time")
+plt.ylabel("Count")
 plt.legend()
 plt.grid(True)
 plt.show()
 
 # Plot the data
 plt.figure(figsize=(10, 5))
-plt.plot(total_unemployment.numpy()/L, 'o-',label='Total Unemployment')
-plt.plot(total_vacancies.numpy()/L,'o-' ,label='Total Vacancies')
+plt.plot(total_unemployment.numpy() / L, "o-", label="Total Unemployment")
+plt.plot(total_vacancies.numpy() / L, "o-", label="Total Vacancies")
 # plt.plot(total_demand.numpy(), label='Total demand')
-plt.title('Aggregated Unemployment and Vacancies Over Time')
-plt.xlabel('Time')
-plt.ylabel('Count')
+plt.title("Aggregated Unemployment and Vacancies Over Time")
+plt.xlabel("Time")
+plt.ylabel("Count")
 plt.legend()
 plt.grid(True)
 plt.show()
 #
-print(100*total_unemployment.numpy()[-1]/L)
+print(100 * total_unemployment.numpy()[-1] / L)

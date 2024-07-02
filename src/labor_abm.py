@@ -131,9 +131,7 @@ class LabourABM:
         return self.opening_rate * e
 
     def state_dep_separations(self, diff_demand):
-        return (
-            (1 - self.separation_rate) * self.adaptation_u * torch.maximum(torch.zeros(self.N), diff_demand)
-        )
+        return (1 - self.separation_rate) * self.adaptation_u * torch.maximum(torch.zeros(self.N), diff_demand)
 
     def state_dep_openings(self, diff_demand):
         return (1 - self.opening_rate) * self.adaptation_v * torch.maximum(torch.zeros(self.N), -diff_demand)
@@ -191,15 +189,13 @@ class LabourABM:
         ) - torch.tensor(range(self.n_applications_emp))
 
         # In rare cases where few applications are receives sj < beta. We prevent this from going negative
-        active_applications_from_u  = torch.clamp(active_applications_from_u , min=0.000000001)
-        active_applications_from_e  = torch.clamp(active_applications_from_e , min=0.000000001)
+        active_applications_from_u = torch.clamp(active_applications_from_u, min=0.000000001)
+        active_applications_from_e = torch.clamp(active_applications_from_e, min=0.000000001)
 
         # probability of app being drawn; job_offers / (beta_apps - l); where l = 0 to beta
         # clamp since job_offers <= beta_apps - l; at the cross it means app is for sure selected
-        prob_app_selected_u = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)\
-                                          , max=1)
-        prob_app_selected_e = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)\
-                                          , max=1)
+        prob_app_selected_u = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_u), max=1)
+        prob_app_selected_e = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_e), max=1)
         # probability no application is selected
         prob_no_app_selected_u = 1 - prob_app_selected_u
         prob_no_app_selected_e = 1 - prob_app_selected_e

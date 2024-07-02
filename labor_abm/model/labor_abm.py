@@ -110,11 +110,7 @@ class LaborABM:
         return self.separation_rate * e
 
     def state_dep_separations(self, diff_demand):
-        return (
-            (1 - self.separation_rate)
-            * self.adaptation_rate_u
-            * torch.maximum(torch.zeros(self.n), diff_demand)
-        )
+        return (1 - self.separation_rate) * self.adaptation_rate_u * torch.maximum(torch.zeros(self.n), diff_demand)
 
     def spontaneous_openings(self, e):
         return self.opening_rate * e
@@ -213,9 +209,7 @@ class LaborABM:
         # u += separated_workers - Fij_u.sum(dim=0)
         # v += opened_vacancies - Fij.sum(dim=0)
 
-        self.employment[:, t] = (
-            self.employment[:, t - 1] - separated_workers + Fij.sum(dim=0) - Fij_e.sum(dim=1)
-        )
+        self.employment[:, t] = self.employment[:, t - 1] - separated_workers + Fij.sum(dim=0) - Fij_e.sum(dim=1)
 
         self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - Fij_u.sum(dim=0)
 

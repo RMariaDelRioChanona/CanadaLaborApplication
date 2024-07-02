@@ -1,19 +1,21 @@
-import numpy as np
-import torch
-import scipy.stats as stats
-import pandas as pd
 import copy
-from matplotlib import pylab as plt
-import sys
 import os
-src_dir = os.path.join(os.getcwd(), '../src')
+import sys
+
+import numpy as np
+import pandas as pd
+import scipy.stats as stats
+import torch
+from matplotlib import pylab as plt
+
+src_dir = os.path.join(os.getcwd(), "../src")
 # src_dir = os.path.join(os.getcwd(), 'src')
 sys.path.append(src_dir)
+from matplotlib.cm import ScalarMappable
+from matplotlib.colors import Normalize
+
 import labor_abm as lbm
 import utils as ut
-from matplotlib.colors import Normalize
-from matplotlib.cm import ScalarMappable
-
 
 path_data = "../data/CanadaData/"
 path_fig = "../results/fig/"
@@ -41,7 +43,6 @@ sorted_indices = np.argsort(mse_av_array)
 sorted_tested_params = [tested_params[i] for i in sorted_indices]
 
 
-
 len(df_gdp) + 20
 
 L = 20000
@@ -52,13 +53,15 @@ T_smooth = 10
 
 ######
 
-N, T, L, seed, delta_u, delta_v, gamma_u, gamma_v,\
-        lam, beta_u, beta_e, A, e, u, v, d_dagger, wages = ut.from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp)
+N, T, L, seed, delta_u, delta_v, gamma_u, gamma_v, lam, beta_u, beta_e, A, e, u, v, d_dagger, wages = (
+    ut.from_gdp_uniform_across_occ(L, N, T_steady, T_smooth, df_gdp)
+)
 
-lab_abm = lbm.LabourABM(N, T, seed, delta_u, delta_v, gamma_u, gamma_v, lam, \
-                        beta_e, beta_u, A, d_dagger, e, u, v, wages)
+lab_abm = lbm.LabourABM(
+    N, T, seed, delta_u, delta_v, gamma_u, gamma_v, lam, beta_e, beta_u, A, d_dagger, e, u, v, wages
+)
 
-plt.plot(d_dagger[0, :]/10000)
+plt.plot(d_dagger[0, :] / 10000)
 plt.show()
 
 len(df_gdp)

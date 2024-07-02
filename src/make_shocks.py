@@ -3,11 +3,16 @@ import seaborn as sns
 from matplotlib import pylab as plt
 from matplotlib.ticker import MaxNLocator
 
+
 def distribute_jobs_monthly(df):
+    """
+    Distributes shocks uniformly month-after-month
+    """
+
     # Define the function to generate monthly date ranges
     def generate_monthly_range(start_year, end_year):
-        return pd.date_range(start=f"{start_year}-01-01", end=f"{end_year}-12-01", freq='MS')
-    
+        return pd.date_range(start=f"{start_year}-01-01", end=f"{end_year}-12-01", freq="MS")
+
     # Define important years to manage period boundaries correctly
     important_years = [2021, 2025, 2030, 2035, 2040, 2045, 2050]
 
@@ -16,15 +21,15 @@ def distribute_jobs_monthly(df):
 
     # Job columns and their descriptive names
     job_columns = [
-        ('CPY (Direct)_linear_positive', 'CPY_created_jobs'),
-        ('CPY (Direct)_linear_negative', 'CPY_destroyed_jobs'),
-        ('Op FTE (Direct)_linear_positive', 'Op_created_jobs'),
-        ('Op FTE (Direct)_linear_negative', 'Op_destroyed_jobs')
+        ("CPY (Direct)_linear_positive", "CPY_created_jobs"),
+        ("CPY (Direct)_linear_negative", "CPY_destroyed_jobs"),
+        ("Op FTE (Direct)_linear_positive", "Op_created_jobs"),
+        ("Op FTE (Direct)_linear_negative", "Op_destroyed_jobs"),
     ]
 
     # Iterate over the DataFrame
     for _, row in df.iterrows():
-        start_year = int(row['time'])
+        start_year = int(row["time"])
         if start_year == 2021:
             end_year = 2025
         else:
@@ -40,86 +45,105 @@ def distribute_jobs_monthly(df):
             job_per_month_acc = job_value / len(monthly_range)  # Distribute evenly across all months
 
             for date in monthly_range:
-                data.append({
-                    'region': row['region'],
-                    'variable': row['variable'],
-                    'model': row['model'],
-                    'scenario': row['scenario'],
-                    'time': date.strftime('%Y-%m'),  # Format as year-month
-                    'unit': row['unit'],
-                    'jobs': job_per_month_acc,
-                    'job_type': job_type
-                })
-
-
+                data.append(
+                    {
+                        "region": row["region"],
+                        "variable": row["variable"],
+                        "model": row["model"],
+                        "scenario": row["scenario"],
+                        "time": date.strftime("%Y-%m"),  # Format as year-month
+                        "unit": row["unit"],
+                        "jobs": job_per_month_acc,
+                        "job_type": job_type,
+                    }
+                )
 
     monthly_jobs_df = pd.DataFrame(data)
     # Group by the relevant columns and sum the jobs for all regions
-    national_jobs = monthly_jobs_df.groupby(['variable', 'model', 'scenario', 'time', 'job_type', 'unit'], as_index=False).agg({'jobs': 'sum'})
+    national_jobs = monthly_jobs_df.groupby(
+        ["variable", "model", "scenario", "time", "job_type", "unit"], as_index=False
+    ).agg({"jobs": "sum"})
 
     # Add a 'region' column filled with 'National'
-    national_jobs['region'] = 'National'
+    national_jobs["region"] = "National"
 
     # Concatenate the national_jobs DataFrame back to the original monthly_jobs_df
     updated_monthly_jobs_df = pd.concat([monthly_jobs_df, national_jobs], ignore_index=True)
 
     # Optionally, you might want to sort the DataFrame by time or other columns to maintain order
-    updated_monthly_jobs_df = updated_monthly_jobs_df.sort_values(by=['region', 'variable', 'model', 'scenario', 'job_type', 'time'])
+    updated_monthly_jobs_df = updated_monthly_jobs_df.sort_values(
+        by=["region", "variable", "model", "scenario", "job_type", "time"]
+    )
 
     # Convert the list to DataFrame
     return updated_monthly_jobs_df
+
 
 # Prepare your initial DataFrame (this setup part is done once outside the function)
 path_data = "../data/copper/"
 file_zach = "net_new_cap_w_jobs.csv"
 df = pd.read_csv(path_data + file_zach)
-df = df[['region', 'variable', 'model', 'scenario', 'time', 'unit', 'value',
-         'CPY (Direct)_linear', 'Op FTE (Direct)_linear']]
-df['CPY (Direct)_linear_positive'] = df['CPY (Direct)_linear'].apply(lambda x: x if x >= 0 else 0)
-df['CPY (Direct)_linear_negative'] = df['CPY (Direct)_linear'].apply(lambda x: x if x <= 0 else 0)
-df['Op FTE (Direct)_linear_positive'] = df['Op FTE (Direct)_linear'].apply(lambda x: x if x >= 0 else 0)
-df['Op FTE (Direct)_linear_negative'] = df['Op FTE (Direct)_linear'].apply(lambda x: x if x <= 0 else 0)
+df = df[
+    [
+        "region",
+        "variable",  # technology
+        "model",  # copper
+        "scenario",  #
+        "time",  # check structure of time
+        "unit",  #
+        "value",  #
+        "CPY (Direct)_linear",  # Jobs created and destroyed for capacity
+        "Op FTE (Direct)_linear",  # same for operations
+    ]
+]
+df["CPY (Direct)_linear_positive"] = df["CPY (Direct)_linear"].apply(lambda x: x if x >= 0 else 0)
+df["CPY (Direct)_linear_negative"] = df["CPY (Direct)_linear"].apply(lambda x: x if x <= 0 else 0)
+df["Op FTE (Direct)_linear_positive"] = df["Op FTE (Direct)_linear"].apply(lambda x: x if x >= 0 else 0)
+df["Op FTE (Direct)_linear_negative"] = df["Op FTE (Direct)_linear"].apply(lambda x: x if x <= 0 else 0)
 
-df = df.groupby(['region', 'variable', 'model', 'scenario', 'time', 'unit'], as_index=False).sum()
+df = df.groupby(["region", "variable", "model", "scenario", "time", "unit"], as_index=False).sum()
 
 
-df['CPY (Direct)_linear_positive'].sum()/1e6
-df['Op FTE (Direct)_linear_positive'].sum()/1e6
+df["CPY (Direct)_linear_positive"].sum() / 1e6
+df["Op FTE (Direct)_linear_positive"].sum() / 1e6
 
 # Call the function
 monthly_jobs_df = distribute_jobs_monthly(df)
 
 # ['CPY_created_jobs', 'CPY_destroyed_jobs', 'Op_created_jobs', 'Op_destroyed_jobs']
 
-monthly_jobs_df['jobs'][(monthly_jobs_df['region'] == 'National') & \
-                        (monthly_jobs_df['job_type']=='CPY_created_jobs')].sum()/1e6
-monthly_jobs_df['jobs'][(monthly_jobs_df['region'] == 'National') \
-                        & (monthly_jobs_df['job_type']=='Op_created_jobs')].sum()/1e6
+monthly_jobs_df["jobs"][
+    (monthly_jobs_df["region"] == "National") & (monthly_jobs_df["job_type"] == "CPY_created_jobs")
+].sum() / 1e6
+monthly_jobs_df["jobs"][
+    (monthly_jobs_df["region"] == "National") & (monthly_jobs_df["job_type"] == "Op_created_jobs")
+].sum() / 1e6
 
 
+monthly_jobs_df["variable"].unique()
+monthly_jobs_df["region"].unique()
 
-monthly_jobs_df['variable'].unique()
-monthly_jobs_df['region'].unique()
 
-
-### Now make Operation jobs cumulative
+# # Now make Operation jobs cumulative
 # Step 1: Filter out the 'Op' job types
-op_jobs_df = monthly_jobs_df[monthly_jobs_df['job_type'].isin(['Op_created_jobs', 'Op_destroyed_jobs'])]
+op_jobs_df = monthly_jobs_df[monthly_jobs_df["job_type"].isin(["Op_created_jobs", "Op_destroyed_jobs"])]
 
 # Step 2: Sort by 'time' to ensure correct order for cumulative sum
-op_jobs_df = op_jobs_df.sort_values(by=['region', 'variable', 'model', 'scenario', 'job_type', 'time'])
+op_jobs_df = op_jobs_df.sort_values(by=["region", "variable", "model", "scenario", "job_type", "time"])
 
 # Step 3: Apply cumulative sum on the 'jobs' column within each group
-op_jobs_df['jobs'] = op_jobs_df.groupby(['region', 'variable', 'model', 'scenario', 'job_type'])['jobs'].cumsum()
+op_jobs_df["jobs"] = op_jobs_df.groupby(["region", "variable", "model", "scenario", "job_type"])["jobs"].cumsum()
 
 # Step 4: Extract the non-Op job types to concatenate them back together
-non_op_jobs_df = monthly_jobs_df[~monthly_jobs_df['job_type'].isin(['Op_created_jobs', 'Op_destroyed_jobs'])]
+non_op_jobs_df = monthly_jobs_df[~monthly_jobs_df["job_type"].isin(["Op_created_jobs", "Op_destroyed_jobs"])]
 
 # Step 5: Concatenate back the modified Op jobs data with the non-Op jobs data
 updated_monthly_jobs_df = pd.concat([non_op_jobs_df, op_jobs_df], ignore_index=True)
 
 # Sorting to restore any order if necessary
-updated_monthly_jobs_df = updated_monthly_jobs_df.sort_values(by=['region', 'variable', 'model', 'scenario', 'job_type', 'time'])
+updated_monthly_jobs_df = updated_monthly_jobs_df.sort_values(
+    by=["region", "variable", "model", "scenario", "job_type", "time"]
+)
 
 
 updated_monthly_jobs_df.to_csv(path_data + "shock_timeseries_region_tech_cap_op.csv", index=False)
@@ -127,10 +151,12 @@ updated_monthly_jobs_df.to_csv(path_data + "shock_timeseries_region_tech_cap_op.
 # Optional: Check the output
 print(updated_monthly_jobs_df.head())
 
+
 def plot_job_data(region, variable):
     # Filter the data for the specified region and variable
-    filtered_data = updated_monthly_jobs_df[(updated_monthly_jobs_df['region'] == region) &
-                                            (updated_monthly_jobs_df['variable'] == variable)]
+    filtered_data = updated_monthly_jobs_df[
+        (updated_monthly_jobs_df["region"] == region) & (updated_monthly_jobs_df["variable"] == variable)
+    ]
 
     # Create a figure with subplots
     fig, axs = plt.subplots(2, 2, figsize=(14, 10), dpi=120)  # Adjust size and resolution as needed
@@ -138,18 +164,18 @@ def plot_job_data(region, variable):
 
     # Define a helper to plot on a given axis
     def plot_subplot(ax, job_type, title, color):
-        sns.lineplot(x='time', y='jobs', data=filtered_data[filtered_data['job_type'] == job_type], ax=ax, color=color)
+        sns.lineplot(x="time", y="jobs", data=filtered_data[filtered_data["job_type"] == job_type], ax=ax, color=color)
         ax.set_title(title)
-        ax.set_xlabel('Year')
-        ax.set_ylabel('Number of Jobs')
+        ax.set_xlabel("Year")
+        ax.set_ylabel("Number of Jobs")
         ax.xaxis.set_major_locator(MaxNLocator(integer=True))  # Ensure that x-axis labels are integer (yearly)
         plt.xticks(rotation=45)  # Rotate x-ticks for better readability
 
     # Plotting each job type
-    plot_subplot(axs[0, 0], 'CPY_created_jobs', 'CPY Created Jobs', 'blue')
-    plot_subplot(axs[0, 1], 'CPY_destroyed_jobs', 'CPY Destroyed Jobs', 'red')
-    plot_subplot(axs[1, 0], 'Op_created_jobs', 'Op Created Jobs', 'green')
-    plot_subplot(axs[1, 1], 'Op_destroyed_jobs', 'Op Destroyed Jobs', 'orange')
+    plot_subplot(axs[0, 0], "CPY_created_jobs", "CPY Created Jobs", "blue")
+    plot_subplot(axs[0, 1], "CPY_destroyed_jobs", "CPY Destroyed Jobs", "red")
+    plot_subplot(axs[1, 0], "Op_created_jobs", "Op Created Jobs", "green")
+    plot_subplot(axs[1, 1], "Op_destroyed_jobs", "Op Destroyed Jobs", "orange")
 
     # Adjust layout and spacing
     plt.tight_layout(rect=[0, 0, 1, 0.95])  # Adjust the rectangle in which to fit subplots
@@ -157,42 +183,51 @@ def plot_job_data(region, variable):
     # Show the plot
     plt.show()
 
+
 # Example usage of the function
-plot_job_data('British Columbia.a', 'Electricity|Wind|Offshore')
-plot_job_data('British Columbia.a', 'Electricity|Solar|PV|Open Land')
+plot_job_data("British Columbia.a", "Electricity|Wind|Offshore")
+plot_job_data("British Columbia.a", "Electricity|Solar|PV|Open Land")
 
 
-plot_job_data('National', 'Electricity|Wind|Offshore')
-plot_job_data('National', 'Transmission')
+plot_job_data("National", "Electricity|Wind|Offshore")
+plot_job_data("National", "Transmission")
 
-plot_job_data('National', 'Electricity|Coal|w/o CCS')
+plot_job_data("National", "Electricity|Coal|w/o CCS")
 
-plot_job_data('National', 'Electricity|Solar|PV|Open Land')
+plot_job_data("National", "Electricity|Solar|PV|Open Land")
 
 
 ###### Now just make created jobs and destroyed jobs
 
-updated_monthly_jobs_df['job_type'] = updated_monthly_jobs_df['job_type'].replace({
-    'CPY_created_jobs': 'jobs',
-    'Op_created_jobs': 'jobs',
-    'CPY_destroyed_jobs': 'jobs',
-    'Op_destroyed_jobs': 'jobs'
-})
+updated_monthly_jobs_df["job_type"] = updated_monthly_jobs_df["job_type"].replace(
+    {
+        "CPY_created_jobs": "jobs",
+        "Op_created_jobs": "jobs",
+        "CPY_destroyed_jobs": "jobs",
+        "Op_destroyed_jobs": "jobs",
+    }
+)
 
 # Group by all columns except 'jobs' and sum the 'jobs' values
-df_grouped = updated_monthly_jobs_df.groupby(['region', 'variable', 'model', 'scenario', 'time', 'unit', 'job_type']).sum().reset_index()
+df_grouped = (
+    updated_monthly_jobs_df.groupby(["region", "variable", "model", "scenario", "time", "unit", "job_type"])
+    .sum()
+    .reset_index()
+)
 
 # df_grouped['jobs'][(df_grouped['region'] == "National")].sum()/1e6
 
-df_grouped['jobs'][(df_grouped['region'] == "National") & (df_grouped['time'] == "2029-12")].sum()
-df_grouped['jobs'][(df_grouped['region'] == "National") & (df_grouped['time'] == "2050-12")].sum()
+df_grouped["jobs"][(df_grouped["region"] == "National") & (df_grouped["time"] == "2029-12")].sum()
+df_grouped["jobs"][(df_grouped["region"] == "National") & (df_grouped["time"] == "2050-12")].sum()
 
 
-plt.plot(df_grouped[(df_grouped['region'] == "National")]['time'], \
-         df_grouped[(df_grouped['region'] == "National")]['jobs'])
+plt.plot(
+    df_grouped[(df_grouped["region"] == "National")]["time"],
+    df_grouped[(df_grouped["region"] == "National")]["jobs"],
+)
 plt.show()
 
-df_grouped[(df_grouped['region'] == "National")]
+df_grouped[(df_grouped["region"] == "National")]
 
 
 # df_grouped[(df_grouped['region'] == "National") & df_grouped[]]
@@ -202,30 +237,30 @@ df_grouped[(df_grouped['region'] == "National")]
 df_grouped.to_csv(path_data + "shock_timeseries_region_tech.csv", index=False)
 
 
-
 def plot_jobs_by_region(region, df_grouped):
     # Filter the DataFrame for the given region
-    df_region = df_grouped[df_grouped['region'] == region]
+    df_region = df_grouped[df_grouped["region"] == region]
 
     # Group by time and sum up the jobs
-    time_series = df_region.groupby('time')['jobs'].sum()
+    time_series = df_region.groupby("time")["jobs"].sum()
 
     # Plotting the time series data
     plt.figure(figsize=(10, 6))
-    plt.plot(time_series.index, time_series.values, marker='o', linestyle='-')
-    plt.title(f'Total Jobs Over Time in {region}')
-    plt.xlabel('Time')
-    plt.ylabel('Total Jobs')
+    plt.plot(time_series.index, time_series.values, marker="o", linestyle="-")
+    plt.title(f"Total Jobs Over Time in {region}")
+    plt.xlabel("Time")
+    plt.ylabel("Total Jobs")
     plt.grid(True)
     plt.xticks(rotation=45)  # Rotate dates for better visibility
     plt.tight_layout()  # Adjust layout to not cut off labels
     plt.show()
 
+
 # Example usage:
-plot_jobs_by_region('Alberta.a', df_grouped)
+plot_jobs_by_region("Alberta.a", df_grouped)
 
 
-plot_jobs_by_region('National', df_grouped)
+plot_jobs_by_region("National", df_grouped)
 
 # # Example: Filter data for 'Alberta.a' and 'Electricity|Biomass|w/o CCS'
 # filtered_data = monthly_jobs_df[(monthly_jobs_df['region'] == 'British Columbia.a') &
@@ -297,28 +332,10 @@ plot_jobs_by_region('National', df_grouped)
 # # sns.set(style="whitegrid")
 
 
-
-
-
 # monthly_jobs_df[monthly_jobs_df['job_type'] == 'Op_created_jobs'][monthly_jobs_df['time'] == '2025-01'].head(20)
 
 
 # monthly_jobs_df[monthly_jobs_df['time'] == '2025-01'].iloc[400:420]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # import pandas as pd
@@ -361,7 +378,7 @@ plot_jobs_by_region('National', df_grouped)
 # df['variable'].unique()
 # df['region'].unique()
 
-# ### 
+# ###
 # df = df[(df['region'].isin(['Alberta.a', 'British Columbia.a'])) & \
 #         df['variable'].isin(['Electricity|Biomass|w/o CCS', 'Electricity|Gas|CC|w/ CCS']) ]
 
@@ -395,7 +412,7 @@ plot_jobs_by_region('National', df_grouped)
 
 #     # Generate monthly range for each period
 #     monthly_range = generate_monthly_range(start_year, end_year)
-    
+
 #     if start_year in important_years or end_year in important_years:
 #         print(f"Start of period {start_year}, End of period {end_year}, Processing row {index}")
 
@@ -465,7 +482,7 @@ plot_jobs_by_region('National', df_grouped)
 
 #         for job_column, job_type in job_columns:
 #             job_value = row[job_column]
-            
+
 #             if job_type == 'CPY_positive_bulk':
 #                 # Bulk jobs
 #                 jobs_per_month_bulk = job_value / bulk_months
@@ -482,7 +499,6 @@ plot_jobs_by_region('National', df_grouped)
 #                         'job_type': job_type
 #                     }
 #                     data.append(bulk_entry)
-
 
 
 # columns = ['time', 'CPY (Direct)_linear_negative', 'Op FTE (Direct)_linear_positive', 'Op FTE (Direct)_linear_negative']
