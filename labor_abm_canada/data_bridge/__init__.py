@@ -4,7 +4,7 @@ import pandas as pd
 
 # Default file paths
 FILE_PATH = Path(__file__).parent
-PROJECT_PATH = FILE_PATH.parent
+PROJECT_PATH = FILE_PATH.parent.parent
 DATA_PATH = PROJECT_PATH / "data"
 
 # Default file names

@@ -4,8 +4,15 @@ from typing import Optional
 import networkx as nx
 import numpy as np
 import pandas as pd
+import torch
 
-from data_bridge import CANADA_LABOUR_FORCE, FILE_MOBILITY_NETWORK, FILE_OCCUPATIONS, FILE_TECHNOLOGIES, generic_loader
+from labor_abm_canada.data_bridge import (
+    CANADA_LABOUR_FORCE,
+    FILE_MOBILITY_NETWORK,
+    FILE_OCCUPATIONS,
+    FILE_TECHNOLOGIES,
+    generic_loader,
+)
 
 # Default column names
 CAPACITY_JOB_COLNAME = "CPY (Direct)_linear"
@@ -380,7 +387,12 @@ class DataBridge:
 
         return occupations_shocks
 
-    def generate_model_inputs(self, region: str = "National", dict_lf_region: dict = CANADA_LABOUR_FORCE):
+    def generate_model_data_inputs(
+        self, region: str = "National", dict_lf_region: dict = CANADA_LABOUR_FORCE, **kwargs
+    ):
+        """
+        Generates the data necessary to run the labour ABM.
+        """
         df_mobility_network = self.mobility_network
         occupation_shocks = self.occupation_shocks
 
@@ -426,24 +438,101 @@ class DataBridge:
 
         df_employment = pd.concat([df_employment, emp_dataframe], axis=1).copy()
 
-        for idx, row in df_employment.iterrows():
-            occ = row["OCC"]
-            base_emp = dict_soc_emp.get(occ, 0)
-            job_additions = df_pivot.loc[occ] if occ in df_pivot.index else pd.Series(0, index=times)
-            for time in times:
-                df_employment.at[idx, f"emp {time}"] = base_emp + job_additions.get(time, 0.0)
+        # Calculate base employment and job additions
+        df_employment["base_emp"] = df_employment["OCC"].map(dict_soc_emp).fillna(0)
+        job_additions = df_pivot.reindex(df_employment["OCC"]).fillna(0).reset_index(drop=True)
+        df_employment = pd.concat([df_employment, job_additions.add_prefix("emp_")], axis=1)
+
+        # Adjust employment columns
+        emp_cols = [col for col in df_employment.columns if col.startswith("emp_")]
+        df_employment[emp_cols] = df_employment.apply(lambda row: row["base_emp"] + row[emp_cols], axis=1)
 
         # Check for negative values and adjust
-        def adjust_row(dataframe_row):
-            min_value = dataframe_row[1:].min()  # Find minimum value excluding the 'OCC' column
+        def adjust_negative_values(row):
+            min_value = row.min()
             if min_value < 0:
-                adjustment = 1.1 * abs(min_value)  # Calculate adjustment value
-                dataframe_row[1:] += adjustment  # Adjust all employment columns
-            return dataframe_row
+                adjustment = 1.1 * abs(min_value)
+                row += adjustment
+            return row
 
-        # Apply the adjustment to all rows with negative values
-        for idx, row in df_employment.iterrows():
-            if any(row[col] < 0 for col in df_employment.columns if col.startswith("emp")):
-                df_employment.loc[idx] = adjust_row(row)
+        df_employment[emp_cols] = df_employment[emp_cols].apply(adjust_negative_values, axis=1)
 
-        return df_employment, node_details_df
+        # Generate network adjacency matrix
+        adjacency_matrix = nx.adjacency_matrix(mobility_network, weight="weight").todense()
+        adjacency_matrix = np.array(adjacency_matrix)
+
+        return df_employment, node_details_df, adjacency_matrix
+
+    def generate_model_inputs(self, region, burn_in: int = 1_000, smooth: int = 3, **kwargs):
+        """
+        Generates the inputs required to run the labour abm.
+        """
+
+        # Load data inputs
+        scenario, node_details, adjacency_matrix = self.generate_model_data_inputs(region=region, **kwargs)
+
+        # Load scenario and convert to numpy array
+        demand_scenario = scenario.drop(columns="OCC").values  # Drop OCC column and convert to numpy array
+
+        # # list of times (for plotting purposes)
+        time_columns = [col for col in scenario.columns if col.startswith("emp")]
+        time_indices = [pd.to_datetime(col.split()[1], format="%Y-%m") for col in time_columns]
+
+        # get n and convert to tensors
+        n_occupations = adjacency_matrix.shape[0]
+        adjacency_matrix = torch.from_numpy(adjacency_matrix)
+        demand_scenario = torch.from_numpy(demand_scenario)
+        t_scenario = demand_scenario.shape[1]
+
+        t_max = burn_in + t_scenario
+
+        # now get e, u, v accordingly
+        e = demand_scenario[:, 0]
+
+        u = 0.045 * e  # 5% of e
+        v = 0.02 * e  # 5% of e
+        # preserve labor force
+        e = e - u
+        sum_e_u = e + u
+        L = sum_e_u.sum()
+
+        # make target demand so that first it is constant so it converges and then scenario
+        d_dagger = torch.zeros(n_occupations, burn_in + t_scenario)
+
+        # Expand sum_e_u for broadcasting
+        sum_e_u_expanded = sum_e_u.unsqueeze(1)  # shape becomes [534, 1]
+        # Populate d_dagger
+        d_dagger[:, :burn_in] = sum_e_u_expanded.repeat(1, burn_in)
+
+        d_dagger[:, burn_in:] = demand_scenario
+
+        # perform smoothing
+        # Convert d_dagger to numpy array for smoothing
+        d_dagger_np = d_dagger.numpy()
+
+        # Apply rolling window smoothing with minimum points 1
+        df_d_dagger = pd.DataFrame(d_dagger_np.T).rolling(window=smooth, min_periods=1).mean().T
+
+        # Convert back to tensor
+        d_dagger = torch.from_numpy(df_d_dagger.values)
+
+        # check positive demand
+        assert torch.all(d_dagger > 0), "Scenarios must not have negative demand"
+
+        # since no data use uniform wages
+        wages = torch.ones(n_occupations)
+
+        model_inputs = {
+            "adjacency_matrix": adjacency_matrix,
+            "e": e,
+            "u": u,
+            "v": v,
+            "L": L,
+            "n_occupations": n_occupations,
+            "t_max": t_max,
+            "wages": wages,
+            "d_dagger": d_dagger,
+            "time_indices": time_indices,
+        }
+
+        return model_inputs

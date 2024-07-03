@@ -10,25 +10,25 @@ class LabourABM:
     def __init__(
         self,
         # number of occupations
-        N: int,
+        n_occupations: int,
         # number of time steps to run model
-        T: int,
+        t_max: int,
         # seed for initial A_hat
         seed: int,
         # Parameters
         # separation and opening rate
-        δ_u: float,
-        δ_v: float,
+        delta_u: float,
+        delta_v: float,
         # adaptation rate u and v
-        γ_u: float,
-        γ_v: float,
+        gamma_u: float,
+        gamma_v: float,
         # probability of on-the-job search
-        λ: float,
+        lam: float,
         # n applications by employed and unemployed
-        β_e: float,
-        β_u: float,
+        beta_e: float,
+        beta_u: float,
         # Ease of Transition matrix (assumed known for now)
-        A: torch.Tensor,
+        adjacency_matrix: torch.Tensor,
         # Scenario/target demand
         d_dagger: torch.Tensor,
         # Employment data
@@ -39,34 +39,34 @@ class LabourABM:
         device: torch.device = torch.device("cpu"),  # Default to CPU
         dtype: torch.dtype = torch.float32,  # Default to float32
     ):
-        self.N = N
-        self.T = T
+        self.N = n_occupations
+        self.T = t_max
         self.seed = seed
-        self.separation_rate = δ_u
-        self.opening_rate = δ_v
-        self.adaptation_u = γ_u
-        self.adaptation_v = γ_v
-        self.otjob_search_prob = λ
-        self.n_applications_emp = β_e
-        self.n_applications_unemp = β_u
-        self.A = A.to(device=device, dtype=dtype)
+        self.separation_rate = delta_u
+        self.opening_rate = delta_v
+        self.adaptation_u = gamma_u
+        self.adaptation_v = gamma_v
+        self.otjob_search_prob = lam
+        self.n_applications_emp = beta_e
+        self.n_applications_unemp = beta_u
+        self.A = adjacency_matrix.to(device=device, dtype=dtype)
         self.d_dagger = d_dagger.to(device=device, dtype=dtype)
         self.device = device
         self.dtype = dtype
 
         # Initialize tensors to hold data for all time steps and set initial values
-        self.employment = torch.zeros((N, T), device=device, dtype=dtype)
-        self.unemployment = torch.zeros((N, T), device=device, dtype=dtype)
-        self.vacancies = torch.zeros((N, T), device=device, dtype=dtype)
+        self.employment = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.unemployment = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.vacancies = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
 
         # Intialize arrays to keep track of what is happening
-        self.spon_separations = torch.zeros((N, T), device=device, dtype=dtype)
-        self.state_separations = torch.zeros((N, T), device=device, dtype=dtype)
-        self.spon_vacancies = torch.zeros((N, T), device=device, dtype=dtype)
-        self.state_vacancies = torch.zeros((N, T), device=device, dtype=dtype)
+        self.spon_separations = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.state_separations = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.spon_vacancies = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.state_vacancies = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
         # point to the target occ
-        self.from_job_to_occ = torch.zeros((N, T), device=device, dtype=dtype)
-        self.from_unemp_to_occ = torch.zeros((N, T), device=device, dtype=dtype)
+        self.from_job_to_occ = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
+        self.from_unemp_to_occ = torch.zeros((n_occupations, t_max), device=device, dtype=dtype)
 
         # Set initial values at time t = 0
         self.employment[:, 0] = initial_employment
