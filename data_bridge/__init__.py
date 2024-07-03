@@ -1,11 +1,17 @@
+from pathlib import Path
+
+import pandas as pd
+
+# Default file paths
 FILE_PATH = Path(__file__).parent
-PROJECT_PATH = FILE_PATH.parent.parent
+PROJECT_PATH = FILE_PATH.parent
 DATA_PATH = PROJECT_PATH / "data"
+
+# Default file names
 FILE_OCCUPATIONS = DATA_PATH / "nat5d_6d_M2018_dl.xlsx"
-FILE_MOBILITY_NETWORK = DATA_PATH / "edge_list_cc_mobility_merge.csv"
+FILE_MOBILITY_NETWORK = DATA_PATH / "edgelist_cc_mobility_merge.csv"
 FILE_TECHNOLOGIES = DATA_PATH / "6digitNAICS_tech.csv"
-CAPACITY_JOB_COLNAME = "CPY (Direct)_linear"
-OPERATION_JOB_COLNAME = "Op FTE (Direct)_linear"
+
 CANADA_LABOUR_FORCE = {
     "Alberta.a": 2.59e6,
     "British Columbia.a": 2.93e6,
@@ -27,6 +33,8 @@ def generic_loader(file_path: Path | str, **kwargs) -> pd.DataFrame:
     """
     Generic loader for data files. It uses the file extension to determine the appropriate loader.
     """
+    if isinstance(file_path, str):
+        file_path = Path(file_path)
     if file_path.suffix == ".csv":
         return pd.read_csv(file_path, **kwargs)
     elif file_path.suffix == ".xlsx":

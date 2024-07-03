@@ -1,20 +1,15 @@
 from pathlib import Path
 from typing import Optional
 
+import networkx as nx
+import numpy as np
 import pandas as pd
-import seaborn as sns
-from matplotlib import pylab as plt
-from matplotlib.ticker import MaxNLocator
 
-from data_bridge import (
-    CANADA_LABOUR_FORCE,
-    CAPACITY_JOB_COLNAME,
-    FILE_MOBILITY_NETWORK,
-    FILE_OCCUPATIONS,
-    FILE_TECHNOLOGIES,
-    OPERATION_JOB_COLNAME,
-    generic_loader,
-)
+from data_bridge import CANADA_LABOUR_FORCE, FILE_MOBILITY_NETWORK, FILE_OCCUPATIONS, FILE_TECHNOLOGIES, generic_loader
+
+# Default column names
+CAPACITY_JOB_COLNAME = "CPY (Direct)_linear"
+OPERATION_JOB_COLNAME = "Op FTE (Direct)_linear"
 
 
 def generate_monthly_range(start_year: int, end_year: int) -> pd.DatetimeIndex:
@@ -83,6 +78,12 @@ class DataBridge:
         if self._tech_to_occupations is None:
             self._tech_to_occupations = self.technologies_to_occupations()
         return self._tech_to_occupations.copy()
+
+    @property
+    def occupation_shocks(self):
+        if self._occupation_shocks is None:
+            self._occupation_shocks = self.shocks_to_occupations()
+        return self._occupation_shocks.copy()
 
     @classmethod
     def from_standard_files(cls, scenario_file: str | Path):
@@ -235,7 +236,7 @@ class DataBridge:
             "value",
         ]
         columns_to_keep += [capacity_jobs_colname, operation_jobs_colname]
-        scenario = scenario.loc[columns_to_keep].copy()
+        scenario = scenario[columns_to_keep].copy()
 
         # Split the job columns into positive and negative
         scenario["CPY (Direct)_linear_positive"] = scenario[capacity_jobs_colname].apply(lambda x: x if x >= 0 else 0)
@@ -255,7 +256,7 @@ class DataBridge:
         scenario["Op FTE (Direct)_linear_positive"].sum() / 1e6
 
         # Distribute the shocks uniformly, month-after-month
-        monthly_jobs_df = distribute_jobs_monthly(scenario)
+        monthly_jobs_df = self.distribute_jobs_monthly(scenario)
 
         monthly_jobs_df["jobs"][
             (monthly_jobs_df["region"] == "National") & (monthly_jobs_df["job_type"] == "CPY_created_jobs")
@@ -265,7 +266,7 @@ class DataBridge:
         ].sum() / 1e6
 
         # Make the operation jobs cumulative
-        monthly_jobs_df = make_operation_jobs_cumulative(monthly_jobs_df)
+        monthly_jobs_df = self.make_operation_jobs_cumulative(monthly_jobs_df)
 
         # Replace the job_type values with more descriptive names
         monthly_jobs_df["job_type"] = monthly_jobs_df["job_type"].replace(
@@ -294,7 +295,7 @@ class DataBridge:
         # Load industry-to-occupation data
         df_occupations = self.occupations
         df_occupations["TOT_EMP"] = pd.to_numeric(df_occupations["TOT_EMP"], errors="coerce")
-        df_occupations["TOT_EMP"].fillna(10, inplace=True)
+        df_occupations["TOT_EMP"] = df_occupations["TOT_EMP"].fillna(10.0)
 
         # Load mobility network
         df_network = self.mobility_network
@@ -357,12 +358,6 @@ class DataBridge:
         # Map technology shocks to occupations
         occupations_shocks = pd.merge(tech_shocks, tech_to_occupations, on="variable", how="left")
         occupations_shocks["jobs_by_occupation"] = occupations_shocks["jobs"] * occupations_shocks["EMP_frac"]
-        occupations_shocks = (
-            occupations_shocks.groupby(["region", "time", "OCC_CODE"])
-            .agg(total_jobs=("jobs_by_occupation", "sum"))
-            .reset_index()
-        )
-        occupations_shocks = occupations_shocks[occupations_shocks["region"] != "National"]
 
         # Create a new DataFrame for national sums by grouping without the region and summing the jobs.
         national_totals = (
@@ -372,8 +367,16 @@ class DataBridge:
         )
         national_totals["region"] = "National"
 
+        # Group by region, time, and occupation code and sum the jobs.
+        regional_totals = (
+            occupations_shocks.groupby(["region", "time", "OCC_CODE"])
+            .agg(total_jobs=("jobs_by_occupation", "sum"))
+            .reset_index()
+        )
+        regional_totals = regional_totals[regional_totals["region"] != "National"]
+
         # Concatenate the regional and national DataFrames.
-        occupations_shocks = pd.concat([occupations_shocks, national_totals], ignore_index=True)
+        occupations_shocks = pd.concat([regional_totals, national_totals], ignore_index=True)
 
         return occupations_shocks
 
@@ -416,25 +419,27 @@ class DataBridge:
         df_employment = pd.DataFrame({"OCC": nodes_order})
         times = sorted(occupation_shocks_region["time"].unique())
         df_pivot = occupation_shocks_region.pivot_table(
-            index="OCC_CODE", columns="time", values="total_jobs", aggfunc="sum", fill_value=0
+            index="OCC_CODE", columns="time", values="total_jobs", aggfunc="sum", fill_value=0.0
         )
-        emp_cols = {f"emp {time}": 0 for time in times}
-        df_employment = pd.concat([df_employment, pd.DataFrame(columns=emp_cols)], sort=False).fillna(0)
+        emp_cols = [f"emp {time}" for time in times]
+        emp_dataframe = pd.DataFrame(0.0, index=df_employment.index, columns=emp_cols)
+
+        df_employment = pd.concat([df_employment, emp_dataframe], axis=1).copy()
 
         for idx, row in df_employment.iterrows():
             occ = row["OCC"]
             base_emp = dict_soc_emp.get(occ, 0)
             job_additions = df_pivot.loc[occ] if occ in df_pivot.index else pd.Series(0, index=times)
             for time in times:
-                df_employment.at[idx, f"emp {time}"] = base_emp + job_additions.get(time, 0)
+                df_employment.at[idx, f"emp {time}"] = base_emp + job_additions.get(time, 0.0)
 
         # Check for negative values and adjust
-        def adjust_row(row):
-            min_value = row[1:].min()  # Find minimum value excluding the 'OCC' column
+        def adjust_row(dataframe_row):
+            min_value = dataframe_row[1:].min()  # Find minimum value excluding the 'OCC' column
             if min_value < 0:
                 adjustment = 1.1 * abs(min_value)  # Calculate adjustment value
-                row[1:] += adjustment  # Adjust all employment columns
-            return row
+                dataframe_row[1:] += adjustment  # Adjust all employment columns
+            return dataframe_row
 
         # Apply the adjustment to all rows with negative values
         for idx, row in df_employment.iterrows():
