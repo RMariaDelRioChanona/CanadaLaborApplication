@@ -7,10 +7,10 @@ import numpy as np
 import pandas as pd
 import torch
 import yaml
-from .data_bridge import generic_loader
-from .data_bridge.bridge import DataBridge
 
 from . import labor_abm as lbm
+from .data_bridge import generic_loader
+from .data_bridge.bridge import DataBridge
 
 FILE_PATH = Path(__file__).parent
 PROJECT_PATH = FILE_PATH.parent
