@@ -1,3 +1,4 @@
+import copy
 import json
 from argparse import ArgumentParser
 from pathlib import Path
@@ -6,8 +7,8 @@ import numpy as np
 import pandas as pd
 import torch
 import yaml
-from data_bridge import generic_loader
-from data_bridge.bridge import DataBridge
+from .data_bridge import generic_loader
+from .data_bridge.bridge import DataBridge
 
 from . import labor_abm as lbm
 
@@ -48,11 +49,11 @@ def setup_parser() -> ArgumentParser:
         "--output",
         "-o",
         type=str,
-        default="./labour_model_results.csv",
+        default="./labour_model_results.json",
         help="Path to the output file.",
     )
     parser.add_argument(
-        "-- region",
+        "--region",
         type=str,
         default="National",
         help="Region to run the model for.",
@@ -85,6 +86,7 @@ def run_model(
     """
 
     # Generate model inputs
+    print("Generating model inputs...")
     databridge = DataBridge.from_standard_files(scenario_file=scenario_filename)
     model_inputs = databridge.generate_model_inputs(region, burn_in=burn_in, smooth=6)
 
@@ -97,16 +99,24 @@ def run_model(
     with open(model_parameters, "r") as f:
         model_params = yaml.safe_load(f)
 
+    model_params["lam"] = 0.01
+    model_params["beta_u"] = 10
+    model_params["beta_e"] = 1
+
     # Overwrite some parameters  # TODO: remove this
     # gamma_u = 0.12
     # gamma_v = 0.12
 
     # Generate network and scenario data
+    model_required_inputs = copy.deepcopy(model_inputs)
+    del model_required_inputs["L"]
+    del model_required_inputs["time_indices"]
 
     # Initialize labor ABM  # TODO: is this the right model ??
-    lab_abm = lbm.LabourABM(seed=seed, **model_params, **model_inputs)
+    lab_abm = lbm.LabourABM(seed=seed, **model_params, **model_required_inputs)
 
     # Run the model
+    print("Running the model...")
     _ = lab_abm.run_model()
 
     # Aggregate data
@@ -118,7 +128,6 @@ def run_model(
     D_dagger = d_dagger.sum(axis=0)
 
     # Save results
-
     results = dict()
     results["configs"] = dict(
         scenario_filename=scenario_filename,
@@ -129,14 +138,15 @@ def run_model(
     )
 
     results["simuation-results"] = dict(
-        total_unemployment=total_unemployment,
-        total_vacancies=total_vacancies,
-        total_employment=total_employment,
-        total_demand=total_demand,
-        d_dagger=d_dagger,
-        D_dagger=D_dagger,
+        total_unemployment=total_unemployment.numpy().tolist(),
+        total_vacancies=total_vacancies.numpy().tolist(),
+        total_employment=total_employment.numpy().tolist(),
+        total_demand=total_demand.numpy().tolist(),
+        d_dagger=d_dagger.numpy().tolist(),
+        D_dagger=D_dagger.numpy().tolist(),
     )
 
+    print("Saving results...")
     return results
 
 

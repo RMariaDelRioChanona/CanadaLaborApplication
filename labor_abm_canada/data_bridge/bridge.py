@@ -439,23 +439,27 @@ class DataBridge:
         df_employment = pd.concat([df_employment, emp_dataframe], axis=1).copy()
 
         # Calculate base employment and job additions
-        df_employment["base_emp"] = df_employment["OCC"].map(dict_soc_emp).fillna(0)
-        job_additions = df_pivot.reindex(df_employment["OCC"]).fillna(0).reset_index(drop=True)
-        df_employment = pd.concat([df_employment, job_additions.add_prefix("emp_")], axis=1)
+        for idx, row in df_employment.iterrows():
+            occ = row["OCC"]
+            base_emp = dict_soc_emp.get(occ, 0)
+            job_additions = df_pivot.loc[occ] if occ in df_pivot.index else pd.Series(0, index=times)
+            for time in times:
+                df_employment.at[idx, f"emp {time}"] = base_emp + job_additions.get(time, 0.0)
 
-        # Adjust employment columns
-        emp_cols = [col for col in df_employment.columns if col.startswith("emp_")]
-        df_employment[emp_cols] = df_employment.apply(lambda row: row["base_emp"] + row[emp_cols], axis=1)
+            # Check for negative values and adjust
 
-        # Check for negative values and adjust
-        def adjust_negative_values(row):
-            min_value = row.min()
+        def adjust_row(dataframe_row):
+            min_value = dataframe_row[1:].min()  # Find minimum value excluding the 'OCC' column
             if min_value < 0:
-                adjustment = 1.1 * abs(min_value)
-                row += adjustment
-            return row
+                adjustment = 1.1 * abs(min_value)  # Calculate adjustment value
+                dataframe_row[1:] += adjustment  # Adjust all employment columns
+            return dataframe_row
 
-        df_employment[emp_cols] = df_employment[emp_cols].apply(adjust_negative_values, axis=1)
+            # Apply the adjustment to all rows with negative values
+
+        for idx, row in df_employment.iterrows():
+            if any(row[col] < 0 for col in df_employment.columns if col.startswith("emp")):
+                df_employment.loc[idx] = adjust_row(row)
 
         # Generate network adjacency matrix
         adjacency_matrix = nx.adjacency_matrix(mobility_network, weight="weight").todense()
@@ -524,9 +528,9 @@ class DataBridge:
 
         model_inputs = {
             "adjacency_matrix": adjacency_matrix,
-            "e": e,
-            "u": u,
-            "v": v,
+            "initial_employment": e,
+            "initial_unemployment": u,
+            "initial_vacancies": v,
             "L": L,
             "n_occupations": n_occupations,
             "t_max": t_max,
