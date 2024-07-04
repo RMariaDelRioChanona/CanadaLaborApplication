@@ -66,11 +66,7 @@ def setup_parser() -> ArgumentParser:
         help="Model parameters file.",
     )
 
-    parser.add_argument(
-        "--aggregate",
-        type=bool,
-        default=
-    )
+    parser.add_argument('--aggregate', action='store_true', help='If flagged, returns aggregate data')
 
     return parser
 
