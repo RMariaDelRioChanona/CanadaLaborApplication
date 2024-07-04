@@ -4,12 +4,10 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 import torch
 import yaml
 
-from . import labor_abm as lbm
-from .data_bridge import generic_loader
+from labor_abm_canada.model import labor_abm as lbm
 from .data_bridge.bridge import DataBridge
 
 FILE_PATH = Path(__file__).parent
@@ -113,19 +111,19 @@ def run_model(
     del model_required_inputs["time_indices"]
 
     # Initialize labor ABM  # TODO: is this the right model ??
-    lab_abm = lbm.LabourABM(seed=seed, **model_params, **model_required_inputs)
+    lab_abm = lbm.LabourABM(**model_params, **model_required_inputs)
 
     # Run the model
     print("Running the model...")
     _ = lab_abm.run_model()
 
     # Aggregate data
-    total_unemployment = lab_abm.unemployment.sum(axis=0)
-    total_vacancies = lab_abm.vacancies.sum(axis=0)
-    total_employment = lab_abm.employment.sum(axis=0)
-    total_demand = lab_abm.d_dagger.sum(axis=0)
-    d_dagger = lab_abm.d_dagger
-    D_dagger = d_dagger.sum(axis=0)
+    total_unemployment = lab_abm.unemployment.sum(dim=0)
+    total_vacancies = lab_abm.vacancies.sum(dim=0)
+    total_employment = lab_abm.employment.sum(dim=0)
+    total_demand = lab_abm.demand_scenario.sum(dim=0)
+    d_dagger = lab_abm.demand_scenario
+    aggregate_demand_scenario = d_dagger.sum(dim=0)
 
     # Save results
     results = dict()
@@ -143,7 +141,7 @@ def run_model(
         total_employment=total_employment.numpy().tolist(),
         total_demand=total_demand.numpy().tolist(),
         d_dagger=d_dagger.numpy().tolist(),
-        D_dagger=D_dagger.numpy().tolist(),
+        D_dagger=aggregate_demand_scenario.numpy().tolist(),
     )
 
     print("Saving results...")
