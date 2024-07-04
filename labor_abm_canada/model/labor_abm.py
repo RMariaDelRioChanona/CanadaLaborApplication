@@ -318,7 +318,9 @@ class LabourABM:
         )
 
 
-def create_symmetric_a_euv_d_daggers(n, t):
+def create_symmetric_a_euv_d_daggers(
+    n: int, t: int
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
     """Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
     and create vectors e, u, v, and matrix d_dagger where each column is e + u.
     """
