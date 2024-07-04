@@ -29,6 +29,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install setuptools
+        run: |
+          pip install setuptools
+
       - name: Install package
         run: python setup.py install
 
