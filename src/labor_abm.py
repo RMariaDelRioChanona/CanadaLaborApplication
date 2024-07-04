@@ -211,7 +211,7 @@ class LabourABM:
 
     # simulation
     def time_step(self, e, u, v, t):
-        # workers separationa and job openings
+        # workers separation and job openings
         # print("time ", t)
         # print("e5, u5, v5 ", e[5], u[5], v[5])
         d = e + v
