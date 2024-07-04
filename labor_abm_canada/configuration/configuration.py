@@ -6,6 +6,27 @@ from pydantic import BaseModel, Field, PositiveInt
 
 
 class LaborSettings(BaseModel):
+    """
+    Parameters for the labor market model.
+
+    Parameters
+    ----------
+    separation_rate : float
+        Rate at which employees separate from their jobs. Must be between 0 and 1.
+    opening_rate : float
+        Rate at which jobs open up. Must be between 0 and 1.
+    adaptation_rate_u : float
+        Rate at which unemployed workers adapt to job search. Must be between 0 and 1.
+    adaptation_rate_v : float
+        Rate at which employed workers adapt to job search. Must be between 0 and 1.
+    otjob_search_prob : float
+        Probability of on-the-job search. Must be between 0 and 1.
+    n_applications_emp : int
+        Number of applications employed workers make.
+    n_applications_unemp : int
+        Number of applications unemployed workers make.
+    """
+
     separation_rate: float = Field(ge=0, le=1)
     opening_rate: float = Field(ge=0, le=1)
     adaptation_rate_u: float = Field(ge=0, le=1)
@@ -38,6 +59,21 @@ class LaborSettings(BaseModel):
 
 
 class ModelConfiguration(BaseModel):
+    """
+    Configuration for the labor market model.
+
+    Parameters
+    ----------
+    labor : LaborSettings
+        Labor market model parameters.
+    t_max : PositiveInt
+        Number of time steps to run the model for.
+    n : PositiveInt
+        Number of occupations.
+    seed : PositiveInt, optional
+        Seed for random number generation
+    """
+
     labor: LaborSettings
     t_max: PositiveInt
     n: PositiveInt
