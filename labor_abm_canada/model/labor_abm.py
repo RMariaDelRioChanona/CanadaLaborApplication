@@ -1,6 +1,8 @@
 from functools import cached_property
 from typing import Tuple
 
+from tqdm import tqdm
+
 import torch
 
 from labor_abm_canada.configuration.configuration import ModelConfiguration
@@ -59,6 +61,7 @@ class LabourABM:
         from_job_to_occ: torch.Tensor,
         from_unemp_to_occ: torch.Tensor,
         wages: torch.Tensor,
+        tqdm_verbose: bool = True,
     ):
         """
         A class to represent an Agent Based Model of the labour market.
@@ -110,6 +113,8 @@ class LabourABM:
             Matrix of job-to-job transitions for each occupation at each time step.
         from_unemp_to_occ : torch.Tensor
             Matrix of unemployment-to-job transitions for each occupation at each time step.
+        tqdm_verbose : bool
+            Whether to print the progress bar during the simulation.
 
 
         Methods
@@ -164,6 +169,7 @@ class LabourABM:
         self.state_vacancies = state_vacancies
         self.from_job_to_occ = from_job_to_occ
         self.from_unemp_to_occ = from_unemp_to_occ
+        self.tqdm_verbose = tqdm_verbose
 
     @classmethod
     def default_create(
@@ -498,7 +504,7 @@ class LabourABM:
 
     def run_model(self):
         """Run the model for t_max time steps."""
-        for t in range(1, self.t_max):
+        for t in tqdm(range(1, self.t_max), disable=not self.tqdm_verbose):
             self.time_step(t)
 
     def calculate_aggregates(self):
