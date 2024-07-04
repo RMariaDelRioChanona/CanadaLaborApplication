@@ -66,6 +66,12 @@ def setup_parser() -> ArgumentParser:
         help="Model parameters file.",
     )
 
+    parser.add_argument(
+        "--aggregate",
+        type=bool,
+        default=
+    )
+
     return parser
 
 
