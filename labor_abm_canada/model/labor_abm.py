@@ -6,6 +6,7 @@ from tqdm import tqdm
 import torch
 
 from labor_abm_canada.configuration.configuration import ModelConfiguration
+from labor_abm_canada.model.aggregates import Aggregates
 
 
 def calc_job_offers(vacancies: torch.Tensor, number_applications: torch.Tensor) -> torch.Tensor:
@@ -590,6 +591,21 @@ class LabourABM:
             sep_ratio,
             vac_ratio,
             jtj_over_utj,
+        )
+
+    @property
+    def aggregates(self) -> Aggregates:
+        return Aggregates(
+            total_unemployment=self.unemployment.sum(dim=0),
+            total_vacancies=self.vacancies.sum(dim=0),
+            total_employment=self.employment.sum(dim=0),
+            total_demand=self.demand_scenario.sum(dim=0),
+            total_spontaneous_separations=self.spontaneous_separations.sum(dim=0),
+            total_state_separations=self.state_separations.sum(dim=0),
+            total_spontaneous_vacancies=self.spontaneous_vacancies.sum(dim=0),
+            total_state_vacancies=self.state_vacancies.sum(dim=0),
+            job_to_job_transitions=self.from_job_to_occ[:, 0].clone(),
+            unemployment_to_job_transitions=self.from_unemp_to_occ[:, 0].clone(),
         )
 
 
