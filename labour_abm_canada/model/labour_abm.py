@@ -1,9 +1,8 @@
 from functools import cached_property
 from typing import Tuple
 
-from tqdm import tqdm
-
 import torch
+from tqdm import tqdm
 
 from labour_abm_canada.configuration.configuration import ModelConfiguration
 from labour_abm_canada.model.aggregates import Aggregates

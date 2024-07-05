@@ -9,7 +9,6 @@ from labour_abm_canada.data_bridge.bridge import DataBridge
 from labour_abm_canada.model import labour_abm as lbm
 from labour_abm_canada.regions.regions import Regions
 
-
 DEFAULT_MODEL_PARAMS = Path(__file__).parent / "model-params.yaml"
 
 
