@@ -4,8 +4,8 @@ import pytest
 import torch
 import yaml
 
-from labor_abm_canada.configuration.configuration import ModelConfiguration
-from labor_abm_canada.model.labor_abm import LabourABM
+from labour_abm_canada.configuration.configuration import ModelConfiguration
+from labour_abm_canada.model.labour_abm import LabourABM
 
 
 @pytest.fixture()

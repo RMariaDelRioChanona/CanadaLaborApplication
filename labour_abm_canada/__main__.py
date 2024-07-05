@@ -2,7 +2,7 @@ import json
 from argparse import ArgumentParser
 from pathlib import Path
 
-from labor_abm_canada.runner import run_model
+from labour_abm_canada.runner import run_model
 
 FILE_PATH = Path(__file__).parent
 PROJECT_PATH = FILE_PATH.parent

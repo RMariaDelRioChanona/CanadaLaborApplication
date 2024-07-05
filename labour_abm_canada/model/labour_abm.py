@@ -5,8 +5,8 @@ from tqdm import tqdm
 
 import torch
 
-from labor_abm_canada.configuration.configuration import ModelConfiguration
-from labor_abm_canada.model.aggregates import Aggregates
+from labour_abm_canada.configuration.configuration import ModelConfiguration
+from labour_abm_canada.model.aggregates import Aggregates
 
 
 def calc_job_offers(vacancies: torch.Tensor, number_applications: torch.Tensor) -> torch.Tensor:

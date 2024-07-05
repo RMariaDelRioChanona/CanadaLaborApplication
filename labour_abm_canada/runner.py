@@ -4,10 +4,10 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from labor_abm_canada.configuration.configuration import LaborSettings, ModelConfiguration
-from labor_abm_canada.data_bridge.bridge import DataBridge
-from labor_abm_canada.model import labor_abm as lbm
-from labor_abm_canada.regions.regions import Regions
+from labour_abm_canada.configuration.configuration import LaborSettings, ModelConfiguration
+from labour_abm_canada.data_bridge.bridge import DataBridge
+from labour_abm_canada.model import labour_abm as lbm
+from labour_abm_canada.regions.regions import Regions
 
 
 DEFAULT_MODEL_PARAMS = Path(__file__).parent / "model-params.yaml"

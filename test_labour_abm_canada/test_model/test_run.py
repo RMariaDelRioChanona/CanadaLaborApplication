@@ -1,9 +1,9 @@
 import pytest
 import torch
 
-from labor_abm_canada.model.labor_abm import LabourABM
-from labor_abm_canada.regions.regions import Regions
-from labor_abm_canada.runner import run_model
+from labour_abm_canada.model.labour_abm import LabourABM
+from labour_abm_canada.regions.regions import Regions
+from labour_abm_canada.runner import run_model
 
 
 class TestModel:
