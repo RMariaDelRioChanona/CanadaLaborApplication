@@ -11,9 +11,9 @@ with open(join(this_dir, "requirements.txt")) as f:
     requirements = f.read().split("\n")
 
 setup(
-    name="labor-abm",
+    name="labour-abm",
     version="0.1.0",
-    description="Labor ABM",
+    description="Labour ABM",
     url="",
     long_description_content_type="text/markdown",
     long_description=long_description,

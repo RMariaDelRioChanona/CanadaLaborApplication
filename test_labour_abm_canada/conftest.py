@@ -4,12 +4,23 @@ import pytest
 import torch
 import yaml
 
-from labor_abm import LaborABM, ModelConfiguration
+from labour_abm_canada.configuration.configuration import ModelConfiguration
+from labour_abm_canada.model.labour_abm import LabourABM
 
 
 @pytest.fixture()
 def default_config_path():
-    return Path(__file__).parent / "default_config.yaml"
+    return Path(__file__).parent / "test_data" / "default_config.yaml"
+
+
+@pytest.fixture()
+def default_scenario_path():
+    return Path(__file__).parent / "test_data" / "net_new_cap_w_jobs.csv"
+
+
+@pytest.fixture()
+def default_runner_config():
+    return Path(__file__).parent / "test_data" / "model_params.yaml"
 
 
 @pytest.fixture()
@@ -36,7 +47,7 @@ def twonode_model(default_config):
     d_dagger = sum_e_u.unsqueeze(1).repeat(1, t_max)
     wages = torch.rand([1, 1])
 
-    return LaborABM.default_create(
+    return LabourABM.default_create(
         model_configuration=default_config,
         transition_matrix=twonode_transition,
         initial_employment=initial_employment,

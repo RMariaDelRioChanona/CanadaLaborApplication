@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import torch
 
-from labor_abm_canada.data_bridge import (
+from labour_abm_canada.data_bridge import (
     CANADA_LABOUR_FORCE,
     FILE_MOBILITY_NETWORK,
     FILE_OCCUPATIONS,
