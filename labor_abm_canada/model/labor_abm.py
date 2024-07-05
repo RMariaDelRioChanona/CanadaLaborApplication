@@ -1,18 +1,37 @@
+from functools import cached_property
 from typing import Tuple
+
+from tqdm import tqdm
 
 import torch
 
 from labor_abm_canada.configuration.configuration import ModelConfiguration
 
 
-def calc_job_offers(v, sj):
-    """Calculate number of vacancies that received at least one applicant"""
-    v_inv = torch.reciprocal(v)
+def calc_job_offers(vacancies: torch.Tensor, number_applications: torch.Tensor) -> torch.Tensor:
+    """Calculate the number of job offers for each occupation.
+    The probability that a job is offered is given by 1-exp(-n/v) for each vacancy, where n is the number of
+    applications and v is the number of vacancies. The number of job offers is then given by n * p, where n is the
+    number of vacancies and p is the probability defined above.
+
+    Parameters
+    ----------
+    vacancies : torch.Tensor
+        Vector of vacancy levels for each occupation.
+    number_applications : torch.Tensor
+        Matrix of the number of applications sent by workers to each vacancy for each occupation.
+
+    Returns
+    -------
+    torch.Tensor
+        Matrix of the number of job offers for each occupation.
+    """
+    v_inv = torch.reciprocal(vacancies)
     v_inv[torch.isinf(v_inv)] = 0
 
-    prob_job_offer = 1 - torch.exp(-torch.multiply(sj, v_inv))
+    prob_job_offer = 1 - torch.exp(-torch.multiply(number_applications, v_inv))
 
-    job_offers = torch.multiply(v, prob_job_offer)
+    job_offers = torch.multiply(vacancies, prob_job_offer)
 
     return job_offers
 
@@ -42,7 +61,92 @@ class LabourABM:
         from_job_to_occ: torch.Tensor,
         from_unemp_to_occ: torch.Tensor,
         wages: torch.Tensor,
+        tqdm_verbose: bool = True,
     ):
+        """
+        A class to represent an Agent Based Model of the labour market.
+
+        Attributes
+        ----------
+        n : int
+            Number of occupations in the model.
+        t_max : int
+            Number of time steps to run the model.
+        separation_rate : float
+            Rate of spontaneous separations (firings).
+        opening_rate : float
+            Rate of spontaneous job openings.
+        adaptation_rate_u : float
+            Rate of state-dependent separations.
+        adaptation_rate_v : float
+            Rate of state-dependent job openings.
+        otjob_search_prob : float
+            Probability of an employed worker to search for a job outside their occupation.
+        n_applications_emp : int
+            Number of applications sent by employed workers.
+        n_applications_unemp : int
+            Number of applications sent by unemployed workers.
+        transition_matrix : torch.Tensor
+            Matrix of transition probabilities between occupations.
+        demand_scenario : torch.Tensor
+            Vector of demand for each occupation at each time step.
+        employment : torch.Tensor
+            Matrix of employment levels for each occupation at each time step.
+            (must be initialised)
+        unemployment : torch.Tensor
+            Matrix of unemployment levels for each occupation at each time step.
+            (must be initialised)
+        vacancies : torch.Tensor
+            Matrix of vacancy levels for each occupation at each time step.
+            (must be initialised)
+        wages : torch.Tensor
+            Vector of average wages for each occupation.
+        spontaneous_separations : torch.Tensor
+            Matrix of spontaneous separations for each occupation at each time step.
+        state_separations : torch.Tensor
+            Matrix of state-dependent separations for each occupation at each time step.
+        spontaneous_vacancies : torch.Tensor
+            Matrix of spontaneous vacancies for each occupation at each time step.
+        state_vacancies : torch.Tensor
+            Matrix of state-dependent vacancies for each occupation at each time step.
+        from_job_to_occ : torch.Tensor
+            Matrix of job-to-job transitions for each occupation at each time step.
+        from_unemp_to_occ : torch.Tensor
+            Matrix of unemployment-to-job transitions for each occupation at each time step.
+        tqdm_verbose : bool
+            Whether to print the progress bar during the simulation.
+
+
+        Methods
+        -------
+        compute_spontaneous_separations(e)
+            Compute the number of spontaneous separations for each occupation given the employment levels.
+        compute_spontaneous_openings(e)
+            Compute the number of spontaneous job openings for each occupation given the employment levels.
+        state_dep_separations(diff_demand)
+            Compute the number of state-dependent separations for each occupation given the difference between
+            current demand and target demand.
+        state_dep_openings(diff_demand)
+            Compute the number of state-dependent job openings for each occupation given the difference between
+            current demand and target demand.
+        calc_attractiveness_vacancy()
+            Calculate the attractiveness of each vacancy for each occupation.
+        calc_probability_applying(v)
+            Calculate the probability of applying to each vacancy for each occupation.
+        calc_applicants_and_applications_sent(e, u, v)
+            Calculate the number of applicants and applications sent for each occupation.
+        calc_prob_workers_with_offers(v, sj)
+            Calculate the probability of workers receiving job offers for each occupation.
+        time_step(t)
+            Run one time step of the model.
+        run_model()
+            Run the model for t_max time steps.
+        calculate_aggregates()
+            Calculate the aggregate variables of the model.
+        calculate_rates()
+            Calculate the rates of unemployment, employment, and job vacancies.
+        """
+
         self.n = n
         self.t_max = t_max
         self.separation_rate = separation_rate
@@ -65,6 +169,7 @@ class LabourABM:
         self.state_vacancies = state_vacancies
         self.from_job_to_occ = from_job_to_occ
         self.from_unemp_to_occ = from_unemp_to_occ
+        self.tqdm_verbose = tqdm_verbose
 
     @classmethod
     def default_create(
@@ -77,6 +182,34 @@ class LabourABM:
         initial_unemployment: torch.Tensor,
         initial_vacancies: torch.Tensor,
     ) -> "LabourABM":
+        """
+        Default initialiser of the LabourABM class.
+        It initialises the model with the given configuration and initial values for employment, unemployment,
+        and vacancies.
+
+        Parameters
+        ----------
+        model_configuration : ModelConfiguration
+            Configuration of the model.
+        transition_matrix : torch.Tensor
+            Matrix of transition probabilities between occupations.
+        demand_scenario : torch.Tensor
+            Vector of demand for each occupation at each time step.
+        wages : torch.Tensor
+            Vector of average wages for each occupation.
+        initial_employment : torch.Tensor
+            Vector of initial employment levels for each occupation.
+        initial_unemployment : torch.Tensor
+            Vector of initial unemployment levels for each occupation.
+        initial_vacancies : torch.Tensor
+            Vector of initial vacancy levels for each occupation.
+
+        Returns
+        -------
+        LabourABM
+            A new instance of the LabourABM class.
+
+        """
         unemployment = torch.zeros((model_configuration.n, model_configuration.t_max))
         unemployment[:, 0] = initial_unemployment
         employment = torch.zeros((model_configuration.n, model_configuration.t_max))
@@ -108,73 +241,178 @@ class LabourABM:
             from_unemp_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
         )
 
-    # def initialize_variables(self):
-    #     e = self.employment[:, 0].clone()
-    #     u = self.unemployment[:, 0].clone()
-    #     v = self.vacancies[:, 0].clone()
-    #
-    #     # Variables that keep track on things
-    #     spon_sep = self.spon_separations[:, 0].clone()
-    #     state_sep = self.state_separations[:, 0].clone()
-    #     spon_vac = self.spon_vacancies[:, 0].clone()
-    #     state_vac = self.state_vacancies[:, 0].clone()
-    #     jtj = self.from_job_to_occ[:, 0].clone()
-    #     utj = self.from_unemp_to_occ[:, 0].clone()
-    #
-    #     return e, u, v, spon_sep, state_sep, spon_vac, state_vac, jtj, utj
+    def compute_spontaneous_separations(self, employment: torch.Tensor) -> torch.Tensor:
+        """
+        Compute the number of spontaneous separations for each occupation given the employment levels.
+        Given by the separation rate times the employment level.
 
-    # Separation and job opennings
-    def compute_spontaneous_separations(self, e: torch.Tensor) -> torch.Tensor:
-        return self.separation_rate * e
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
 
-    def compute_spontaneous_openings(self, e: torch.Tensor) -> torch.Tensor:
-        return self.opening_rate * e
+        Returns
+        -------
+        torch.Tensor
+            Vector of spontaneous separations for each occupation
+
+        """
+        return self.separation_rate * employment
+
+    def compute_spontaneous_openings(self, employment: torch.Tensor) -> torch.Tensor:
+        """
+        Compute the number of spontaneous job openings for each occupation given the employment levels.
+        Given by the opening rate times the employment level.
+
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of spontaneous job openings for each occupation
+        """
+        return self.opening_rate * employment
 
     def state_dep_separations(self, diff_demand: torch.Tensor) -> torch.Tensor:
-        return (1 - self.separation_rate) * self.adaptation_rate_u * torch.maximum(torch.zeros(self.n), diff_demand)
+        """
+        Compute the number of state-dependent separations for each occupation given the difference between
+        current demand and target demand.
+
+        Parameters
+        ----------
+        diff_demand : torch.Tensor
+            Vector of differences between current demand and target demand for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of state-dependent separations for each occupation
+        """
+        return (1 - self.separation_rate) * self.adaptation_rate_u * torch.clip(diff_demand, min=0)
 
     def state_dep_openings(self, diff_demand: torch.Tensor) -> torch.Tensor:
-        return (1 - self.opening_rate) * self.adaptation_rate_v * torch.maximum(torch.zeros(self.n), -diff_demand)
+        """
+        Compute the number of state-dependent job openings for each occupation given the difference between
+        current demand and target demand.
+
+        Parameters
+        ----------
+        diff_demand : torch.Tensor
+            Vector of differences between current demand and target demand for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of state-dependent job openings for each occupation
+
+        """
+        return (1 - self.opening_rate) * self.adaptation_rate_v * torch.clip(-diff_demand, min=0)
 
     # Search process
-    def calc_attractiveness_vacancy(self) -> torch.Tensor:
-        """wage(np.array) average wage in category
-        A ease of transitioning between categories
+    @cached_property
+    def vacancy_attractiveness(self) -> torch.Tensor:
+        """
+        Calculate the attractiveness of each vacancy for each occupation.
+        The attractiveness is given by the product of the wages and the transition matrix,
+        so that the attractiveness a_i = w_i * q_ij.
         """
         attractiveness = torch.mul(self.wages, self.transition_matrix)
         return attractiveness
 
-    def calc_probability_applying(self, v: torch.Tensor) -> torch.Tensor:
-        """How attractive a vacancy is depending on skills, geography, wage, etc"""
-        attractiveness = self.calc_attractiveness_vacancy()
-        unnorm_prob = torch.mul(v, attractiveness)
+    def calc_probability_applying(self, vacancies: torch.Tensor) -> torch.Tensor:
+        """Computes the probability of applying to each vacancy for each occupation.
+        It is proportional to the product of the attractiveness of the vacancy and the number of vacancies.
+
+        Parameters
+        ----------
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Matrix of probabilities of applying to each vacancy for each occupation."""
+        attractiveness = self.vacancy_attractiveness
+        unnorm_prob = torch.mul(vacancies, attractiveness)
         prob = unnorm_prob / torch.sum(unnorm_prob, dim=1, keepdim=True)
         return prob
 
     def calc_applicants_and_applications_sent(
-        self, e: torch.Tensor, u: torch.Tensor, v: torch.Tensor
+        self, employment: torch.Tensor, unemployment: torch.Tensor, vacancies: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
-        """expected number of applications sent from one category to another"""
-        prob_applying = self.calc_probability_applying(v)
+        """
+        Compute the number of applicants and applications sent for each occupation.
+
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
+        unemployment : torch.Tensor
+            Vector of unemployment levels for each occupation.
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]
+            - employed_applicant_fraction : torch.Tensor
+                Matrix of the fraction of employed workers applying to each vacancy for each occupation.
+            - unemployed_application_fraction : torch.Tensor
+                Matrix of the fraction of unemployed workers applying to each vacancy for each occupation.
+            - number_applications_employed : torch.Tensor
+                Matrix of the number of applications sent by employed workers to each vacancy for each occupation.
+            - number_applications_unemployed : torch.Tensor
+                Matrix of the number of applications sent by unemployed workers to each vacancy for each occupation.
+        """
+        prob_applying = self.calc_probability_applying(vacancies)
 
         # applicants
-        aij_e = self.otjob_search_prob * torch.mul(e[:, None], prob_applying)
-        aij_u = torch.mul(u[:, None], prob_applying)
+        employed_applicant_fraction = self.otjob_search_prob * torch.mul(employment[:, None], prob_applying)
+        unemployed_application_fraction = torch.mul(unemployment[:, None], prob_applying)
 
         # sij(e) = β_e*ei*qij
-        sij_e = self.n_applications_emp * aij_e
+        number_applications_employed = self.n_applications_emp * employed_applicant_fraction
         # sij(u) = β_u*ui*qij
-        sij_u = self.n_applications_unemp * aij_u
+        number_applications_unemployed = self.n_applications_unemp * unemployed_application_fraction
 
-        return aij_e, aij_u, sij_e, sij_u
+        return (
+            employed_applicant_fraction,
+            unemployed_application_fraction,
+            number_applications_employed,
+            number_applications_unemployed,
+        )
 
-    def calc_prob_workers_with_offers(self, v: torch.Tensor, sj: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
-        job_offers = calc_job_offers(v, sj)
+    def calc_prob_workers_with_offers(
+        self, vacancies: torch.Tensor, number_applications: torch.Tensor
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Calculate the probability of workers receiving job offers for each occupation.
+
+        Parameters
+        ----------
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+        number_applications : torch.Tensor
+            Matrix of the number of applications sent by workers to each vacancy for each occupation.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor]
+            - got_offer_e : torch.Tensor
+                Vector of the probability of employed workers receiving job offers for each occupation.
+            - got_offer_u : torch.Tensor
+                Vector of the probability of unemployed workers receiving job offers for each occupation
+        """
+
+        job_offers = calc_job_offers(vacancies, number_applications)
         # (beta_apps - l); where l = 0 to beta
-        active_applications_from_u = torch.repeat_interleave(sj, self.n_applications_unemp).reshape(
+        active_applications_from_u = torch.repeat_interleave(number_applications, self.n_applications_unemp).reshape(
             self.n, self.n_applications_unemp
         ) - torch.tensor(range(self.n_applications_unemp))
-        active_applications_from_e = torch.repeat_interleave(sj, self.n_applications_emp).reshape(
+        active_applications_from_e = torch.repeat_interleave(number_applications, self.n_applications_emp).reshape(
             self.n, self.n_applications_emp
         ) - torch.tensor(range(self.n_applications_emp))
         # prob of an app x not being drawn
@@ -192,31 +430,42 @@ class LabourABM:
 
     # simulation
     def time_step(self, t: int):
-        # workers separationa and job openings
-        # print("time ", t)
-        # print("e5, u5, v5 ", e[5], u[5], v[5])
+        """
+        Run one time step of the model.
+
+        The following steps are performed:
+        - Compute the number of spontaneous separations and job openings.
+        - Compute the number of state-dependent separations and job openings, by first computing the current realised
+        demand (sum of employment and vacancies), then computing the difference between the realised demand and the
+        target demand, dictated by the demand scenario.
+        - Compute the number of applicants and applications sent for each occupation.
+        - Compute the probability of workers receiving job offers for each occupation.
+        - Match workers and update the employment, unemployment, and vacancies levels for each occupation.
+
+        Parameters
+        ----------
+        t : int
+            Current time step.
+        """
+        # workers separations and job openings
         d = self.employment[:, t - 1] + self.vacancies[:, t - 1]
         diff_demand = d - self.demand_scenario[:, t]
         spon_sep = self.compute_spontaneous_separations(self.employment[:, t - 1])
         state_sep = self.state_dep_separations(diff_demand)
         spon_vac = self.compute_spontaneous_openings(self.employment[:, t - 1])
         state_vac = self.state_dep_openings(diff_demand)
-        # print("spon sep ", spon_sep[5])
-        # print("state sep ", state_sep[5])
         separated_workers = spon_sep + state_sep
         opened_vacancies = spon_vac + state_vac
 
-        # search
+        # job search
         aij_e, aij_u, sij_e, sij_u = self.calc_applicants_and_applications_sent(
             self.employment[:, t - 1],
             self.unemployment[:, t - 1],
             self.vacancies[:, t - 1],
-        )  # print("siju 3,5", sij_u[3,5])
-        # NOTE / to-do, make sj come be calculated inside a function
+        )
         sj = (sij_u + sij_e).sum(dim=0)
-        # print("sj 5", sj[5])
+
         # matching
-        # NOTE modifying below to debug
         prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(self.vacancies[:, t - 1], sj)
         # what about acceptance?
         fij_e = aij_e * prob_offer_e
@@ -236,10 +485,9 @@ class LabourABM:
         # TODO check right sum
         jtj = fij_e.sum(dim=1)
         utj = fij_u.sum(dim=1)
-        # updating values
-        # print("got employed fij_u.sum(dim=1)[5]", fij_u.sum(dim=1)[5])
-        # print("sep workers[5]", separated_workers[5])
-        # print("u[5]", u[5])
+
+        # update
+
         self.employment[:, t] = self.employment[:, t - 1] - separated_workers + fij.sum(dim=0) - fij_e.sum(dim=1)
 
         self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - fij_u.sum(dim=0)
@@ -255,10 +503,37 @@ class LabourABM:
         self.from_unemp_to_occ[:, t] = utj
 
     def run_model(self):
-        for t in range(1, self.t_max):
+        """Run the model for t_max time steps."""
+        for t in tqdm(range(1, self.t_max), disable=not self.tqdm_verbose):
             self.time_step(t)
 
     def calculate_aggregates(self):
+        """Calculate the aggregate variables of the model.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]
+            - total_unemployment : torch.Tensor
+                Vector of total unemployment levels at each time step.
+            - total_vacancies : torch.Tensor
+                Vector of total vacancy levels at each time step.
+            - total_employment : torch.Tensor
+                Vector of total employment levels at each time step.
+            - total_demand : torch.Tensor
+                Vector of total demand levels at each time step.
+            - total_spontaneous_separations : torch.Tensor
+                Vector of total spontaneous separations at each time step.
+            - total_state_separations : torch.Tensor
+                Vector of total state-dependent separations at each time step.
+            - total_spontaneous_vacancies : torch.Tensor
+                Vector of total spontaneous vacancies at each time step.
+            - total_state_vacancies : torch.Tensor
+                Vector of total state-dependent vacancies at each time step.
+            - job_to_job_transitions : torch.Tensor
+                Vector of job-to-job transitions at each time step.
+            - unemployment_to_job_transitions : torch.Tensor
+                Vector of unemployment-to-job transitions at each time step."""
+
         total_unemployment = (self.unemployment.sum(dim=0),)
         total_vacancies = (self.vacancies.sum(dim=0),)
         total_employment = (self.employment.sum(dim=0),)
