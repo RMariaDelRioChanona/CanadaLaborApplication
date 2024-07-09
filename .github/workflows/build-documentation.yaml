@@ -29,7 +29,7 @@ jobs:
 
       - name: Generate API documentation with pdoc3
         run: |
-          pdoc --html --output-dir labour-abm-canada-docs/docs/api labour_abm_canada
+          pdoc --html --force --output-dir labour-abm-canada-docs/docs/api labour_abm_canada
 
 #      # Uncomment the following lines for the deployment of the MkDocs site
 #      - name: Build and deploy MkDocs site
