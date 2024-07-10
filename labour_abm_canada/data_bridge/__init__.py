@@ -10,8 +10,8 @@ import pandas as pd
 
 # Default file paths
 FILE_PATH = Path(__file__).parent
-PROJECT_PATH = FILE_PATH.parent.parent
-DATA_PATH = PROJECT_PATH / "data"
+PACKAGE_PATH = FILE_PATH.parent
+DATA_PATH = PACKAGE_PATH / "data"
 
 # Default file names
 FILE_OCCUPATIONS = DATA_PATH / "nat5d_6d_M2018_dl.xlsx"
