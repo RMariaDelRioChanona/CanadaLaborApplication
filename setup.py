@@ -22,5 +22,7 @@ setup(
     license="CCBY4",
     install_requires=requirements,
     packages=find_packages(exclude=["docs"]),
+    package_data={"labour_abm_canada": ["data/*", "*.yaml"]},
     include_package_data=True,
+    entry_points={"console_scripts": ["labour_abm_canada=labour_abm_canada.__main__:main"]},
 )
