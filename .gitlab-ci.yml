@@ -1,0 +1,35 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - pip install --upgrade pip
+
+build_documentation:
+  stage: build
+  image: python:3.11  # Use the Python version you need
+  script:
+    - pip install mkdocs mkdocs-material pdoc3
+    - pip install -r requirements.txt
+    - pdoc --html --force --output-dir labour-abm-canada-docs/docs/api labour_abm_canada
+  artifacts:
+    paths:
+      - labour-abm-canada-docs/docs/api
+    expire_in: 1 week  # Adjust as needed
+  only:
+    - branches
+    - merge_requests
+
+pages:
+  stage: deploy
+  image: python:3.11
+  script:
+    - pip install mkdocs mkdocs-material
+    - mkdocs build --clean
+  artifacts:
+    paths:
+      - public
