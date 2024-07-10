@@ -87,7 +87,7 @@ def run_model(
         model_params=model_configuration.dict(),
     )
 
-    results["simuation-results"] = dict(
+    results["simulation-results"] = dict(
         total_unemployment=total_unemployment.numpy().tolist(),
         total_vacancies=total_vacancies.numpy().tolist(),
         total_employment=total_employment.numpy().tolist(),
