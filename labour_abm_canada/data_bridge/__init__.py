@@ -1,3 +1,9 @@
+"""
+**Data Bridge**
+
+The data_bridge module contains all the classes and functions used to load and process the input data for the model.
+"""
+
 from pathlib import Path
 
 import pandas as pd

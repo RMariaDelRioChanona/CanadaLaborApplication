@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>labour_abm_canada.data_bridge.bridge API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>labour_abm_canada.data_bridge.bridge</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="labour_abm_canada.data_bridge.bridge.generate_monthly_range"><code class="name flex">
+<span>def <span class="ident">generate_monthly_range</span></span>(<span>start_year: int, end_year: int) ‑> pandas.core.indexes.datetimes.DatetimeIndex</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a monthly range between two years</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start_year</code></strong> :&ensp;<code>int</code></dt>
+<dd>The start year</dd>
+<dt><strong><code>end_year</code></strong> :&ensp;<code>int</code></dt>
+<dd>The end year</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pd.DatetimeIndex</code></dt>
+<dd>A monthly range between the two years</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge"><code class="flex name class">
+<span>class <span class="ident">DataBridge</span></span>
+<span>(</span><span>scenario: pandas.core.frame.DataFrame, occupations: pandas.core.frame.DataFrame, mobility_network: pandas.core.frame.DataFrame, technologies: pandas.core.frame.DataFrame, tech_shocks: Optional[pandas.core.frame.DataFrame] = None, tech_to_occupations: Optional[pandas.core.frame.DataFrame] = None, occupation_shocks: Optional[pandas.core.frame.DataFrame] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that builds labour model inputs starting from "raw" data sources.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataBridge:
+    &#34;&#34;&#34;
+    A class that builds labour model inputs starting from &#34;raw&#34; data sources.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        scenario: pd.DataFrame,
+        occupations: pd.DataFrame,
+        mobility_network: pd.DataFrame,
+        technologies: pd.DataFrame,
+        tech_shocks: Optional[pd.DataFrame] = None,
+        tech_to_occupations: Optional[pd.DataFrame] = None,
+        occupation_shocks: Optional[pd.DataFrame] = None,
+    ):
+
+        self._scenario = scenario
+        self._occupations = occupations
+        self._mobility_network = mobility_network
+        self._technologies = technologies
+
+        self._tech_shocks = tech_shocks
+        self._tech_to_occupations = tech_to_occupations
+        self._occupation_shocks = occupation_shocks
+
+    @property
+    def scenario(self):
+        return self._scenario.copy()
+
+    @property
+    def occupations(self):
+        return self._occupations.copy()
+
+    @property
+    def mobility_network(self):
+        return self._mobility_network.copy()
+
+    @property
+    def technologies(self):
+        return self._technologies.copy()
+
+    @property
+    def tech_shocks(self):
+        if self._tech_shocks is None:
+            self._tech_shocks = self.shocks_to_technologies()
+        return self._tech_shocks.copy()
+
+    @property
+    def tech_to_occupations(self):
+        if self._tech_to_occupations is None:
+            self._tech_to_occupations = self.technologies_to_occupations()
+        return self._tech_to_occupations.copy()
+
+    @property
+    def occupation_shocks(self):
+        if self._occupation_shocks is None:
+            self._occupation_shocks = self.shocks_to_occupations()
+        return self._occupation_shocks.copy()
+
+    @classmethod
+    def from_standard_files(cls, scenario_file: str | Path):
+        &#34;&#34;&#34;
+        Creates a DataBridge instance from standard files.
+        &#34;&#34;&#34;
+        scenario = generic_loader(scenario_file)
+        occupations = generic_loader(FILE_OCCUPATIONS)
+        mobility_network = generic_loader(FILE_MOBILITY_NETWORK)
+        technologies = generic_loader(FILE_TECHNOLOGIES)
+
+        return cls(scenario, occupations, mobility_network, technologies)
+
+    @classmethod
+    def from_files(
+        cls,
+        scenario_file: str | Path,
+        occupations_file: str | Path,
+        mobility_network_file: str | Path,
+        technologies_file: str | Path,
+    ):
+        &#34;&#34;&#34;
+        Creates a DataBridge instance from custom files.
+        &#34;&#34;&#34;
+        scenario = generic_loader(scenario_file)
+        occupations = generic_loader(occupations_file)
+        mobility_network = generic_loader(mobility_network_file)
+        technologies = generic_loader(technologies_file)
+
+        return cls(scenario, occupations, mobility_network, technologies)
+
+    @staticmethod
+    def make_operation_jobs_cumulative(monthly_jobs: pd.DataFrame) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Makes the losses of operation jobs cumulative
+
+        Args:
+            monthly_jobs (pd.DataFrame): The DataFrame with the monthly jobs data
+        &#34;&#34;&#34;
+
+        # Step 1: Filter out the &#39;Op&#39; job types
+        op_jobs = monthly_jobs[monthly_jobs[&#34;job_type&#34;].isin([&#34;Op_created_jobs&#34;, &#34;Op_destroyed_jobs&#34;])]
+        # Step 2: Sort by &#39;time&#39; to ensure correct order for cumulative sum
+        op_jobs = op_jobs.sort_values(by=[&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;job_type&#34;, &#34;time&#34;])
+        # Step 3: Apply cumulative sum on the &#39;jobs&#39; column within each group
+        op_jobs[&#34;jobs&#34;] = op_jobs.groupby([&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;job_type&#34;])[&#34;jobs&#34;].cumsum()
+        # Step 4: Extract the non-Op job types to concatenate them back together
+        non_op_jobs_df = monthly_jobs[~monthly_jobs[&#34;job_type&#34;].isin([&#34;Op_created_jobs&#34;, &#34;Op_destroyed_jobs&#34;])]
+        # Step 5: Concatenate back the modified Op jobs data with the non-Op jobs data
+        updated_monthly_jobs_df = pd.concat([non_op_jobs_df, op_jobs], ignore_index=True)
+        # Sorting to restore any order if necessary
+        updated_monthly_jobs_df = updated_monthly_jobs_df.sort_values(
+            by=[&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;job_type&#34;, &#34;time&#34;]
+        )
+        return updated_monthly_jobs_df
+
+    @staticmethod
+    def distribute_jobs_monthly(scenario: pd.DataFrame):
+        &#34;&#34;&#34;
+        Distributes shocks uniformly month-after-month
+
+        Args:
+            scenario (pd.DataFrame): The DataFrame with the &#34;primary&#34; shocks for the labour ABM.
+        &#34;&#34;&#34;
+
+        # List to store the new entries
+        data = []
+
+        # Job columns and their descriptive names
+        job_columns = [
+            (&#34;CPY (Direct)_linear_positive&#34;, &#34;CPY_created_jobs&#34;),
+            (&#34;CPY (Direct)_linear_negative&#34;, &#34;CPY_destroyed_jobs&#34;),
+            (&#34;Op FTE (Direct)_linear_positive&#34;, &#34;Op_created_jobs&#34;),
+            (&#34;Op FTE (Direct)_linear_negative&#34;, &#34;Op_destroyed_jobs&#34;),
+        ]
+
+        # Iterate over the DataFrame
+        for _, row in scenario.iterrows():
+            start_year = int(row[&#34;time&#34;])
+            if start_year == 2021:
+                end_year = 2025
+            else:
+                start_year += 1  # Adjust start year for next period
+                end_year = start_year + 4
+
+            # Generate the monthly range for each period
+            monthly_range = generate_monthly_range(start_year, end_year)
+
+            # Distribute jobs monthly for each type
+            for job_column, job_type in job_columns:
+                job_value = row[job_column]
+                job_per_month_acc = job_value / len(monthly_range)  # Distribute evenly across all months
+
+                for date in monthly_range:
+                    data.append(
+                        {
+                            &#34;region&#34;: row[&#34;region&#34;],
+                            &#34;variable&#34;: row[&#34;variable&#34;],
+                            &#34;model&#34;: row[&#34;model&#34;],
+                            &#34;scenario&#34;: row[&#34;scenario&#34;],
+                            &#34;time&#34;: date.strftime(&#34;%Y-%m&#34;),  # Format as year-month
+                            &#34;unit&#34;: row[&#34;unit&#34;],
+                            &#34;jobs&#34;: job_per_month_acc,
+                            &#34;job_type&#34;: job_type,
+                        }
+                    )
+
+        monthly_jobs_df = pd.DataFrame(data)
+        # Group by the relevant columns and sum the jobs for all regions
+        national_jobs = monthly_jobs_df.groupby(
+            [&#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;time&#34;, &#34;job_type&#34;, &#34;unit&#34;], as_index=False
+        ).agg({&#34;jobs&#34;: &#34;sum&#34;})
+
+        # Add a &#39;region&#39; column filled with &#39;National&#39;
+        national_jobs[&#34;region&#34;] = &#34;National&#34;
+
+        # Concatenate the national_jobs DataFrame back to the original monthly_jobs_df
+        monthly_jobs_df = pd.concat([monthly_jobs_df, national_jobs], ignore_index=True)
+
+        # Optionally, you might want to sort the DataFrame by time or other columns to maintain order
+        monthly_jobs_df = monthly_jobs_df.sort_values(
+            by=[&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;job_type&#34;, &#34;time&#34;]
+        )
+
+        # Convert the list to DataFrame
+        return monthly_jobs_df
+
+    def shocks_to_technologies(
+        self,
+        capacity_jobs_colname: str = CAPACITY_JOB_COLNAME,
+        operation_jobs_colname: str = OPERATION_JOB_COLNAME,
+    ) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;
+        Transforms the scenario dataframe into a timeseries of job creation and destruction for capacity and
+        operations.
+
+        Args:
+            capacity_jobs_colname (str): The column name for capacity jobs.
+            operation_jobs_colname (str): The column name for operation jobs.
+        &#34;&#34;&#34;
+        scenario = self.scenario
+
+        columns_to_keep = [
+            &#34;region&#34;,
+            &#34;variable&#34;,
+            &#34;model&#34;,
+            &#34;scenario&#34;,
+            &#34;time&#34;,
+            &#34;unit&#34;,
+            &#34;value&#34;,
+        ]
+        columns_to_keep += [capacity_jobs_colname, operation_jobs_colname]
+        scenario = scenario[columns_to_keep].copy()
+
+        # Split the job columns into positive and negative
+        scenario[&#34;CPY (Direct)_linear_positive&#34;] = scenario[capacity_jobs_colname].apply(lambda x: x if x &gt;= 0 else 0)
+        scenario[&#34;CPY (Direct)_linear_negative&#34;] = scenario[capacity_jobs_colname].apply(lambda x: x if x &lt;= 0 else 0)
+        scenario[&#34;Op FTE (Direct)_linear_positive&#34;] = scenario[operation_jobs_colname].apply(
+            lambda x: x if x &gt;= 0 else 0
+        )
+        scenario[&#34;Op FTE (Direct)_linear_negative&#34;] = scenario[operation_jobs_colname].apply(
+            lambda x: x if x &lt;= 0 else 0
+        )
+
+        # Aggregate rows with the same region, variable, and time
+        scenario = scenario.groupby([&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;time&#34;, &#34;unit&#34;], as_index=False).sum()
+
+        # Rescale
+        scenario[&#34;CPY (Direct)_linear_positive&#34;].sum() / 1e6
+        scenario[&#34;Op FTE (Direct)_linear_positive&#34;].sum() / 1e6
+
+        # Distribute the shocks uniformly, month-after-month
+        monthly_jobs_df = self.distribute_jobs_monthly(scenario)
+
+        monthly_jobs_df[&#34;jobs&#34;][
+            (monthly_jobs_df[&#34;region&#34;] == &#34;National&#34;) &amp; (monthly_jobs_df[&#34;job_type&#34;] == &#34;CPY_created_jobs&#34;)
+        ].sum() / 1e6
+        monthly_jobs_df[&#34;jobs&#34;][
+            (monthly_jobs_df[&#34;region&#34;] == &#34;National&#34;) &amp; (monthly_jobs_df[&#34;job_type&#34;] == &#34;Op_created_jobs&#34;)
+        ].sum() / 1e6
+
+        # Make the operation jobs cumulative
+        monthly_jobs_df = self.make_operation_jobs_cumulative(monthly_jobs_df)
+
+        # Replace the job_type values with more descriptive names
+        monthly_jobs_df[&#34;job_type&#34;] = monthly_jobs_df[&#34;job_type&#34;].replace(
+            {
+                &#34;CPY_created_jobs&#34;: &#34;jobs&#34;,
+                &#34;Op_created_jobs&#34;: &#34;jobs&#34;,
+                &#34;CPY_destroyed_jobs&#34;: &#34;jobs&#34;,
+                &#34;Op_destroyed_jobs&#34;: &#34;jobs&#34;,
+            }
+        )
+        # Group by all columns except &#39;jobs&#39; and sum the &#39;jobs&#39; values
+        grouped_jobs_df = (
+            monthly_jobs_df.groupby([&#34;region&#34;, &#34;variable&#34;, &#34;model&#34;, &#34;scenario&#34;, &#34;time&#34;, &#34;unit&#34;, &#34;job_type&#34;])
+            .sum()
+            .reset_index()
+        )
+
+        return grouped_jobs_df
+
+    def technologies_to_occupations(
+        self,
+    ):
+        &#34;&#34;&#34;
+        Returns a map between technology shocks and occupation shocks.
+        &#34;&#34;&#34;
+        # Load industry-to-occupation data
+        df_occupations = self.occupations
+        df_occupations[&#34;TOT_EMP&#34;] = pd.to_numeric(df_occupations[&#34;TOT_EMP&#34;], errors=&#34;coerce&#34;)
+        df_occupations[&#34;TOT_EMP&#34;] = df_occupations[&#34;TOT_EMP&#34;].fillna(10.0)
+
+        # Load mobility network
+        df_network = self.mobility_network
+
+        # Load technology data
+        df_tech = self.technologies
+
+        # Map NAICS to technology and get naics codes
+        industry_technology_map = dict(zip(df_tech[&#34;NAICS6d&#34;], df_tech[&#34;variable&#34;]))
+        industries = df_tech[&#34;NAICS6d&#34;].unique().tolist()
+
+        # We only care about those industries that are shocked
+        df_occupations = df_occupations.loc[df_occupations[&#34;NAICS&#34;].isin(industries)].copy()
+
+        # We only care about those industries which are in the network (others can be diff classification does)
+        occupations_bls_shock = df_occupations[&#34;OCC_CODE&#34;].unique().tolist()
+        occupations_network = df_network[&#34;OCC_target&#34;].unique().tolist()
+        # Take the intersection to build the set of occupations to filter the crosswalks
+        occupations_to_keep = list(set(occupations_bls_shock).intersection(set(occupations_network)))
+
+        occupations_to_remove = [
+            &#34;35-9090&#34;,
+            &#34;53-4020&#34;,
+            &#34;53-7110&#34;,
+            &#34;19-1090&#34;,
+            &#34;11-9060&#34;,
+        ]  # Remove some occupations; # TODO: ask Maria about this
+        occupations_to_keep = [occ for occ in occupations_to_keep if occ not in occupations_to_remove]
+
+        df_occupations = df_occupations[df_occupations[&#34;OCC_CODE&#34;].isin(occupations_to_keep)]  # Filter the occupations
+        df_occupations = df_occupations[[&#34;NAICS&#34;, &#34;OCC_CODE&#34;, &#34;TOT_EMP&#34;]]
+
+        # Map NAICS to technology in the occupations dataframe
+        df_occupations[&#34;variable&#34;] = df_occupations[&#34;NAICS&#34;].map(industry_technology_map)
+        # Calculate total employment for each &#39;variable&#39; and create a dictionary
+        tech_totals = df_occupations.groupby(&#34;variable&#34;)[&#34;TOT_EMP&#34;].sum().to_dict()
+        # Create a new column with the total employment for each &#39;variable&#39;
+        df_occupations[&#34;tech_tot_emp&#34;] = df_occupations[&#34;variable&#34;].map(tech_totals)
+        # Calculate the employment fraction for each row
+        df_occupations[&#34;EMP_frac&#34;] = df_occupations[&#34;TOT_EMP&#34;] / df_occupations[&#34;tech_tot_emp&#34;]
+        # Keep only the relevant columns
+        df_occupations = df_occupations[[&#34;variable&#34;, &#34;OCC_CODE&#34;, &#34;EMP_frac&#34;]]
+
+        return df_occupations
+
+    def shocks_to_occupations(
+        self,
+    ):
+        &#34;&#34;&#34;
+        Maps technology shocks to occupation shocks.
+        &#34;&#34;&#34;
+
+        tech_shocks = self.tech_shocks
+        tech_to_occupations = self.tech_to_occupations
+
+        tech_shocks = tech_shocks[
+            tech_shocks[&#34;region&#34;] != &#34;National&#34;
+        ]  # Remove national, better calculated at this level
+
+        # Map technology shocks to occupations
+        occupations_shocks = pd.merge(tech_shocks, tech_to_occupations, on=&#34;variable&#34;, how=&#34;left&#34;)
+        occupations_shocks[&#34;jobs_by_occupation&#34;] = occupations_shocks[&#34;jobs&#34;] * occupations_shocks[&#34;EMP_frac&#34;]
+
+        # Create a new DataFrame for national sums by grouping without the region and summing the jobs.
+        national_totals = (
+            occupations_shocks.groupby([&#34;time&#34;, &#34;OCC_CODE&#34;])
+            .agg(total_jobs=(&#34;jobs_by_occupation&#34;, &#34;sum&#34;))
+            .reset_index()
+        )
+        national_totals[&#34;region&#34;] = &#34;National&#34;
+
+        # Group by region, time, and occupation code and sum the jobs.
+        regional_totals = (
+            occupations_shocks.groupby([&#34;region&#34;, &#34;time&#34;, &#34;OCC_CODE&#34;])
+            .agg(total_jobs=(&#34;jobs_by_occupation&#34;, &#34;sum&#34;))
+            .reset_index()
+        )
+        regional_totals = regional_totals[regional_totals[&#34;region&#34;] != &#34;National&#34;]
+
+        # Concatenate the regional and national DataFrames.
+        occupations_shocks = pd.concat([regional_totals, national_totals], ignore_index=True)
+
+        return occupations_shocks
+
+    def generate_model_data_inputs(
+        self, region: str = &#34;National&#34;, dict_lf_region: dict = CANADA_LABOUR_FORCE, **kwargs
+    ):
+        &#34;&#34;&#34;
+        Generates the data necessary to run the labour ABM.
+        &#34;&#34;&#34;
+        df_mobility_network = self.mobility_network
+        occupation_shocks = self.occupation_shocks
+
+        df_mobility_network = df_mobility_network.rename({&#34;trans_merge_alpha05&#34;: &#34;weight&#34;}, axis=&#34;columns&#34;)
+        mobility_network = nx.from_pandas_edgelist(
+            df_mobility_network, &#34;OCC_source&#34;, &#34;OCC_target&#34;, edge_attr=&#34;weight&#34;, create_using=nx.DiGraph()
+        )
+
+        # Create dictionary for occupation codes to titles
+        occ_codes_to_names = dict(zip(df_mobility_network[&#34;OCC_target&#34;], df_mobility_network[&#34;OCC_TITLE_OCC&#34;]))
+
+        # Define and find strongly connected components
+        largest_cc = max(nx.strongly_connected_components(mobility_network), key=len)
+        mobility_network = mobility_network.subgraph(largest_cc).copy()
+        nodes_order = list(mobility_network.nodes)
+        assert nx.is_strongly_connected(mobility_network), &#34;The mobility network is not strongly connected.&#34;
+
+        # Create a DataFrame for node ID, OCC code, and OCC title
+        node_details_df = pd.DataFrame(
+            {
+                &#34;node_id&#34;: range(len(nodes_order)),
+                &#34;OCC_code&#34;: nodes_order,
+                &#34;OCC_title&#34;: [occ_codes_to_names.get(occ, &#34;Unknown&#34;) for occ in nodes_order],
+            }
+        )
+
+        # Filter data for specific region and rescale by labour force
+        occupation_shocks_region = occupation_shocks[occupation_shocks[&#34;region&#34;] == region]
+        dict_soc_emp = dict(zip(df_mobility_network[&#34;OCC_target&#34;], df_mobility_network[&#34;TOT_EMP_OCC&#34;]))
+        lab_force_usa = np.array([dict_soc_emp.get(node, 0) for node in nodes_order]).sum()
+        scale_factor = dict_lf_region[region] / lab_force_usa
+        df_mobility_network[&#34;TOT_EMP_OCC&#34;] *= scale_factor
+        dict_soc_emp = dict(zip(df_mobility_network[&#34;OCC_target&#34;], df_mobility_network[&#34;TOT_EMP_OCC&#34;]))
+
+        # Create and populate the new DataFrame for employment data
+        df_employment = pd.DataFrame({&#34;OCC&#34;: nodes_order})
+        times = sorted(occupation_shocks_region[&#34;time&#34;].unique())
+        df_pivot = occupation_shocks_region.pivot_table(
+            index=&#34;OCC_CODE&#34;, columns=&#34;time&#34;, values=&#34;total_jobs&#34;, aggfunc=&#34;sum&#34;, fill_value=0.0
+        )
+        emp_cols = [f&#34;emp {time}&#34; for time in times]
+        emp_dataframe = pd.DataFrame(0.0, index=df_employment.index, columns=emp_cols)
+
+        df_employment = pd.concat([df_employment, emp_dataframe], axis=1).copy()
+
+        # Calculate base employment and job additions
+        for idx, row in df_employment.iterrows():
+            occ = row[&#34;OCC&#34;]
+            base_emp = dict_soc_emp.get(occ, 0)
+            job_additions = df_pivot.loc[occ] if occ in df_pivot.index else pd.Series(0, index=times)
+            for time in times:
+                df_employment.at[idx, f&#34;emp {time}&#34;] = base_emp + job_additions.get(time, 0.0)
+
+            # Check for negative values and adjust
+
+        def adjust_row(dataframe_row):
+            min_value = dataframe_row[1:].min()  # Find minimum value excluding the &#39;OCC&#39; column
+            if min_value &lt; 0:
+                adjustment = 1.1 * abs(min_value)  # Calculate adjustment value
+                dataframe_row[1:] += adjustment  # Adjust all employment columns
+            return dataframe_row
+
+            # Apply the adjustment to all rows with negative values
+
+        for idx, row in df_employment.iterrows():
+            if any(row[col] &lt; 0 for col in df_employment.columns if col.startswith(&#34;emp&#34;)):
+                df_employment.loc[idx] = adjust_row(row)
+
+        # Generate network adjacency matrix
+        adjacency_matrix = nx.adjacency_matrix(mobility_network, weight=&#34;weight&#34;).todense()
+        adjacency_matrix = np.array(adjacency_matrix)
+
+        return df_employment, node_details_df, adjacency_matrix
+
+    def generate_model_inputs(self, region, burn_in: int = 1_000, smooth: int = 3, **kwargs):
+        &#34;&#34;&#34;
+        Generates the inputs required to run the labour abm.
+        &#34;&#34;&#34;
+
+        # Load data inputs
+        scenario, node_details, adjacency_matrix = self.generate_model_data_inputs(region=region, **kwargs)
+
+        # Load scenario and convert to numpy array
+        demand_scenario = scenario.drop(columns=&#34;OCC&#34;).values  # Drop OCC column and convert to numpy array
+
+        # # list of times (for plotting purposes)
+        time_columns = [col for col in scenario.columns if col.startswith(&#34;emp&#34;)]
+        time_indices = [pd.to_datetime(col.split()[1], format=&#34;%Y-%m&#34;) for col in time_columns]
+
+        # get n and convert to tensors
+        n_occupations = adjacency_matrix.shape[0]
+        adjacency_matrix = torch.from_numpy(adjacency_matrix)
+        demand_scenario = torch.from_numpy(demand_scenario)
+        t_scenario = demand_scenario.shape[1]
+
+        t_max = burn_in + t_scenario
+
+        # now get e, u, v accordingly
+        e = demand_scenario[:, 0]
+
+        u = 0.045 * e  # 5% of e
+        v = 0.02 * e  # 5% of e
+        # preserve labor force
+        e = e - u
+        sum_e_u = e + u
+        L = sum_e_u.sum()
+
+        # make target demand so that first it is constant so it converges and then scenario
+        d_dagger = torch.zeros(n_occupations, burn_in + t_scenario)
+
+        # Expand sum_e_u for broadcasting
+        sum_e_u_expanded = sum_e_u.unsqueeze(1)  # shape becomes [534, 1]
+        # Populate d_dagger
+        d_dagger[:, :burn_in] = sum_e_u_expanded.repeat(1, burn_in)
+
+        d_dagger[:, burn_in:] = demand_scenario
+
+        # perform smoothing
+        # Convert d_dagger to numpy array for smoothing
+        d_dagger_np = d_dagger.numpy()
+
+        # Apply rolling window smoothing with minimum points 1
+        df_d_dagger = pd.DataFrame(d_dagger_np.T).rolling(window=smooth, min_periods=1).mean().T
+
+        # Convert back to tensor
+        d_dagger = torch.from_numpy(df_d_dagger.values)
+
+        # check positive demand
+        assert torch.all(d_dagger &gt; 0), &#34;Scenarios must not have negative demand&#34;
+
+        # since no data use uniform wages
+        wages = torch.ones(n_occupations)
+
+        model_inputs = {
+            &#34;adjacency_matrix&#34;: adjacency_matrix,
+            &#34;initial_employment&#34;: e,
+            &#34;initial_unemployment&#34;: u,
+            &#34;initial_vacancies&#34;: v,
+            &#34;L&#34;: L,
+            &#34;n_occupations&#34;: n_occupations,
+            &#34;t_max&#34;: t_max,
+            &#34;wages&#34;: wages,
+            &#34;d_dagger&#34;: d_dagger,
+            &#34;time_indices&#34;: time_indices,
+        }
+
+        return model_inputs</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.distribute_jobs_monthly"><code class="name flex">
+<span>def <span class="ident">distribute_jobs_monthly</span></span>(<span>scenario: pandas.core.frame.DataFrame)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Distributes shocks uniformly month-after-month</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>scenario</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>The DataFrame with the "primary" shocks for the labour ABM.</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.from_files"><code class="name flex">
+<span>def <span class="ident">from_files</span></span>(<span>scenario_file: pathlib.Path | str, occupations_file: pathlib.Path | str, mobility_network_file: pathlib.Path | str, technologies_file: pathlib.Path | str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a DataBridge instance from custom files.</p></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.from_standard_files"><code class="name flex">
+<span>def <span class="ident">from_standard_files</span></span>(<span>scenario_file: pathlib.Path | str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a DataBridge instance from standard files.</p></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.make_operation_jobs_cumulative"><code class="name flex">
+<span>def <span class="ident">make_operation_jobs_cumulative</span></span>(<span>monthly_jobs: pandas.core.frame.DataFrame) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes the losses of operation jobs cumulative</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>monthly_jobs</code></strong> :&ensp;<code>pd.DataFrame</code></dt>
+<dd>The DataFrame with the monthly jobs data</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.mobility_network"><code class="name">prop <span class="ident">mobility_network</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def mobility_network(self):
+    return self._mobility_network.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.occupation_shocks"><code class="name">prop <span class="ident">occupation_shocks</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def occupation_shocks(self):
+    if self._occupation_shocks is None:
+        self._occupation_shocks = self.shocks_to_occupations()
+    return self._occupation_shocks.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.occupations"><code class="name">prop <span class="ident">occupations</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def occupations(self):
+    return self._occupations.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.scenario"><code class="name">prop <span class="ident">scenario</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def scenario(self):
+    return self._scenario.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.tech_shocks"><code class="name">prop <span class="ident">tech_shocks</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def tech_shocks(self):
+    if self._tech_shocks is None:
+        self._tech_shocks = self.shocks_to_technologies()
+    return self._tech_shocks.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.tech_to_occupations"><code class="name">prop <span class="ident">tech_to_occupations</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def tech_to_occupations(self):
+    if self._tech_to_occupations is None:
+        self._tech_to_occupations = self.technologies_to_occupations()
+    return self._tech_to_occupations.copy()</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.technologies"><code class="name">prop <span class="ident">technologies</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def technologies(self):
+    return self._technologies.copy()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_data_inputs"><code class="name flex">
+<span>def <span class="ident">generate_model_data_inputs</span></span>(<span>self, region: str = 'National', dict_lf_region: dict = {'Alberta.a': 2590000.0, 'British Columbia.a': 2930000.0, 'Manitoba.a': 730000.0, 'New Brunswick.a': 411000.0, 'Newfoundland and Labrador.a': 260000.0, 'Nova Scotia.a': 526000.0, 'Ontario.a': 4200000.0, 'Ontario.b': 4200000.0, 'Prince Edward Island.a': 96000.0, 'Quebec.a': 2350000.0, 'Quebec.b': 2350000.0, 'Saskatchewan.a': 613000.0, 'National': 21000000.0}, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates the data necessary to run the labour ABM.</p></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_inputs"><code class="name flex">
+<span>def <span class="ident">generate_model_inputs</span></span>(<span>self, region, burn_in: int = 1000, smooth: int = 3, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates the inputs required to run the labour abm.</p></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_occupations"><code class="name flex">
+<span>def <span class="ident">shocks_to_occupations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Maps technology shocks to occupation shocks.</p></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_technologies"><code class="name flex">
+<span>def <span class="ident">shocks_to_technologies</span></span>(<span>self, capacity_jobs_colname: str = 'CPY (Direct)_linear', operation_jobs_colname: str = 'Op FTE (Direct)_linear') ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Transforms the scenario dataframe into a timeseries of job creation and destruction for capacity and
+operations.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>capacity_jobs_colname</code></strong> :&ensp;<code>str</code></dt>
+<dd>The column name for capacity jobs.</dd>
+<dt><strong><code>operation_jobs_colname</code></strong> :&ensp;<code>str</code></dt>
+<dd>The column name for operation jobs.</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.data_bridge.bridge.DataBridge.technologies_to_occupations"><code class="name flex">
+<span>def <span class="ident">technologies_to_occupations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a map between technology shocks and occupation shocks.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="labour_abm_canada.data_bridge" href="index.html">labour_abm_canada.data_bridge</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="labour_abm_canada.data_bridge.bridge.generate_monthly_range" href="#labour_abm_canada.data_bridge.bridge.generate_monthly_range">generate_monthly_range</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge" href="#labour_abm_canada.data_bridge.bridge.DataBridge">DataBridge</a></code></h4>
+<ul class="">
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.distribute_jobs_monthly" href="#labour_abm_canada.data_bridge.bridge.DataBridge.distribute_jobs_monthly">distribute_jobs_monthly</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.from_files" href="#labour_abm_canada.data_bridge.bridge.DataBridge.from_files">from_files</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.from_standard_files" href="#labour_abm_canada.data_bridge.bridge.DataBridge.from_standard_files">from_standard_files</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_data_inputs" href="#labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_data_inputs">generate_model_data_inputs</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_inputs" href="#labour_abm_canada.data_bridge.bridge.DataBridge.generate_model_inputs">generate_model_inputs</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.make_operation_jobs_cumulative" href="#labour_abm_canada.data_bridge.bridge.DataBridge.make_operation_jobs_cumulative">make_operation_jobs_cumulative</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.mobility_network" href="#labour_abm_canada.data_bridge.bridge.DataBridge.mobility_network">mobility_network</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.occupation_shocks" href="#labour_abm_canada.data_bridge.bridge.DataBridge.occupation_shocks">occupation_shocks</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.occupations" href="#labour_abm_canada.data_bridge.bridge.DataBridge.occupations">occupations</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.scenario" href="#labour_abm_canada.data_bridge.bridge.DataBridge.scenario">scenario</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_occupations" href="#labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_occupations">shocks_to_occupations</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_technologies" href="#labour_abm_canada.data_bridge.bridge.DataBridge.shocks_to_technologies">shocks_to_technologies</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.tech_shocks" href="#labour_abm_canada.data_bridge.bridge.DataBridge.tech_shocks">tech_shocks</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.tech_to_occupations" href="#labour_abm_canada.data_bridge.bridge.DataBridge.tech_to_occupations">tech_to_occupations</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.technologies" href="#labour_abm_canada.data_bridge.bridge.DataBridge.technologies">technologies</a></code></li>
+<li><code><a title="labour_abm_canada.data_bridge.bridge.DataBridge.technologies_to_occupations" href="#labour_abm_canada.data_bridge.bridge.DataBridge.technologies_to_occupations">technologies_to_occupations</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
