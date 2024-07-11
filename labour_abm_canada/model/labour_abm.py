@@ -415,10 +415,18 @@ class LabourABM:
         active_applications_from_e = torch.repeat_interleave(number_applications, self.n_applications_emp).reshape(
             self.n, self.n_applications_emp
         ) - torch.tensor(range(self.n_applications_emp))
-        # prob of an app x not being drawn
-        # 1 - job_offers / (beta_apps - l); where l = 0 to beta
-        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)
-        prob_no_app_selected_e = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)
+
+        # In rare cases where few applications are receives sj < beta. We prevent this from going negative
+        active_applications_from_u = torch.clamp(active_applications_from_u, min=1e-10)
+        active_applications_from_e = torch.clamp(active_applications_from_e, min=1e-10)
+        # probability of app being drawn; job_offers / (beta_apps - l); where l = 0 to beta
+        # clamp since job_offers <= beta_apps - l; at the cross it means app is for sure selected
+        prob_app_selected_u = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_u), max=1)
+        prob_app_selected_e = torch.clamp(torch.mul(job_offers[:, None], 1.0 / active_applications_from_e), max=1)
+        # probability no application is selected
+        prob_no_app_selected_u = 1 - prob_app_selected_u
+        prob_no_app_selected_e = 1 - prob_app_selected_e
+
         # prob none of those apps is drawn
         no_offer_u = torch.prod(prob_no_app_selected_u, dim=1)
         no_offer_e = torch.prod(prob_no_app_selected_e, dim=1)
@@ -490,7 +498,7 @@ class LabourABM:
 
         self.employment[:, t] = self.employment[:, t - 1] - separated_workers + fij.sum(dim=0) - fij_e.sum(dim=1)
 
-        self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - fij_u.sum(dim=0)
+        self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - fij_u.sum(dim=1)
 
         self.vacancies[:, t] = self.vacancies[:, t - 1] + opened_vacancies - fij.sum(dim=0)
 
