@@ -17,6 +17,7 @@ DATA_PATH = PACKAGE_PATH / "data"
 FILE_OCCUPATIONS = DATA_PATH / "nat5d_6d_M2018_dl.xlsx"
 FILE_MOBILITY_NETWORK = DATA_PATH / "edgelist_cc_mobility_merge.csv"
 FILE_TECHNOLOGIES = DATA_PATH / "6digitNAICS_tech.csv"
+NODE_OCC = DATA_PATH / "node_occ_name.csv"
 
 CANADA_LABOUR_FORCE = {
     "Alberta.a": 2.59e6,
@@ -33,6 +34,16 @@ CANADA_LABOUR_FORCE = {
     "Saskatchewan.a": 0.613e6,
     "National": 21e6,
 }
+
+df_nodes = pd.read_csv(NODE_OCC)
+OCC_NAME_DICT = dict(zip(df_nodes["node_id"], df_nodes["OCC_title"]))
+
+
+def get_occupation_name(occ_id: int) -> str:
+    """
+    Get the name of an occupation given its ID.
+    """
+    return OCC_NAME_DICT.get(occ_id, "Unknown")
 
 
 def generic_loader(file_path: Path | str, **kwargs) -> pd.DataFrame:
