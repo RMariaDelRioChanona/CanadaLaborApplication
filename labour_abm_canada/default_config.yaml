@@ -1,0 +1,11 @@
+labor:
+  adaptation_rate_u: 0.16
+  adaptation_rate_v: 0.16
+  n_applications_emp: 10
+  n_applications_unemp: 1
+  opening_rate: 0.012
+  otjob_search_prob: 0.01
+  separation_rate: 0.016
+n: 2
+seed: null
+t_max: 50

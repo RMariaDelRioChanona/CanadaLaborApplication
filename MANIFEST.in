@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include labour_abm_canada/data *
+recursive-include labour_abm_canada *.yaml

@@ -1,0 +1,97 @@
+﻿"Cube Title","Product Id","CANSIM Id",URL,"Cube Notes","Archive Status",Frequency,"Start Reference Period","End Reference Period","Total number of dimensions"
+"Labour force characteristics, monthly, seasonally adjusted and trend-cycle, last 5 months","14100287","282-0087","https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410028701",1;11;13;20,"CURRENT - a cube available to the public and that is current","Monthly","1976-01-01","2024-03-01","6",
+
+"Dimension ID","Dimension name","Dimension Notes","Dimension Definitions"
+"1","Geography",19,""
+"2","Labour force characteristics",,""
+"3","Sex",,""
+"4","Age group",,""
+"5","Statistics",,""
+"6","Data type",,""
+
+"Dimension ID","Member Name","Classification Code","Member ID","Parent Member ID",Terminated,"Member Notes","Member Definitions"
+"1","Newfoundland and Labrador","[10]","2","1","",,
+"1","Prince Edward Island","[11]","3","1","",,
+"1","Nova Scotia","[12]","4","1","",,
+"1","New Brunswick","[13]","5","1","",,
+"1","Quebec","[24]","6","1","",,
+"1","Ontario","[35]","7","1","",,
+"1","Manitoba","[46]","8","1","",,
+"1","Saskatchewan","[47]","9","1","",,
+"1","Alberta","[48]","10","1","",,
+"1","British Columbia","[59]","11","1","",,
+"1","Canada","[11124]","1","","",,
+"2","Labour force","","2","1","",3,
+"2","Employment","","3","2","",4,
+"2","Unemployment","","6","2","",7,
+"2","Full-time employment","","4","3","",5,
+"2","Part-time employment ","","5","3","",6,
+"2","Population","","1","","",2;14,
+"2","Unemployment rate","","7","","",8,
+"2","Participation rate","","8","","",9,
+"2","Employment rate","","9","","",10,
+"3","Males","","2","1","",,
+"3","Females","","3","1","",,
+"3","Both sexes","","1","","",,
+"4","15 years and over","","1","","",,
+"4","15 to 24 years","","2","","",,
+"4","15 to 19 years","","3","","",,
+"4","20 to 24 years","","4","","",,
+"4","25 years and over","","5","","",,
+"4","25 to 54 years","","6","","",,
+"4","55 years and over","","7","","",,
+"4","15 to 64 years","","8","","",,
+"4","55 to 64 years","","9","","",,
+"5","Estimate","","1","","",,
+"5","Standard error of estimate","","2","","",16,
+"5","Standard error of month-to-month change","","3","","",17,
+"5","Standard error of year-over-year change","","4","","",18,
+"6","Seasonally adjusted","","1","","",,
+"6","Unadjusted","","2","","",,
+"6","Trend-cycle","","3","","",15,
+
+Symbol Legend
+Description,Symbol
+"not available for a specific reference period","..",
+"less than the limit of detection","<LOD",
+"value rounded to 0 (zero) where there is a meaningful distinction between true zero and the value that was rounded","0s",
+"data quality: excellent","A",
+"data quality: very good","B",
+"data quality: good","C",
+"data quality: acceptable","D",
+"use with caution","E",
+"too unreliable to be published","F",
+"not applicable","...",
+"preliminary","p",
+"revised","r",
+"suppressed to meet the confidentiality requirements of the Statistics Act","x",
+"terminated","t",
+
+"Survey Code","Survey Name"
+"3701","Labour Force Survey"
+
+"Subject Code","Subject Name"
+"14","Labour"
+
+"Note ID",Note
+1,"Fluctuations in economic time series are caused by seasonal, cyclical and irregular movements. A seasonally adjusted series is one from which seasonal movements have been eliminated. Seasonal movements are defined as those which are caused by regular annual events such as climate, holidays, vacation periods and cycles related to crops, production and retail sales associated with Christmas and Easter. It should be noted that the seasonally adjusted series contain irregular as well as longer-term cyclical fluctuations. The seasonal adjustment program is a complicated computer program which differentiates between these seasonal, cyclical and irregular movements in a series over a number of years and, on the basis of past movements, estimates appropriate seasonal factors for current data. On an annual basis, the historic series of seasonally adjusted data are revised in light of the most recent information on changes in seasonality."
+2,"Number of persons of working age, 15 years and over. Estimates in thousands, rounded to the nearest hundred."
+3,"Number of civilian, non-institutionalized persons 15 years of age and over who, during the reference week, were employed or unemployed. Estimates in thousands, rounded to the nearest hundred."
+4,"Number of persons who, during the reference week, worked for pay or profit, or performed unpaid family work or had a job but were not at work due to own illness or disability, personal or family responsibilities, labour dispute, vacation, or other reason. Those persons on layoff and persons without work but who had a job to start at a definite date in the future are not considered employed. Estimates in thousands, rounded to the nearest hundred."
+5,"Full-time employment consists of persons who usually work 30 hours or more per week at their main or only job. Estimates in thousands, rounded to the nearest hundred."
+6,"Part-time employment consists of persons who usually work less than 30 hours per week at their main or only job. Estimates in thousands, rounded to the nearest hundred."
+7,"Number of persons who, during the reference week, were without work, had looked for work in the past four weeks, and were available for work. Those persons on layoff or who had a new job to start in four weeks or less are considered unemployed. Estimates in thousands, rounded to the nearest hundred."
+8,"The unemployment rate is the number of unemployed persons expressed as a percentage of the labour force. The unemployment rate for a particular group (age, sex, marital status, etc.) is the number unemployed in that group expressed as a percentage of the labour force for that group. Estimates are percentages, rounded to the nearest tenth."
+9,"The participation rate is the number of labour force participants expressed as a percentage of the population 15 years of age and over. The participation rate for a particular group (age, sex, marital status, etc.) is the number of labour force participants in that group expressed as a percentage of the population for that group. Estimates are percentages, rounded to the nearest tenth."
+10,"The employment rate is the number of persons employed expressed as a percentage of the population 15 years of age and over. The employment rate for a particular group (age, sex, marital status, etc.) is the number employed in that group expressed as a percentage of the population for that group. Estimates are percentages, rounded to the nearest tenth."
+11,"To ensure respondent confidentiality, estimates below a certain threshold are suppressed. For Canada, Quebec, Ontario, Alberta and British Columbia suppression is applied to all data below 1,500. The threshold level for Newfoundland and Labrador, Nova Scotia, New Brunswick, Manitoba and Saskatchewan is 500, while in Prince Edward Island, estimates under 200 are supressed. For census metropolitan areas (CMAs) and economic regions (ERs), use their respective provincial suppression levels mentioned above. Estimates are based on smaller sample sizes the more detailed the table becomes, which could result in lower data quality."
+13,"For more information on seasonal adjustment see <a href="http://www.statcan.gc.ca/eng/dai/btd/sad-faq">Seasonally adjusted data - Frequently asked questions</a>."
+14,"From December 2000 to January 2001, there is a slight level shift in the population series. This is due to the 2015 population rebasing, which was revised back to 2001. This level shift is evident for certain age groups and in two provinces (Manitoba and Saskatchewan). These shifts are minor for labour force estimates and rates."
+15,"These data represent a smoothed version of the seasonally adjusted time series. They provide information on longer-term movements, including changes in direction underlying the series. For more information, see <a href="http://www.statcan.gc.ca/eng/dai/btd/tce-faq">Trend-cycle estimates: Frequently asked questions</a>."
+16,"The standard error (SE) of an estimate is an indicator of the variability associated with this estimate, as the estimate is based on a sample rather than the entire population. The SE can be used to construct confidence intervals and calculate coefficients of variation (CVs). The confidence interval can be built by adding the SE to an estimate in order to determine the upper limit of this interval, and by subtracting the same amount from the estimate to determine the lower limit. The CV can be calculated by dividing the SE by the estimate. See Section 7 of the <a href="http://www5.statcan.gc.ca/olc-cel/olc.action?ObjId=71-543-G&ObjType=2&lang=en&limit=0">Guide to the Labour Force Survey</a> for more information. The standard errors presented in this table are the average of the standard errors for 12 previous months, and are updated twice a year, in February and August."
+17,"The standard error (SE) for the month-to-month change is an indicator of the variability associated with the estimate of the change between two consecutive months, because each monthly estimate is based on a sample rather than the entire population. To construct confidence intervals, the SE is added to an estimate in order to determine the upper limit of this interval, and then subtracted from the estimate to determine the lower limit. Using this method, the true value will fall within one SE of the estimate approximately 68% of the time, and within two standard errors approximately 95% of the time. For example, if the estimated employment level increases by 20,000 from one month to another and the associated SE is 29,000, the true value of the employment change has a 68% chance of falling between -9,000 and +49,000. Because such a confidence interval includes zero, the 20,000 change would not be considered statistically significant. However, if the increase is 30,000, the confidence interval would be +1,000 to +59,000, and the 30,000 increase would be considered statistically significant. (Note that 30,000 is above the SE of 29,000, and that the confidence interval does not include zero.) Similarly, if the estimated employment declines by 30,000, then the true value of the decline would fall between -59,000 and -1,000. See Section 7 of the <a href="http://www5.statcan.gc.ca/olc-cel/olc.action?ObjId=71-543-G&ObjType=2&lang=en&limit=0">Guide to the Labour Force Survey</a> for more information. The standard errors presented in this table are the average of standard errors for 12 previous months. They are updated twice a year, in February and August. Note that the estimate of the month-to-month change is not included in this table. It can be calculated by taking the estimate level for one month and subtracting from it the estimate level of the previous month."
+18,"The standard error (SE) for the year-over-year change is an indicator of the variability associated with the estimate of the change between a given month in a given year and the same month of the previous year, because each month's estimate is based on a sample rather than the entire population. The SE can be used to construct confidence intervals: it can be added to an estimate in order to determine the upper limit of this interval, and then subtracted from the same estimate to determine the lower limit. Using this method, the true value will fall within one SE of the estimate, approximately 68% of the time, and within two standard errors, approximately 95% of the time. For example, if the estimated employment level increases by 160,000 over 12 months and the associated SE is 55,000, the true value of the change in employment has approximately a 68% chance of falling between +105,000 and +215,000. This change would be considered statistically significant at the 68% level as the confidence interval excludes zero. However, if the increase is 40,000, the interval would be -15,000 to +95,000, and this increase would not be considered statistically significant since the interval includes zero. See Section 7 of the <a href="http://www5.statcan.gc.ca/olc-cel/olc.action?ObjId=71-543-G&ObjType=2&lang=en&limit=0">Guide to the Labour Force Survey</a> for more information. The standard errors presented in this table are the average of standard errors for 12 previous months and are updated twice a year, in February and August. Note that estimates of the year-over-year change are not included in the tables. They can be calculated by taking the estimate level for a given month in a given year and subtracting from it the estimate level of the same month in the previous year."
+19,"Excluding the territories."
+20,"Starting in 2006, enhancements to the Labour Force Survey data processing system may have introduced a level shift in some estimates, particularly for less common labour force characteristics. Use caution when comparing estimates before and after 2006. For more information, contact statcan.labour-travail.statcan@statcan.gc.ca"
+
+"Correction ID","Correction Date","Correction Note"

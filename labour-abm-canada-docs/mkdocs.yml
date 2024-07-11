@@ -1,0 +1,25 @@
+site_name: Labour ABM Canada Documentation
+theme:
+  name: material
+
+nav:
+  - Home: home.md
+  - Python Code: api/labour_abm_canada/index.html
+#      - Labour ABM Canada: api/labour_abm_canada/index.html
+#      - Runner: api/labour_abm_canada/runner.html
+#      - Configuration:
+#          - Overview: api/labour_abm_canada/configuration/index.html
+#          - Configuration: api/labour_abm_canada/configuration/configuration.html
+#      - Data Bridge:
+#            - Overview: api/labour_abm_canada/data_bridge/index.html
+#            - Data Bridge: api/labour_abm_canada/data_bridge/bridge.html
+#      - Model:
+#          - Overview: api/labour_abm_canada/model/index.html
+#          - Model: api/labour_abm_canada/model/labour_abm.html
+#          - Aggregates: api/labour_abm_canada/model/aggregates.html
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: true

@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>labour_abm_canada.model.labour_abm API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>labour_abm_canada.model.labour_abm</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="labour_abm_canada.model.labour_abm.calc_job_offers"><code class="name flex">
+<span>def <span class="ident">calc_job_offers</span></span>(<span>vacancies: torch.Tensor, number_applications: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the number of job offers for each occupation.
+The probability that a job is offered is given by 1-exp(-n/v) for each vacancy, where n is the number of
+applications and v is the number of vacancies. The number of job offers is then given by n * p, where n is the
+number of vacancies and p is the probability defined above.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of vacancy levels for each occupation.</dd>
+<dt><strong><code>number_applications</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of the number of applications sent by workers to each vacancy for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Matrix of the number of job offers for each occupation.</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.create_symmetric_a_euv_d_daggers"><code class="name flex">
+<span>def <span class="ident">create_symmetric_a_euv_d_daggers</span></span>(<span>n: int, t: int) ‑> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a random symmetric matrix with 1 on the diagonal and entries between 0 and 1,
+and create vectors e, u, v, and matrix d_dagger where each column is e + u.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM"><code class="flex name class">
+<span>class <span class="ident">LabourABM</span></span>
+<span>(</span><span>n: int, t_max: int, separation_rate: float, opening_rate: float, adaptation_rate_u: float, adaptation_rate_v: float, otjob_search_prob: float, n_applications_emp: int, n_applications_unemp: int, transition_matrix: torch.Tensor, demand_scenario: torch.Tensor, employment: torch.Tensor, unemployment: torch.Tensor, vacancies: torch.Tensor, spontaneous_separations: torch.Tensor, state_separations: torch.Tensor, spontaneous_vacancies: torch.Tensor, state_vacancies: torch.Tensor, from_job_to_occ: torch.Tensor, from_unemp_to_occ: torch.Tensor, wages: torch.Tensor, tqdm_verbose: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class to represent an Agent Based Model of the labour market.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>n</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of occupations in the model.</dd>
+<dt><strong><code>t_max</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of time steps to run the model.</dd>
+<dt><strong><code>separation_rate</code></strong> :&ensp;<code>float</code></dt>
+<dd>Rate of spontaneous separations (firings).</dd>
+<dt><strong><code>opening_rate</code></strong> :&ensp;<code>float</code></dt>
+<dd>Rate of spontaneous job openings.</dd>
+<dt><strong><code>adaptation_rate_u</code></strong> :&ensp;<code>float</code></dt>
+<dd>Rate of state-dependent separations.</dd>
+<dt><strong><code>adaptation_rate_v</code></strong> :&ensp;<code>float</code></dt>
+<dd>Rate of state-dependent job openings.</dd>
+<dt><strong><code>otjob_search_prob</code></strong> :&ensp;<code>float</code></dt>
+<dd>Probability of an employed worker to search for a job outside their occupation.</dd>
+<dt><strong><code>n_applications_emp</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of applications sent by employed workers.</dd>
+<dt><strong><code>n_applications_unemp</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of applications sent by unemployed workers.</dd>
+<dt><strong><code>transition_matrix</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of transition probabilities between occupations.</dd>
+<dt><strong><code>demand_scenario</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of demand for each occupation at each time step.</dd>
+<dt><strong><code>employment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of employment levels for each occupation at each time step.
+(must be initialised)</dd>
+<dt><strong><code>unemployment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of unemployment levels for each occupation at each time step.
+(must be initialised)</dd>
+<dt><strong><code>vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of vacancy levels for each occupation at each time step.
+(must be initialised)</dd>
+<dt><strong><code>wages</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of average wages for each occupation.</dd>
+<dt><strong><code>spontaneous_separations</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of spontaneous separations for each occupation at each time step.</dd>
+<dt><strong><code>state_separations</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of state-dependent separations for each occupation at each time step.</dd>
+<dt><strong><code>spontaneous_vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of spontaneous vacancies for each occupation at each time step.</dd>
+<dt><strong><code>state_vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of state-dependent vacancies for each occupation at each time step.</dd>
+<dt><strong><code>from_job_to_occ</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of job-to-job transitions for each occupation at each time step.</dd>
+<dt><strong><code>from_unemp_to_occ</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of unemployment-to-job transitions for each occupation at each time step.</dd>
+<dt><strong><code>tqdm_verbose</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether to print the progress bar during the simulation.</dd>
+</dl>
+<h2 id="methods">Methods</h2>
+<p>compute_spontaneous_separations(e)
+Compute the number of spontaneous separations for each occupation given the employment levels.
+compute_spontaneous_openings(e)
+Compute the number of spontaneous job openings for each occupation given the employment levels.
+state_dep_separations(diff_demand)
+Compute the number of state-dependent separations for each occupation given the difference between
+current demand and target demand.
+state_dep_openings(diff_demand)
+Compute the number of state-dependent job openings for each occupation given the difference between
+current demand and target demand.
+calc_attractiveness_vacancy()
+Calculate the attractiveness of each vacancy for each occupation.
+calc_probability_applying(v)
+Calculate the probability of applying to each vacancy for each occupation.
+calc_applicants_and_applications_sent(e, u, v)
+Calculate the number of applicants and applications sent for each occupation.
+calc_prob_workers_with_offers(v, sj)
+Calculate the probability of workers receiving job offers for each occupation.
+time_step(t)
+Run one time step of the model.
+run_model()
+Run the model for t_max time steps.
+calculate_aggregates()
+Calculate the aggregate variables of the model.
+calculate_rates()
+Calculate the rates of unemployment, employment, and job vacancies.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabourABM:
+
+    def __init__(
+        self,
+        n: int,
+        t_max: int,
+        separation_rate: float,
+        opening_rate: float,
+        adaptation_rate_u: float,
+        adaptation_rate_v: float,
+        otjob_search_prob: float,
+        n_applications_emp: int,
+        n_applications_unemp: int,
+        transition_matrix: torch.Tensor,
+        demand_scenario: torch.Tensor,
+        employment: torch.Tensor,
+        unemployment: torch.Tensor,
+        vacancies: torch.Tensor,
+        spontaneous_separations: torch.Tensor,
+        state_separations: torch.Tensor,
+        spontaneous_vacancies: torch.Tensor,
+        state_vacancies: torch.Tensor,
+        from_job_to_occ: torch.Tensor,
+        from_unemp_to_occ: torch.Tensor,
+        wages: torch.Tensor,
+        tqdm_verbose: bool = True,
+    ):
+        &#34;&#34;&#34;
+        A class to represent an Agent Based Model of the labour market.
+
+        Attributes
+        ----------
+        n : int
+            Number of occupations in the model.
+        t_max : int
+            Number of time steps to run the model.
+        separation_rate : float
+            Rate of spontaneous separations (firings).
+        opening_rate : float
+            Rate of spontaneous job openings.
+        adaptation_rate_u : float
+            Rate of state-dependent separations.
+        adaptation_rate_v : float
+            Rate of state-dependent job openings.
+        otjob_search_prob : float
+            Probability of an employed worker to search for a job outside their occupation.
+        n_applications_emp : int
+            Number of applications sent by employed workers.
+        n_applications_unemp : int
+            Number of applications sent by unemployed workers.
+        transition_matrix : torch.Tensor
+            Matrix of transition probabilities between occupations.
+        demand_scenario : torch.Tensor
+            Vector of demand for each occupation at each time step.
+        employment : torch.Tensor
+            Matrix of employment levels for each occupation at each time step.
+            (must be initialised)
+        unemployment : torch.Tensor
+            Matrix of unemployment levels for each occupation at each time step.
+            (must be initialised)
+        vacancies : torch.Tensor
+            Matrix of vacancy levels for each occupation at each time step.
+            (must be initialised)
+        wages : torch.Tensor
+            Vector of average wages for each occupation.
+        spontaneous_separations : torch.Tensor
+            Matrix of spontaneous separations for each occupation at each time step.
+        state_separations : torch.Tensor
+            Matrix of state-dependent separations for each occupation at each time step.
+        spontaneous_vacancies : torch.Tensor
+            Matrix of spontaneous vacancies for each occupation at each time step.
+        state_vacancies : torch.Tensor
+            Matrix of state-dependent vacancies for each occupation at each time step.
+        from_job_to_occ : torch.Tensor
+            Matrix of job-to-job transitions for each occupation at each time step.
+        from_unemp_to_occ : torch.Tensor
+            Matrix of unemployment-to-job transitions for each occupation at each time step.
+        tqdm_verbose : bool
+            Whether to print the progress bar during the simulation.
+
+
+        Methods
+        -------
+        compute_spontaneous_separations(e)
+            Compute the number of spontaneous separations for each occupation given the employment levels.
+        compute_spontaneous_openings(e)
+            Compute the number of spontaneous job openings for each occupation given the employment levels.
+        state_dep_separations(diff_demand)
+            Compute the number of state-dependent separations for each occupation given the difference between
+            current demand and target demand.
+        state_dep_openings(diff_demand)
+            Compute the number of state-dependent job openings for each occupation given the difference between
+            current demand and target demand.
+        calc_attractiveness_vacancy()
+            Calculate the attractiveness of each vacancy for each occupation.
+        calc_probability_applying(v)
+            Calculate the probability of applying to each vacancy for each occupation.
+        calc_applicants_and_applications_sent(e, u, v)
+            Calculate the number of applicants and applications sent for each occupation.
+        calc_prob_workers_with_offers(v, sj)
+            Calculate the probability of workers receiving job offers for each occupation.
+        time_step(t)
+            Run one time step of the model.
+        run_model()
+            Run the model for t_max time steps.
+        calculate_aggregates()
+            Calculate the aggregate variables of the model.
+        calculate_rates()
+            Calculate the rates of unemployment, employment, and job vacancies.
+        &#34;&#34;&#34;
+
+        self.n = n
+        self.t_max = t_max
+        self.separation_rate = separation_rate
+        self.opening_rate = opening_rate
+        self.adaptation_rate_u = adaptation_rate_u
+        self.adaptation_rate_v = adaptation_rate_v
+        self.otjob_search_prob = otjob_search_prob
+        self.n_applications_emp = n_applications_emp
+        self.n_applications_unemp = n_applications_unemp
+        self.transition_matrix = transition_matrix
+        self.demand_scenario = demand_scenario
+        self.employment = employment
+        self.unemployment = unemployment
+        self.vacancies = vacancies
+        self.wages = wages
+
+        self.spontaneous_separations = spontaneous_separations
+        self.state_separations = state_separations
+        self.spontaneous_vacancies = spontaneous_vacancies
+        self.state_vacancies = state_vacancies
+        self.from_job_to_occ = from_job_to_occ
+        self.from_unemp_to_occ = from_unemp_to_occ
+        self.tqdm_verbose = tqdm_verbose
+
+    @classmethod
+    def default_create(
+        cls,
+        model_configuration: ModelConfiguration,
+        transition_matrix: torch.Tensor,
+        demand_scenario: torch.Tensor,
+        wages: torch.Tensor,
+        initial_employment: torch.Tensor,
+        initial_unemployment: torch.Tensor,
+        initial_vacancies: torch.Tensor,
+    ) -&gt; &#34;LabourABM&#34;:
+        &#34;&#34;&#34;
+        Default initialiser of the LabourABM class.
+        It initialises the model with the given configuration and initial values for employment, unemployment,
+        and vacancies.
+
+        Parameters
+        ----------
+        model_configuration : ModelConfiguration
+            Configuration of the model.
+        transition_matrix : torch.Tensor
+            Matrix of transition probabilities between occupations.
+        demand_scenario : torch.Tensor
+            Vector of demand for each occupation at each time step.
+        wages : torch.Tensor
+            Vector of average wages for each occupation.
+        initial_employment : torch.Tensor
+            Vector of initial employment levels for each occupation.
+        initial_unemployment : torch.Tensor
+            Vector of initial unemployment levels for each occupation.
+        initial_vacancies : torch.Tensor
+            Vector of initial vacancy levels for each occupation.
+
+        Returns
+        -------
+        LabourABM
+            A new instance of the LabourABM class.
+
+        &#34;&#34;&#34;
+        unemployment = torch.zeros((model_configuration.n, model_configuration.t_max))
+        unemployment[:, 0] = initial_unemployment
+        employment = torch.zeros((model_configuration.n, model_configuration.t_max))
+        employment[:, 0] = initial_employment
+        vacancies = torch.zeros((model_configuration.n, model_configuration.t_max))
+        vacancies[:, 0] = initial_vacancies
+
+        return cls(
+            n=model_configuration.n,
+            t_max=model_configuration.t_max,
+            separation_rate=model_configuration.labor.separation_rate,
+            opening_rate=model_configuration.labor.opening_rate,
+            adaptation_rate_u=model_configuration.labor.adaptation_rate_u,
+            adaptation_rate_v=model_configuration.labor.adaptation_rate_v,
+            otjob_search_prob=model_configuration.labor.otjob_search_prob,
+            n_applications_emp=model_configuration.labor.n_applications_emp,
+            n_applications_unemp=model_configuration.labor.n_applications_unemp,
+            transition_matrix=transition_matrix,
+            demand_scenario=demand_scenario,
+            employment=employment,
+            unemployment=unemployment,
+            vacancies=vacancies,
+            wages=wages,
+            spontaneous_separations=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            state_separations=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            spontaneous_vacancies=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            state_vacancies=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            from_job_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
+            from_unemp_to_occ=torch.zeros((model_configuration.n, model_configuration.t_max)),
+        )
+
+    def compute_spontaneous_separations(self, employment: torch.Tensor) -&gt; torch.Tensor:
+        &#34;&#34;&#34;
+        Compute the number of spontaneous separations for each occupation given the employment levels.
+        Given by the separation rate times the employment level.
+
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of spontaneous separations for each occupation
+
+        &#34;&#34;&#34;
+        return self.separation_rate * employment
+
+    def compute_spontaneous_openings(self, employment: torch.Tensor) -&gt; torch.Tensor:
+        &#34;&#34;&#34;
+        Compute the number of spontaneous job openings for each occupation given the employment levels.
+        Given by the opening rate times the employment level.
+
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of spontaneous job openings for each occupation
+        &#34;&#34;&#34;
+        return self.opening_rate * employment
+
+    def state_dep_separations(self, diff_demand: torch.Tensor) -&gt; torch.Tensor:
+        &#34;&#34;&#34;
+        Compute the number of state-dependent separations for each occupation given the difference between
+        current demand and target demand.
+
+        Parameters
+        ----------
+        diff_demand : torch.Tensor
+            Vector of differences between current demand and target demand for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of state-dependent separations for each occupation
+        &#34;&#34;&#34;
+        return (1 - self.separation_rate) * self.adaptation_rate_u * torch.clip(diff_demand, min=0)
+
+    def state_dep_openings(self, diff_demand: torch.Tensor) -&gt; torch.Tensor:
+        &#34;&#34;&#34;
+        Compute the number of state-dependent job openings for each occupation given the difference between
+        current demand and target demand.
+
+        Parameters
+        ----------
+        diff_demand : torch.Tensor
+            Vector of differences between current demand and target demand for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Vector of state-dependent job openings for each occupation
+
+        &#34;&#34;&#34;
+        return (1 - self.opening_rate) * self.adaptation_rate_v * torch.clip(-diff_demand, min=0)
+
+    # Search process
+    @cached_property
+    def vacancy_attractiveness(self) -&gt; torch.Tensor:
+        &#34;&#34;&#34;
+        Calculate the attractiveness of each vacancy for each occupation.
+        The attractiveness is given by the product of the wages and the transition matrix,
+        so that the attractiveness a_i = w_i * q_ij.
+        &#34;&#34;&#34;
+        attractiveness = torch.mul(self.wages, self.transition_matrix)
+        return attractiveness
+
+    def calc_probability_applying(self, vacancies: torch.Tensor) -&gt; torch.Tensor:
+        &#34;&#34;&#34;Computes the probability of applying to each vacancy for each occupation.
+        It is proportional to the product of the attractiveness of the vacancy and the number of vacancies.
+
+        Parameters
+        ----------
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+
+        Returns
+        -------
+        torch.Tensor
+            Matrix of probabilities of applying to each vacancy for each occupation.&#34;&#34;&#34;
+        attractiveness = self.vacancy_attractiveness
+        unnorm_prob = torch.mul(vacancies, attractiveness)
+        prob = unnorm_prob / torch.sum(unnorm_prob, dim=1, keepdim=True)
+        return prob
+
+    def calc_applicants_and_applications_sent(
+        self, employment: torch.Tensor, unemployment: torch.Tensor, vacancies: torch.Tensor
+    ) -&gt; Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        &#34;&#34;&#34;
+        Compute the number of applicants and applications sent for each occupation.
+
+        Parameters
+        ----------
+        employment : torch.Tensor
+            Vector of employment levels for each occupation.
+        unemployment : torch.Tensor
+            Vector of unemployment levels for each occupation.
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]
+            - employed_applicant_fraction : torch.Tensor
+                Matrix of the fraction of employed workers applying to each vacancy for each occupation.
+            - unemployed_application_fraction : torch.Tensor
+                Matrix of the fraction of unemployed workers applying to each vacancy for each occupation.
+            - number_applications_employed : torch.Tensor
+                Matrix of the number of applications sent by employed workers to each vacancy for each occupation.
+            - number_applications_unemployed : torch.Tensor
+                Matrix of the number of applications sent by unemployed workers to each vacancy for each occupation.
+        &#34;&#34;&#34;
+        prob_applying = self.calc_probability_applying(vacancies)
+
+        # applicants
+        employed_applicant_fraction = self.otjob_search_prob * torch.mul(employment[:, None], prob_applying)
+        unemployed_application_fraction = torch.mul(unemployment[:, None], prob_applying)
+
+        # sij(e) = β_e*ei*qij
+        number_applications_employed = self.n_applications_emp * employed_applicant_fraction
+        # sij(u) = β_u*ui*qij
+        number_applications_unemployed = self.n_applications_unemp * unemployed_application_fraction
+
+        return (
+            employed_applicant_fraction,
+            unemployed_application_fraction,
+            number_applications_employed,
+            number_applications_unemployed,
+        )
+
+    def calc_prob_workers_with_offers(
+        self, vacancies: torch.Tensor, number_applications: torch.Tensor
+    ) -&gt; Tuple[torch.Tensor, torch.Tensor]:
+        &#34;&#34;&#34;
+        Calculate the probability of workers receiving job offers for each occupation.
+
+        Parameters
+        ----------
+        vacancies : torch.Tensor
+            Vector of vacancy levels for each occupation.
+        number_applications : torch.Tensor
+            Matrix of the number of applications sent by workers to each vacancy for each occupation.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor]
+            - got_offer_e : torch.Tensor
+                Vector of the probability of employed workers receiving job offers for each occupation.
+            - got_offer_u : torch.Tensor
+                Vector of the probability of unemployed workers receiving job offers for each occupation
+        &#34;&#34;&#34;
+
+        job_offers = calc_job_offers(vacancies, number_applications)
+        # (beta_apps - l); where l = 0 to beta
+        active_applications_from_u = torch.repeat_interleave(number_applications, self.n_applications_unemp).reshape(
+            self.n, self.n_applications_unemp
+        ) - torch.tensor(range(self.n_applications_unemp))
+        active_applications_from_e = torch.repeat_interleave(number_applications, self.n_applications_emp).reshape(
+            self.n, self.n_applications_emp
+        ) - torch.tensor(range(self.n_applications_emp))
+        # prob of an app x not being drawn
+        # 1 - job_offers / (beta_apps - l); where l = 0 to beta
+        prob_no_app_selected_u = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_u)
+        prob_no_app_selected_e = 1 - torch.mul(job_offers[:, None], 1.0 / active_applications_from_e)
+        # prob none of those apps is drawn
+        no_offer_u = torch.prod(prob_no_app_selected_u, dim=1)
+        no_offer_e = torch.prod(prob_no_app_selected_e, dim=1)
+        # worker getting offer
+        got_offer_u = 1 - no_offer_u
+        got_offer_e = 1 - no_offer_e
+
+        return got_offer_e, got_offer_u
+
+    # simulation
+    def time_step(self, t: int):
+        &#34;&#34;&#34;
+        Run one time step of the model.
+
+        The following steps are performed:
+        - Compute the number of spontaneous separations and job openings.
+        - Compute the number of state-dependent separations and job openings, by first computing the current realised
+        demand (sum of employment and vacancies), then computing the difference between the realised demand and the
+        target demand, dictated by the demand scenario.
+        - Compute the number of applicants and applications sent for each occupation.
+        - Compute the probability of workers receiving job offers for each occupation.
+        - Match workers and update the employment, unemployment, and vacancies levels for each occupation.
+
+        Parameters
+        ----------
+        t : int
+            Current time step.
+        &#34;&#34;&#34;
+        # workers separations and job openings
+        d = self.employment[:, t - 1] + self.vacancies[:, t - 1]
+        diff_demand = d - self.demand_scenario[:, t]
+        spon_sep = self.compute_spontaneous_separations(self.employment[:, t - 1])
+        state_sep = self.state_dep_separations(diff_demand)
+        spon_vac = self.compute_spontaneous_openings(self.employment[:, t - 1])
+        state_vac = self.state_dep_openings(diff_demand)
+        separated_workers = spon_sep + state_sep
+        opened_vacancies = spon_vac + state_vac
+
+        # job search
+        aij_e, aij_u, sij_e, sij_u = self.calc_applicants_and_applications_sent(
+            self.employment[:, t - 1],
+            self.unemployment[:, t - 1],
+            self.vacancies[:, t - 1],
+        )
+        sj = (sij_u + sij_e).sum(dim=0)
+
+        # matching
+        prob_offer_e, prob_offer_u = self.calc_prob_workers_with_offers(self.vacancies[:, t - 1], sj)
+        # what about acceptance?
+        fij_e = aij_e * prob_offer_e
+        fij_u = aij_u * prob_offer_u
+        fij = fij_u + fij_e
+        # NOTE Uncomment blow below to run baseline
+        ####################
+        # job_offers = self.calc_job_offers(v, sj)
+        # # print(&#34;job offers &#34;, job_offers[5]/sj[5])
+        # fij_u = sij_u * job_offers/sj
+        # fij_e = sij_e * job_offers/sj
+        # fij = fij_u + fij_e
+        # # print(&#34;F[3,5], &#34;, fij[3,5])
+        # # print(&#34;F_e[3,5] should be 0 , &#34;, fij_e[3,5])
+        #####################
+
+        # TODO check right sum
+        jtj = fij_e.sum(dim=1)
+        utj = fij_u.sum(dim=1)
+
+        # update
+
+        self.employment[:, t] = self.employment[:, t - 1] - separated_workers + fij.sum(dim=0) - fij_e.sum(dim=1)
+
+        self.unemployment[:, t] = self.unemployment[:, t - 1] + separated_workers - fij_u.sum(dim=0)
+
+        self.vacancies[:, t] = self.vacancies[:, t - 1] + opened_vacancies - fij.sum(dim=0)
+
+        self.spontaneous_separations[:, t] = spon_sep
+        self.state_separations[:, t] = state_sep
+        self.spontaneous_vacancies[:, t] = spon_vac
+        self.state_vacancies[:, t] = state_vac
+
+        self.from_job_to_occ[:, t] = jtj
+        self.from_unemp_to_occ[:, t] = utj
+
+    def run_model(self):
+        &#34;&#34;&#34;Run the model for t_max time steps.&#34;&#34;&#34;
+        for t in tqdm(range(1, self.t_max), disable=not self.tqdm_verbose):
+            self.time_step(t)
+
+    def calculate_aggregates(self):
+        &#34;&#34;&#34;Calculate the aggregate variables of the model.
+
+        Returns
+        -------
+        Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]
+            - total_unemployment : torch.Tensor
+                Vector of total unemployment levels at each time step.
+            - total_vacancies : torch.Tensor
+                Vector of total vacancy levels at each time step.
+            - total_employment : torch.Tensor
+                Vector of total employment levels at each time step.
+            - total_demand : torch.Tensor
+                Vector of total demand levels at each time step.
+            - total_spontaneous_separations : torch.Tensor
+                Vector of total spontaneous separations at each time step.
+            - total_state_separations : torch.Tensor
+                Vector of total state-dependent separations at each time step.
+            - total_spontaneous_vacancies : torch.Tensor
+                Vector of total spontaneous vacancies at each time step.
+            - total_state_vacancies : torch.Tensor
+                Vector of total state-dependent vacancies at each time step.
+            - job_to_job_transitions : torch.Tensor
+                Vector of job-to-job transitions at each time step.
+            - unemployment_to_job_transitions : torch.Tensor
+                Vector of unemployment-to-job transitions at each time step.&#34;&#34;&#34;
+
+        total_unemployment = (self.unemployment.sum(dim=0),)
+        total_vacancies = (self.vacancies.sum(dim=0),)
+        total_employment = (self.employment.sum(dim=0),)
+        total_demand = (self.demand_scenario.sum(dim=0),)
+        total_spontaneous_separations = (self.spontaneous_separations.sum(dim=0),)
+        total_state_separations = (self.state_separations.sum(dim=0),)
+        total_spontaneous_vacancies = (self.spontaneous_vacancies.sum(dim=0),)
+        total_state_vacancies = (self.state_vacancies.sum(dim=0),)
+        job_to_job_transitions = (self.from_job_to_occ[:, 0].clone(),)
+        unemployment_to_job_transitions = (self.from_unemp_to_occ[:, 0].clone(),)
+
+        return (
+            total_unemployment,
+            total_vacancies,
+            total_employment,
+            total_demand,
+            total_spontaneous_separations,
+            total_state_separations,
+            total_spontaneous_vacancies,
+            total_state_vacancies,
+            job_to_job_transitions,
+            unemployment_to_job_transitions,
+        )
+
+    def calculate_rates(self):
+        (
+            total_unemployment,
+            total_vacancies,
+            total_employment,
+            total_demand,
+            total_spon_sep,
+            total_state_sep,
+            total_spon_vac,
+            total_state_vac,
+            jtj,
+            utj,
+        ) = self.calculate_aggregates()
+
+        unemployment_rate = 100 * total_unemployment / (total_employment + total_unemployment)
+        employment_rate = 100 - unemployment_rate
+        vacancy_rate = 100 * total_vacancies / (total_vacancies + total_employment)
+
+        # rates in terms of separations
+        sep_ratio = total_spon_sep / total_state_sep
+        vac_ratio = total_spon_vac / total_state_vac
+
+        # rates in terms of job transitions
+        jtj_over_utj = jtj / utj
+
+        return (
+            unemployment_rate,
+            employment_rate,
+            vacancy_rate,
+            sep_ratio,
+            vac_ratio,
+            jtj_over_utj,
+        )
+
+    @property
+    def aggregates(self) -&gt; Aggregates:
+        return Aggregates(
+            total_unemployment=self.unemployment.sum(dim=0),
+            total_vacancies=self.vacancies.sum(dim=0),
+            total_employment=self.employment.sum(dim=0),
+            total_demand=self.demand_scenario.sum(dim=0),
+            total_spontaneous_separations=self.spontaneous_separations.sum(dim=0),
+            total_state_separations=self.state_separations.sum(dim=0),
+            total_spontaneous_vacancies=self.spontaneous_vacancies.sum(dim=0),
+            total_state_vacancies=self.state_vacancies.sum(dim=0),
+            job_to_job_transitions=self.from_job_to_occ[:, 0].clone(),
+            unemployment_to_job_transitions=self.from_unemp_to_occ[:, 0].clone(),
+        )</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.default_create"><code class="name flex">
+<span>def <span class="ident">default_create</span></span>(<span>model_configuration: <a title="labour_abm_canada.configuration.configuration.ModelConfiguration" href="../configuration/configuration.html#labour_abm_canada.configuration.configuration.ModelConfiguration">ModelConfiguration</a>, transition_matrix: torch.Tensor, demand_scenario: torch.Tensor, wages: torch.Tensor, initial_employment: torch.Tensor, initial_unemployment: torch.Tensor, initial_vacancies: torch.Tensor) ‑> <a title="labour_abm_canada.model.labour_abm.LabourABM" href="#labour_abm_canada.model.labour_abm.LabourABM">LabourABM</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Default initialiser of the LabourABM class.
+It initialises the model with the given configuration and initial values for employment, unemployment,
+and vacancies.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>model_configuration</code></strong> :&ensp;<code>ModelConfiguration</code></dt>
+<dd>Configuration of the model.</dd>
+<dt><strong><code>transition_matrix</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of transition probabilities between occupations.</dd>
+<dt><strong><code>demand_scenario</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of demand for each occupation at each time step.</dd>
+<dt><strong><code>wages</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of average wages for each occupation.</dd>
+<dt><strong><code>initial_employment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of initial employment levels for each occupation.</dd>
+<dt><strong><code>initial_unemployment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of initial unemployment levels for each occupation.</dd>
+<dt><strong><code>initial_vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of initial vacancy levels for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="labour_abm_canada.model.labour_abm.LabourABM" href="#labour_abm_canada.model.labour_abm.LabourABM">LabourABM</a></code></dt>
+<dd>A new instance of the LabourABM class.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.aggregates"><code class="name">prop <span class="ident">aggregates</span> : <a title="labour_abm_canada.model.aggregates.Aggregates" href="aggregates.html#labour_abm_canada.model.aggregates.Aggregates">Aggregates</a></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def aggregates(self) -&gt; Aggregates:
+    return Aggregates(
+        total_unemployment=self.unemployment.sum(dim=0),
+        total_vacancies=self.vacancies.sum(dim=0),
+        total_employment=self.employment.sum(dim=0),
+        total_demand=self.demand_scenario.sum(dim=0),
+        total_spontaneous_separations=self.spontaneous_separations.sum(dim=0),
+        total_state_separations=self.state_separations.sum(dim=0),
+        total_spontaneous_vacancies=self.spontaneous_vacancies.sum(dim=0),
+        total_state_vacancies=self.state_vacancies.sum(dim=0),
+        job_to_job_transitions=self.from_job_to_occ[:, 0].clone(),
+        unemployment_to_job_transitions=self.from_unemp_to_occ[:, 0].clone(),
+    )</code></pre>
+</details>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.vacancy_attractiveness"><code class="name">var <span class="ident">vacancy_attractiveness</span></code></dt>
+<dd>
+<div class="desc"><p>Calculate the attractiveness of each vacancy for each occupation.
+The attractiveness is given by the product of the wages and the transition matrix,
+so that the attractiveness a_i = w_i * q_ij.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner=None):
+    if instance is None:
+        return self
+    if self.attrname is None:
+        raise TypeError(
+            &#34;Cannot use cached_property instance without calling __set_name__ on it.&#34;)
+    try:
+        cache = instance.__dict__
+    except AttributeError:  # not all objects have __dict__ (e.g. class defines slots)
+        msg = (
+            f&#34;No &#39;__dict__&#39; attribute on {type(instance).__name__!r} &#34;
+            f&#34;instance to cache {self.attrname!r} property.&#34;
+        )
+        raise TypeError(msg) from None
+    val = cache.get(self.attrname, _NOT_FOUND)
+    if val is _NOT_FOUND:
+        with self.lock:
+            # check if another thread filled cache while we awaited lock
+            val = cache.get(self.attrname, _NOT_FOUND)
+            if val is _NOT_FOUND:
+                val = self.func(instance)
+                try:
+                    cache[self.attrname] = val
+                except TypeError:
+                    msg = (
+                        f&#34;The &#39;__dict__&#39; attribute on {type(instance).__name__!r} instance &#34;
+                        f&#34;does not support item assignment for caching {self.attrname!r} property.&#34;
+                    )
+                    raise TypeError(msg) from None
+    return val</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.calc_applicants_and_applications_sent"><code class="name flex">
+<span>def <span class="ident">calc_applicants_and_applications_sent</span></span>(<span>self, employment: torch.Tensor, unemployment: torch.Tensor, vacancies: torch.Tensor) ‑> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the number of applicants and applications sent for each occupation.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>employment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of employment levels for each occupation.</dd>
+<dt><strong><code>unemployment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of unemployment levels for each occupation.</dd>
+<dt><strong><code>vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of vacancy levels for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]</code></dt>
+<dd>
+<ul>
+<li>employed_applicant_fraction : torch.Tensor
+Matrix of the fraction of employed workers applying to each vacancy for each occupation.</li>
+<li>unemployed_application_fraction : torch.Tensor
+Matrix of the fraction of unemployed workers applying to each vacancy for each occupation.</li>
+<li>number_applications_employed : torch.Tensor
+Matrix of the number of applications sent by employed workers to each vacancy for each occupation.</li>
+<li>number_applications_unemployed : torch.Tensor
+Matrix of the number of applications sent by unemployed workers to each vacancy for each occupation.</li>
+</ul>
+</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.calc_prob_workers_with_offers"><code class="name flex">
+<span>def <span class="ident">calc_prob_workers_with_offers</span></span>(<span>self, vacancies: torch.Tensor, number_applications: torch.Tensor) ‑> Tuple[torch.Tensor, torch.Tensor]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the probability of workers receiving job offers for each occupation.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of vacancy levels for each occupation.</dd>
+<dt><strong><code>number_applications</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Matrix of the number of applications sent by workers to each vacancy for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[torch.Tensor, torch.Tensor]</code></dt>
+<dd>
+<ul>
+<li>got_offer_e : torch.Tensor
+Vector of the probability of employed workers receiving job offers for each occupation.</li>
+<li>got_offer_u : torch.Tensor
+Vector of the probability of unemployed workers receiving job offers for each occupation</li>
+</ul>
+</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.calc_probability_applying"><code class="name flex">
+<span>def <span class="ident">calc_probability_applying</span></span>(<span>self, vacancies: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computes the probability of applying to each vacancy for each occupation.
+It is proportional to the product of the attractiveness of the vacancy and the number of vacancies.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>vacancies</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of vacancy levels for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Matrix of probabilities of applying to each vacancy for each occupation.</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.calculate_aggregates"><code class="name flex">
+<span>def <span class="ident">calculate_aggregates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculate the aggregate variables of the model.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]</code></dt>
+<dd>
+<ul>
+<li>total_unemployment : torch.Tensor
+Vector of total unemployment levels at each time step.</li>
+<li>total_vacancies : torch.Tensor
+Vector of total vacancy levels at each time step.</li>
+<li>total_employment : torch.Tensor
+Vector of total employment levels at each time step.</li>
+<li>total_demand : torch.Tensor
+Vector of total demand levels at each time step.</li>
+<li>total_spontaneous_separations : torch.Tensor
+Vector of total spontaneous separations at each time step.</li>
+<li>total_state_separations : torch.Tensor
+Vector of total state-dependent separations at each time step.</li>
+<li>total_spontaneous_vacancies : torch.Tensor
+Vector of total spontaneous vacancies at each time step.</li>
+<li>total_state_vacancies : torch.Tensor
+Vector of total state-dependent vacancies at each time step.</li>
+<li>job_to_job_transitions : torch.Tensor
+Vector of job-to-job transitions at each time step.</li>
+<li>unemployment_to_job_transitions : torch.Tensor
+Vector of unemployment-to-job transitions at each time step.</li>
+</ul>
+</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.calculate_rates"><code class="name flex">
+<span>def <span class="ident">calculate_rates</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_openings"><code class="name flex">
+<span>def <span class="ident">compute_spontaneous_openings</span></span>(<span>self, employment: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the number of spontaneous job openings for each occupation given the employment levels.
+Given by the opening rate times the employment level.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>employment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of employment levels for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Vector of spontaneous job openings for each occupation</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_separations"><code class="name flex">
+<span>def <span class="ident">compute_spontaneous_separations</span></span>(<span>self, employment: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the number of spontaneous separations for each occupation given the employment levels.
+Given by the separation rate times the employment level.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>employment</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of employment levels for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Vector of spontaneous separations for each occupation</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.run_model"><code class="name flex">
+<span>def <span class="ident">run_model</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the model for t_max time steps.</p></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.state_dep_openings"><code class="name flex">
+<span>def <span class="ident">state_dep_openings</span></span>(<span>self, diff_demand: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the number of state-dependent job openings for each occupation given the difference between
+current demand and target demand.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>diff_demand</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of differences between current demand and target demand for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Vector of state-dependent job openings for each occupation</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.state_dep_separations"><code class="name flex">
+<span>def <span class="ident">state_dep_separations</span></span>(<span>self, diff_demand: torch.Tensor) ‑> torch.Tensor</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compute the number of state-dependent separations for each occupation given the difference between
+current demand and target demand.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>diff_demand</code></strong> :&ensp;<code>torch.Tensor</code></dt>
+<dd>Vector of differences between current demand and target demand for each occupation.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>torch.Tensor</code></dt>
+<dd>Vector of state-dependent separations for each occupation</dd>
+</dl></div>
+</dd>
+<dt id="labour_abm_canada.model.labour_abm.LabourABM.time_step"><code class="name flex">
+<span>def <span class="ident">time_step</span></span>(<span>self, t: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run one time step of the model.</p>
+<p>The following steps are performed:
+- Compute the number of spontaneous separations and job openings.
+- Compute the number of state-dependent separations and job openings, by first computing the current realised
+demand (sum of employment and vacancies), then computing the difference between the realised demand and the
+target demand, dictated by the demand scenario.
+- Compute the number of applicants and applications sent for each occupation.
+- Compute the probability of workers receiving job offers for each occupation.
+- Match workers and update the employment, unemployment, and vacancies levels for each occupation.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>t</code></strong> :&ensp;<code>int</code></dt>
+<dd>Current time step.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="labour_abm_canada.model" href="index.html">labour_abm_canada.model</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="labour_abm_canada.model.labour_abm.calc_job_offers" href="#labour_abm_canada.model.labour_abm.calc_job_offers">calc_job_offers</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.create_symmetric_a_euv_d_daggers" href="#labour_abm_canada.model.labour_abm.create_symmetric_a_euv_d_daggers">create_symmetric_a_euv_d_daggers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="labour_abm_canada.model.labour_abm.LabourABM" href="#labour_abm_canada.model.labour_abm.LabourABM">LabourABM</a></code></h4>
+<ul class="">
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.aggregates" href="#labour_abm_canada.model.labour_abm.LabourABM.aggregates">aggregates</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.calc_applicants_and_applications_sent" href="#labour_abm_canada.model.labour_abm.LabourABM.calc_applicants_and_applications_sent">calc_applicants_and_applications_sent</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.calc_prob_workers_with_offers" href="#labour_abm_canada.model.labour_abm.LabourABM.calc_prob_workers_with_offers">calc_prob_workers_with_offers</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.calc_probability_applying" href="#labour_abm_canada.model.labour_abm.LabourABM.calc_probability_applying">calc_probability_applying</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.calculate_aggregates" href="#labour_abm_canada.model.labour_abm.LabourABM.calculate_aggregates">calculate_aggregates</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.calculate_rates" href="#labour_abm_canada.model.labour_abm.LabourABM.calculate_rates">calculate_rates</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_openings" href="#labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_openings">compute_spontaneous_openings</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_separations" href="#labour_abm_canada.model.labour_abm.LabourABM.compute_spontaneous_separations">compute_spontaneous_separations</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.default_create" href="#labour_abm_canada.model.labour_abm.LabourABM.default_create">default_create</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.run_model" href="#labour_abm_canada.model.labour_abm.LabourABM.run_model">run_model</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.state_dep_openings" href="#labour_abm_canada.model.labour_abm.LabourABM.state_dep_openings">state_dep_openings</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.state_dep_separations" href="#labour_abm_canada.model.labour_abm.LabourABM.state_dep_separations">state_dep_separations</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.time_step" href="#labour_abm_canada.model.labour_abm.LabourABM.time_step">time_step</a></code></li>
+<li><code><a title="labour_abm_canada.model.labour_abm.LabourABM.vacancy_attractiveness" href="#labour_abm_canada.model.labour_abm.LabourABM.vacancy_attractiveness">vacancy_attractiveness</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>
