@@ -5,6 +5,7 @@ import numpy as np
 import torch
 
 from labour_abm_canada.configuration.configuration import LaborSettings, ModelConfiguration
+from labour_abm_canada.data_bridge import OCC_NAME_DICT
 from labour_abm_canada.data_bridge.bridge import DataBridge
 from labour_abm_canada.model import labour_abm as lbm
 from labour_abm_canada.regions.regions import Regions
@@ -70,11 +71,11 @@ def run_model(
     lab_abm.run_model()
 
     # Aggregate data
-    total_unemployment = lab_abm.unemployment.sum(dim=0)
-    total_vacancies = lab_abm.vacancies.sum(dim=0)
-    total_employment = lab_abm.employment.sum(dim=0)
-    total_demand = lab_abm.demand_scenario.sum(dim=0)
-    d_dagger = lab_abm.demand_scenario
+    total_unemployment = lab_abm.unemployment.sum(dim=0)[burn_in:]
+    total_vacancies = lab_abm.vacancies.sum(dim=0)[burn_in:]
+    total_employment = lab_abm.employment.sum(dim=0)[burn_in:]
+    total_demand = lab_abm.demand_scenario.sum(dim=0)[burn_in:]
+    d_dagger = lab_abm.demand_scenario[:, burn_in:]
     D_dagger = d_dagger.sum(dim=0)
 
     # Save results
@@ -87,6 +88,8 @@ def run_model(
         model_params=model_configuration.dict(),
     )
 
+    results["occupation_names"] = OCC_NAME_DICT
+
     results["simulation-results"] = dict(
         total_unemployment=total_unemployment.numpy().tolist(),
         total_vacancies=total_vacancies.numpy().tolist(),
@@ -94,6 +97,7 @@ def run_model(
         total_demand=total_demand.numpy().tolist(),
         d_dagger=d_dagger.numpy().tolist(),
         D_dagger=D_dagger.numpy().tolist(),
+        time_indices=[date.strftime("%Y-%m-%d") for date in model_inputs["time_indices"]],
     )
 
     print("Saving results...")

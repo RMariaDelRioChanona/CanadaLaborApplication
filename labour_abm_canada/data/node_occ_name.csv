@@ -1,0 +1,535 @@
+,node_id,OCC_code,OCC_title
+0,0,11-1010,Chief Executives
+1,1,11-1020,General and Operations Managers
+2,2,11-1030,Legislators
+3,3,11-2020,Marketing and Sales Managers
+4,4,11-3010,Administrative Services Managers
+5,5,11-3020,Computer and Information Systems Managers
+6,6,11-3030,Financial Managers
+7,7,11-3120,Human Resources Managers
+8,8,11-9010,"Farmers, Ranchers, and Other Agricultural Managers"
+9,9,11-9020,Construction Managers
+10,10,11-9030,Education Administrators
+11,11,11-9110,Medical and Health Services Managers
+12,12,11-9130,Postmasters and Mail Superintendents
+13,13,11-9140,"Property, Real Estate, and Community Association Managers"
+14,14,11-9150,Social and Community Service Managers
+15,15,11-9190,Miscellaneous Managers
+16,16,13-1050,Cost Estimators
+17,17,13-1110,Management Analysts
+18,18,13-1130,Fundraisers
+19,19,13-1160,Market Research Analysts and Marketing Specialists
+20,20,13-2010,Accountants and Auditors
+21,21,13-2052,Personal Financial Advisors
+22,22,13-2070,Credit Counselors and Loan Officers
+23,23,15-1120,Computer and Information Analysts
+24,24,15-1132,"Software Developers, Applications"
+25,25,15-1133,"Software Developers, Systems Software"
+26,26,15-1150,Computer Support Specialists
+27,27,17-2050,Civil Engineers
+28,28,17-2070,Electrical and Electronics Engineers
+29,29,17-2199,"Engineers, All Other"
+30,30,19-2090,Miscellaneous Physical Scientists
+31,31,23-1011,Lawyers
+32,32,23-1020,"Judges, Magistrates, and Other Judicial Workers"
+33,33,25-1000,Postsecondary Teachers
+34,34,25-3000,Other Teachers and Instructors
+35,35,25-9010,Audio-Visual and Multimedia Collections Specialists
+36,36,25-9020,Farm and Home Management Advisors
+37,37,25-9030,Instructional Coordinators
+38,38,25-9040,Teacher Assistants
+39,39,25-9090,"Miscellaneous Education, Training, and Library Workers"
+40,40,27-3043,Writers and Authors
+41,41,33-9030,Security Guards and Gaming Surveillance Officers
+42,42,39-1010,First-Line Supervisors of Gaming Workers
+43,43,41-1010,First-Line Supervisors of Sales Workers
+44,44,41-2010,Cashiers
+45,45,41-2030,Retail Salespersons
+46,46,41-4010,"Sales Representatives, Wholesale and Manufacturing"
+47,47,43-3010,Bill and Account Collectors
+48,48,43-3030,"Bookkeeping, Accounting, and Auditing Clerks"
+49,49,43-4050,Customer Service Representatives
+50,50,43-5052,Postal Service Mail Carriers
+51,51,43-5060,"Production, Planning, and Expediting Clerks"
+52,52,43-9060,"Office Clerks, General"
+53,53,49-9041,Industrial Machinery Mechanics
+54,54,49-9045,"Refractory Materials Repairers, Except Brickmasons"
+55,55,51-1010,First-Line Supervisors of Production and Operating Workers
+56,56,51-8010,"Power Plant Operators, Distributors, and Dispatchers"
+57,57,53-3020,Bus Drivers
+58,58,53-3030,Driver/Sales Workers and Truck Drivers
+59,59,53-3040,Taxi Drivers and Chauffeurs
+60,60,11-3050,Industrial Production Managers
+61,61,11-3070,"Transportation, Storage, and Distribution Managers"
+62,62,11-9050,Food Service Managers
+63,63,13-1020,Buyers and Purchasing Agents
+64,64,13-1070,Human Resources Workers
+65,65,13-1190,Miscellaneous Business Operations Specialists
+66,66,15-1141,Database Administrators
+67,67,17-3020,"Engineering Technicians, Except Drafters"
+68,68,19-2040,Environmental Scientists and Geoscientists
+69,69,19-3090,Miscellaneous Social Scientists and Related Workers
+70,70,21-1010,Counselors
+71,71,21-2010,Clergy
+72,72,21-2090,Miscellaneous Religious Workers
+73,73,27-2020,"Athletes, Coaches, Umpires, and Related Workers"
+74,74,27-3030,Public Relations Specialists
+75,75,29-9000,Other Healthcare Practitioners and Technical Occupations
+76,76,33-2010,Firefighters
+77,77,35-1011,Chefs and Head Cooks
+78,78,35-1012,First-Line Supervisors of Food Preparation and Serving Workers
+79,79,35-2010,Cooks
+80,80,35-2020,Food Preparation Workers
+81,81,35-3010,Bartenders
+82,82,35-3030,Waiters and Waitresses
+83,83,35-9030,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop"
+84,84,37-2011,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners"
+85,85,37-2012,Maids and Housekeeping Cleaners
+86,86,37-2019,"Building Cleaning Workers, All Other"
+87,87,37-3010,Grounds Maintenance Workers
+88,88,41-3010,Advertising Sales Agents
+89,89,41-3020,Insurance Sales Agents
+90,90,41-3090,"Miscellaneous Sales Representatives, Services"
+91,91,41-9020,Real Estate Brokers and Sales Agents
+92,92,43-1010,First-Line Supervisors of Office and Administrative Support Workers
+93,93,43-3070,Tellers
+94,94,43-4110,"Interviewers, Except Eligibility and Loan"
+95,95,43-4130,Loan Interviewers and Clerks
+96,96,43-4160,"Human Resources Assistants, Except Payroll and Timekeeping"
+97,97,43-4170,Receptionists and Information Clerks
+98,98,43-5020,Couriers and Messengers
+99,99,43-6010,Secretaries and Administrative Assistants
+100,100,43-9190,Miscellaneous Office and Administrative Support Workers
+101,101,45-4010,Forest and Conservation Workers
+102,102,47-2030,Carpenters
+103,103,47-2060,Construction Laborers
+104,104,47-2073,Operating Engineers and Other Construction Equipment Operators
+105,105,49-1010,"First-Line Supervisors of Mechanics, Installers, and Repairers"
+106,106,49-2098,Security and Fire Alarm Systems Installers
+107,107,49-3040,Heavy Vehicle and Mobile Equipment Service Technicians and Mechanics
+108,108,51-2090,Miscellaneous Assemblers and Fabricators
+109,109,51-8030,Water and Wastewater Treatment Plant and System Operators
+110,110,51-9060,"Inspectors, Testers, Sorters, Samplers, and Weighers"
+111,111,51-9199,"Production Workers, All Other"
+112,112,53-7050,Industrial Truck and Tractor Operators
+113,113,53-7062,"Laborers and Freight, Stock, and Material Movers, Hand"
+114,114,53-7190,Miscellaneous Material Moving Workers
+115,115,11-2030,Public Relations and Fundraising Managers
+116,116,11-9040,Architectural and Engineering Managers
+117,117,13-1040,Compliance Officers
+118,118,13-1120,"Meeting, Convention, and Event Planners"
+119,119,13-1150,Training and Development Specialists
+120,120,15-1131,Computer Programmers
+121,121,15-1134,Web Developers
+122,122,15-1142,Network and Computer Systems Administrators
+123,123,17-1010,"Architects, Except Naval"
+124,124,19-4090,"Miscellaneous Life, Physical, and Social Science Technicians"
+125,125,21-1020,Social Workers
+126,126,21-1090,Miscellaneous Community and Social Service Specialists
+127,127,25-2030,Secondary School Teachers
+128,128,27-1020,Designers
+129,129,27-2010,"Actors, Producers, and Directors"
+130,130,27-4030,"Television, Video, and Motion Picture Camera Operators and Editors"
+131,131,33-3050,Police Officers
+132,132,39-9020,Personal Care Aides
+133,133,39-9030,Recreation and Fitness Workers
+134,134,41-9030,Sales Engineers
+135,135,41-9099,"Sales and Related Workers, All Other"
+136,136,43-3020,Billing and Posting Clerks
+137,137,43-4020,Correspondence Clerks
+138,138,43-4150,Order Clerks
+139,139,43-5053,"Postal Service Mail Sorters, Processors, and Processing Machine Operators"
+140,140,43-5080,Stock Clerks and Order Fillers
+141,141,43-9021,Data Entry Keyers
+142,142,47-2040,"Carpet, Floor, and Tile Installers and Finishers"
+143,143,49-3050,Small Engine Mechanics
+144,144,49-9093,"Fabric Menders, Except Garment"
+145,145,49-9099,"Installation, Maintenance, and Repair Workers, All Other"
+146,146,51-3010,Bakers
+147,147,51-4120,"Welding, Soldering, and Brazing Workers"
+148,148,11-3060,Purchasing Managers
+149,149,15-1143,Computer Network Architects
+150,150,15-1190,Miscellaneous Computer Occupations
+151,151,25-2020,Elementary and Middle School Teachers
+152,152,35-3040,"Food Servers, Nonrestaurant"
+153,153,39-1020,First-Line Supervisors of Personal Service Workers
+154,154,39-3090,Miscellaneous Entertainment Attendants and Related Workers
+155,155,43-5070,"Shipping, Receiving, and Traffic Clerks"
+156,156,27-3042,Technical Writers
+157,157,13-1030,"Claims Adjusters, Appraisers, Examiners, and Investigators"
+158,158,13-2040,Credit Analysts
+159,159,13-2051,Financial Analysts
+160,160,13-2053,Insurance Underwriters
+161,161,13-2060,Financial Examiners
+162,162,17-3010,Drafters
+163,163,19-3010,Economists
+164,164,25-2010,Preschool and Kindergarten Teachers
+165,165,25-2050,Special Education Teachers
+166,166,39-9010,Childcare Workers
+167,167,41-3030,"Securities, Commodities, and Financial Services Sales Agents"
+168,168,43-3060,Procurement Clerks
+169,169,43-4040,"Credit Authorizers, Checkers, and Clerks"
+170,170,43-4180,Reservation and Transportation Ticket Agents and Travel Clerks
+171,171,43-9022,Word Processors and Typists
+172,172,51-4199,"Metal Workers and Plastic Workers, All Other"
+173,173,17-2110,"Industrial Engineers, Including Health and Safety"
+174,174,41-2021,Counter and Rental Clerks
+175,175,47-1010,First-Line Supervisors of Construction Trades and Extraction Workers
+176,176,51-9020,"Crushing, Grinding, Polishing, Mixing, and Blending Workers"
+177,177,51-9110,Packaging and Filling Machine Operators and Tenders
+178,178,53-1000,Supervisors of Transportation and Material Moving Workers
+179,179,53-6020,Parking Lot Attendants
+180,180,53-7064,"Packers and Packagers, Hand"
+181,181,49-9070,"Maintenance and Repair Workers, General"
+182,182,13-1080,Logisticians
+183,183,17-2170,Petroleum Engineers
+184,184,49-3023,Automotive Service Technicians and Mechanics
+185,185,51-4040,Machinists
+186,186,51-7042,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing"
+187,187,53-2020,Air Traffic Controllers and Airfield Operations Specialists
+188,188,11-3130,Training and Development Managers
+189,189,29-2050,Health Practitioner Support Technologists and Technicians
+190,190,39-2020,Nonfarm Animal Caretakers
+191,191,31-1010,"Nursing, Psychiatric, and Home Health Aides"
+192,192,39-7010,Tour and Travel Guides
+193,193,13-2082,Tax Preparers
+194,194,13-2099,"Financial Specialists, All Other"
+195,195,19-3030,Psychologists
+196,196,21-2020,"Directors, Religious Activities and Education"
+197,197,25-4010,"Archivists, Curators, and Museum Technicians"
+198,198,25-4030,Library Technicians
+199,199,27-1010,Artists and Related Workers
+200,200,29-1140,Registered Nurses
+201,201,29-2060,Licensed Practical and Licensed Vocational Nurses
+202,202,31-9091,Dental Assistants
+203,203,37-1011,First-Line Supervisors of Housekeeping and Janitorial Workers
+204,204,43-4070,File Clerks
+205,205,51-4023,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic"
+206,206,11-9080,Lodging Managers
+207,207,35-3021,"Combined Food Preparation and Serving Workers, Including Fast Food"
+208,208,17-3030,Surveying and Mapping Technicians
+209,209,19-1030,Conservation Scientists and Foresters
+210,210,27-2040,"Musicians, Singers, and Related Workers"
+211,211,27-3090,Miscellaneous Media and Communication Workers
+212,212,29-2010,Clinical Laboratory Technologists and Technicians
+213,213,35-3022,"Counter Attendants, Cafeteria, Food Concession, and Coffee Shop"
+214,214,35-9020,Dishwashers
+215,215,39-5012,"Hairdressers, Hairstylists, and Cosmetologists"
+216,216,41-9040,Telemarketers
+217,217,41-9091,"Door-to-Door Sales Workers, News and Street Vendors, and Related Workers"
+218,218,43-5030,Dispatchers
+219,219,43-5051,Postal Service Clerks
+220,220,47-2141,"Painters, Construction and Maintenance"
+221,221,47-2180,Roofers
+222,222,49-2020,Radio and Telecommunications Equipment Installers and Repairers
+223,223,51-3020,"Butchers and Other Meat, Poultry, and Fish Processing Workers"
+224,224,51-4070,"Molders and Molding Machine Setters, Operators, and Tenders, Metal and Plastic"
+225,225,51-6030,Sewing Machine Operators
+226,226,53-7070,Pumping Station Operators
+227,227,11-9070,Gaming Managers
+228,228,47-4010,Construction and Building Inspectors
+229,229,29-1050,Pharmacists
+230,230,29-1060,Physicians and Surgeons
+231,231,29-1070,Physician Assistants
+232,232,29-1123,Physical Therapists
+233,233,29-1127,Speech-Language Pathologists
+234,234,29-1170,Nurse Practitioners
+235,235,31-2020,Physical Therapist Assistants and Aides
+236,236,31-9092,Medical Assistants
+237,237,31-9096,Veterinary Assistants and Laboratory Animal Caretakers
+238,238,11-2010,Advertising and Promotions Managers
+239,239,27-3020,"News Analysts, Reporters and Correspondents"
+240,240,37-1012,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers"
+241,241,47-2110,Electricians
+242,242,45-2090,Miscellaneous Agricultural Workers
+243,243,53-7061,Cleaners of Vehicles and Equipment
+244,244,43-4080,"Hotel, Motel, and Resort Desk Clerks"
+245,245,11-9120,Natural Sciences Managers
+246,246,13-2020,Appraisers and Assessors of Real Estate
+247,247,13-2030,Budget Analysts
+248,248,15-2030,Operations Research Analysts
+249,249,15-2090,Miscellaneous Mathematical Science Occupations
+250,250,17-1020,"Surveyors, Cartographers, and Photogrammetrists"
+251,251,17-2040,Chemical Engineers
+252,252,17-2150,"Mining and Geological Engineers, Including Mining Safety Engineers"
+253,253,19-1040,Medical Scientists
+254,254,19-2030,Chemists and Materials Scientists
+255,255,19-4020,Biological Technicians
+256,256,19-4040,Geological and Petroleum Technicians
+257,257,23-2010,Paralegals and Legal Assistants
+258,258,27-4010,Broadcast and Sound Engineering Technicians and Radio Operators
+259,259,27-4020,Photographers
+260,260,27-4090,Miscellaneous Media and Communication Equipment Workers
+261,261,29-1030,Dietitians and Nutritionists
+262,262,29-1122,Occupational Therapists
+263,263,33-1090,"Miscellaneous First-Line Supervisors, Protective Service Workers"
+264,264,33-3010,"Bailiffs, Correctional Officers, and Jailers"
+265,265,37-2020,Pest Control Workers
+266,266,39-4030,"Morticians, Undertakers, and Funeral Directors"
+267,267,43-3050,Payroll and Timekeeping Clerks
+268,268,43-4030,"Court, Municipal, and License Clerks"
+269,269,43-4190,Miscellaneous Information and Record Clerks
+270,270,43-5010,Cargo and Freight Agents
+271,271,47-2120,Glaziers
+272,272,47-3010,"Helpers, Construction Trades"
+273,273,47-5040,Mining Machine Operators
+274,274,49-2010,"Computer, Automated Teller, and Office Machine Repairers"
+275,275,49-9052,Telecommunications Line Installers and Repairers
+276,276,51-4031,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic"
+277,277,51-5112,Printing Press Operators
+278,278,51-6020,"Pressers, Textile, Garment, and Related Materials"
+279,279,51-7010,Cabinetmakers and Bench Carpenters
+280,280,51-9010,"Chemical Processing Machine Setters, Operators, and Tenders"
+281,281,51-9070,Jewelers and Precious Stone and Metal Workers
+282,282,53-2030,Flight Attendants
+283,283,53-6050,Transportation Inspectors
+284,284,51-8090,Miscellaneous Plant and System Operators
+285,285,19-1020,Biological Scientists
+286,286,29-1129,"Therapists, All Other"
+287,287,43-4060,"Eligibility Interviewers, Government Programs"
+288,288,51-3091,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders"
+289,289,23-2090,Miscellaneous Legal Support Workers
+290,290,29-2070,Medical Records and Health Information Technicians
+291,291,31-9093,Medical Equipment Preparers
+292,292,31-9099,"Healthcare Support Workers, All Other"
+293,293,43-9110,Statistical Assistants
+294,294,51-6050,"Tailors, Dressmakers, and Sewers"
+295,295,53-4010,Locomotive Engineers and Operators
+296,296,13-1140,"Compensation, Benefits, and Job Analysis Specialists"
+297,297,27-3041,Editors
+298,298,45-1010,"First-Line Supervisors of Farming, Fishing, and Forestry Workers"
+299,299,47-4050,Highway Maintenance Workers
+300,300,47-5050,"Rock Splitters, Quarry"
+301,301,47-5090,Miscellaneous Extraction Workers
+302,302,39-9040,Residential Advisors
+303,303,27-3010,Announcers
+304,304,43-9040,Insurance Claims and Policy Processing Clerks
+305,305,33-3020,Detectives and Criminal Investigators
+306,306,33-9020,Private Detectives and Investigators
+307,307,13-2081,"Tax Examiners and Collectors, and Revenue Agents"
+308,308,15-2040,Statisticians
+309,309,25-4020,Librarians
+310,310,31-2010,Occupational Therapy Assistants and Aides
+311,311,41-9010,"Models, Demonstrators, and Product Promoters"
+312,312,43-3090,Miscellaneous Financial Clerks
+313,313,17-2010,Aerospace Engineers
+314,314,39-9090,Miscellaneous Personal Care and Service Workers
+315,315,39-5090,Miscellaneous Personal Appearance Workers
+316,316,43-9010,Computer Operators
+317,317,33-9092,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers"
+318,318,33-9099,"Protective Service Workers, All Other"
+319,319,43-9070,"Office Machine Operators, Except Computer"
+320,320,17-2060,Computer Hardware Engineers
+321,321,17-2130,Materials Engineers
+322,322,35-9010,Dining Room and Cafeteria Attendants and Bartender Helpers
+323,323,15-1110,Computer and Information Research Scientists
+324,324,15-2010,Actuaries
+325,325,53-6040,Traffic Technicians
+326,326,53-6090,Miscellaneous Transportation Workers
+327,327,47-2150,"Pipelayers, Plumbers, Pipefitters, and Steamfitters"
+328,328,17-2140,Mechanical Engineers
+329,329,51-8020,Stationary Engineers and Boiler Operators
+330,330,17-2160,Nuclear Engineers
+331,331,49-9043,"Maintenance Workers, Machinery"
+332,332,43-5110,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping"
+333,333,23-1012,Judicial Law Clerks
+334,334,39-4010,Embalmers
+335,335,39-4020,Funeral Attendants
+336,336,17-2080,Environmental Engineers
+337,337,29-1020,Dentists
+338,338,29-2040,Emergency Medical Technicians and Paramedics
+339,339,31-9010,Massage Therapists
+340,340,29-2020,Dental Hygienists
+341,341,31-9095,Pharmacy Aides
+342,342,39-3030,"Ushers, Lobby Attendants, and Ticket Takers"
+343,343,53-2010,Aircraft Pilots and Flight Engineers
+344,344,31-9097,Phlebotomists
+345,345,43-4120,"Library Assistants, Clerical"
+346,346,29-1125,Recreational Therapists
+347,347,29-2030,Diagnostic Related Technologists and Technicians
+348,348,49-9091,"Coin, Vending, and Amusement Machine Servicers and Repairers"
+349,349,51-7030,"Model Makers and Patternmakers, Wood"
+350,350,51-7090,Miscellaneous Woodworkers
+351,351,43-9080,Proofreaders and Copy Markers
+352,352,45-2010,Agricultural Inspectors
+353,353,51-9120,Painting Workers
+354,354,27-2030,Dancers and Choreographers
+355,355,47-2080,"Drywall Installers, Ceiling Tile Installers, and Tapers"
+356,356,51-6093,Upholsterers
+357,357,43-2090,Miscellaneous Communications Equipment Operators
+358,358,29-2090,Miscellaneous Health Technologists and Technicians
+359,359,29-1199,"Health Diagnosing and Treating Practitioners, All Other"
+360,360,29-1126,Respiratory Therapists
+361,361,49-3030,Bus and Truck Mechanics and Diesel Engine Specialists
+362,362,53-3010,"Ambulance Drivers and Attendants, Except Emergency Medical Technicians"
+363,363,53-4040,Subway and Streetcar Operators
+364,364,53-4090,Miscellaneous Rail Transportation Workers
+365,365,51-9030,Cutting Workers
+366,366,49-9020,"Heating, Air Conditioning, and Refrigeration Mechanics and Installers"
+367,367,33-1012,First-Line Supervisors of Police and Detectives
+368,368,49-2097,Electronic Home Entertainment Equipment Installers and Repairers
+369,369,43-2020,Telephone Operators
+370,370,49-3021,Automotive Body and Related Repairers
+371,371,39-6010,"Baggage Porters, Bellhops, and Concierges"
+372,372,39-3010,Gaming Services Workers
+373,373,53-6030,Automotive and Watercraft Service Attendants
+374,374,47-2210,Sheet Metal Workers
+375,375,49-3090,"Miscellaneous Vehicle and Mobile Equipment Mechanics, Installers, and Repairers"
+376,376,51-4010,Computer Control Programmers and Operators
+377,377,43-2010,"Switchboard Operators, Including Answering Service"
+378,378,47-4090,Miscellaneous Construction and Related Workers
+379,379,13-1010,"Agents and Business Managers of Artists, Performers, and Athletes"
+380,380,51-3092,Food Batchmakers
+381,381,39-2010,Animal Trainers
+382,382,53-7063,Machine Feeders and Offbearers
+383,383,27-2090,"Miscellaneous Entertainers and Performers, Sports and Related Workers"
+384,384,51-6010,Laundry and Dry-Cleaning Workers
+385,385,51-9080,"Medical, Dental, and Ophthalmic Laboratory Technicians"
+386,386,33-9093,Transportation Security Screeners
+387,387,51-9196,"Paper Goods Machine Setters, Operators, and Tenders"
+388,388,39-5011,Barbers
+389,389,45-2020,Animal Breeders
+390,390,47-2050,"Cement Masons, Concrete Finishers, and Terrazzo Workers"
+391,391,53-3090,Miscellaneous Motor Vehicle Operators
+392,392,47-2130,Insulation Workers
+393,393,51-4033,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+394,394,51-3099,"Food Processing Workers, All Other"
+395,395,19-1010,Agricultural and Food Scientists
+396,396,19-3050,Urban and Regional Planners
+397,397,51-2020,"Electrical, Electronics, and Electromechanical Assemblers"
+398,398,53-7080,Refuse and Recyclable Material Collectors
+399,399,45-2040,"Graders and Sorters, Agricultural Products"
+400,400,45-4020,Logging Workers
+401,401,43-5040,"Meter Readers, Utilities"
+402,402,33-9010,Animal Control Workers
+403,403,41-2022,Parts Salespersons
+404,404,49-9060,Precision Instrument and Equipment Repairers
+405,405,49-9044,Millwrights
+406,406,49-9096,Riggers
+407,407,51-7041,"Sawing Machine Setters, Operators, and Tenders, Wood"
+408,408,43-9050,"Mail Clerks and Mail Machine Operators, Except Postal Service"
+409,409,51-9198,Helpers--Production Workers
+410,410,41-3040,Travel Agents
+411,411,49-3010,Aircraft Mechanics and Service Technicians
+412,412,53-5010,Sailors and Marine Oilers
+413,413,51-9150,Photographic Process Workers and Processing Machine Operators
+414,414,29-2080,"Opticians, Dispensing"
+415,415,53-6060,"Transportation Attendants, Except Flight Attendants"
+416,416,47-2020,"Brickmasons, Blockmasons, and Stonemasons"
+417,417,19-4010,Agricultural and Food Science Technicians
+418,418,49-9051,Electrical Power-Line Installers and Repairers
+419,419,51-6041,Shoe and Leather Workers and Repairers
+420,420,33-9091,Crossing Guards
+421,421,11-3110,Compensation and Benefits Managers
+422,422,51-6063,"Textile Knitting and Weaving Machine Setters, Operators, and Tenders"
+423,423,49-9080,Wind Turbine Service Technicians
+424,424,31-9094,Medical Transcriptionists
+425,425,51-5111,Prepress Technicians and Workers
+426,426,47-4060,Rail-Track Laying and Maintenance Equipment Operators
+427,427,47-2220,Structural Iron and Steel Workers
+428,428,51-4193,"Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic"
+429,429,47-5020,"Earth Drillers, Except Oil and Gas"
+430,430,47-5010,"Derrick, Rotary Drill, and Service Unit Operators, Oil, Gas, and Mining"
+431,431,51-6099,"Textile, Apparel, and Furnishings Workers, All Other"
+432,432,47-4030,Fence Erectors
+433,433,47-4070,Septic Tank Servicers and Sewer Pipe Cleaners
+434,434,47-5080,Helpers--Extraction Workers
+435,435,49-9010,Control and Valve Installers and Repairers
+436,436,33-2020,Fire Inspectors
+437,437,53-4030,Railroad Conductors and Yardmasters
+438,438,51-9040,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders"
+439,439,17-2120,Marine Engineers and Naval Architects
+440,440,19-4030,Chemical Technicians
+441,441,49-2092,"Electric Motor, Power Tool, and Related Repairers"
+442,442,51-9191,Adhesive Bonding Machine Operators and Tenders
+443,443,49-9098,"Helpers--Installation, Maintenance, and Repair Workers"
+444,444,53-7020,Crane and Tower Operators
+445,445,51-4050,"Metal Furnace Operators, Tenders, Pourers, and Casters"
+446,446,49-9030,Home Appliance Repairers
+447,447,47-4040,Hazardous Materials Removal Workers
+448,448,51-5113,Print Binding and Finishing Workers
+449,449,53-7030,"Dredge, Excavating, and Loading Machine Operators"
+450,450,51-2030,Engine and Other Machine Assemblers
+451,451,11-9160,Emergency Management Directors
+452,452,47-2010,Boilermakers
+453,453,47-2160,Plasterers and Stucco Masons
+454,454,51-4110,Tool and Die Makers
+455,455,29-1180,Audiologists
+456,456,51-7020,Furniture Finishers
+457,457,49-3022,Automotive Glass Installers and Repairers
+458,458,47-5070,"Roustabouts, Oil and Gas"
+459,459,51-9050,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders"
+460,460,33-3040,Parking Enforcement Workers
+461,461,47-2230,Solar Photovoltaic Installers
+462,462,51-2010,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers"
+463,463,43-3040,Gaming Cage Workers
+464,464,43-4140,New Accounts Clerks
+465,465,47-2071,"Paving, Surfacing, and Tamping Equipment Operators"
+466,466,51-6062,"Textile Cutting Machine Setters, Operators, and Tenders"
+467,467,51-6064,"Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders"
+468,468,53-5020,Ship and Boat Captains and Operators
+469,469,53-7040,Hoist and Winch Operators
+470,470,19-2010,Astronomers and Physicists
+471,471,49-9094,Locksmiths and Safe Repairers
+472,472,47-5030,"Explosives Workers, Ordnance Handling Experts, and Blasters"
+473,473,43-4010,Brokerage Clerks
+474,474,51-9194,Etchers and Engravers
+475,475,53-7010,Conveyor Operators and Tenders
+476,476,51-9195,"Molders, Shapers, and Casters, Except Metal and Plastic"
+477,477,51-3093,Food Cooking Machine Operators and Tenders
+478,478,51-2040,Structural Metal Fabricators and Fitters
+479,479,51-9192,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders"
+480,480,51-9197,Tire Builders
+481,481,49-9095,Manufactured Building and Mobile Home Installers
+482,482,33-1011,First-Line Supervisors of Correctional Officers
+483,483,49-2096,"Electronic Equipment Installers and Repairers, Motor Vehicles"
+484,484,43-9030,Desktop Publishers
+485,485,29-1130,Veterinarians
+486,486,29-1150,Nurse Anesthetists
+487,487,49-2091,Avionics Technicians
+488,488,49-2094,"Electrical and Electronics Repairers, Commercial and Industrial Equipment"
+489,489,49-2095,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay"
+490,490,47-5060,"Roof Bolters, Mining"
+491,491,19-2020,Atmospheric and Space Scientists
+492,492,29-1010,Chiropractors
+493,493,51-4021,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic"
+494,494,47-4020,Elevator Installers and Repairers
+495,495,19-4060,Social Science Research Assistants
+496,496,51-4034,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+497,497,33-1020,First-Line Supervisors of Fire Fighting and Prevention Workers
+498,498,17-2030,Biomedical Engineers
+499,499,29-1040,Optometrists
+500,500,47-2170,Reinforcing Iron and Rebar Workers
+501,501,53-6010,Bridge and Lock Tenders
+502,502,39-3020,Motion Picture Projectionists
+503,503,51-6042,Shoe Machine Operators and Tenders
+504,504,51-4194,"Tool Grinders, Filers, and Sharpeners"
+505,505,51-4060,"Model Makers and Patternmakers, Metal and Plastic"
+506,506,53-7120,"Tank Car, Truck, and Ship Loaders"
+507,507,51-4022,"Forging Machine Setters, Operators, and Tenders, Metal and Plastic"
+508,508,17-2020,Agricultural Engineers
+509,509,51-9193,Cooling and Freezing Equipment Operators and Tenders
+510,510,15-2020,Mathematicians
+511,511,19-3020,Survey Researchers
+512,512,19-3040,Sociologists
+513,513,19-4050,Nuclear Technicians
+514,514,47-2142,Paperhangers
+515,515,29-1080,Podiatrists
+516,516,29-1124,Radiation Therapists
+517,517,29-1128,Exercise Physiologists
+518,518,29-1160,Nurse Midwives
+519,519,33-3030,Fish and Game Wardens
+520,520,47-2072,Pile-Driver Operators
+521,521,49-2093,"Electrical and Electronics Installers and Repairers, Transportation Equipment"
+522,522,49-9092,Commercial Divers
+523,523,49-9097,Signal and Track Switch Repairers
+524,524,51-4032,"Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+525,525,51-4035,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic"
+526,526,51-4080,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic"
+527,527,51-4191,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic"
+528,528,51-4192,"Layout Workers, Metal and Plastic"
+529,529,51-6061,Textile Bleaching and Dyeing Machine Operators and Tenders
+530,530,51-6091,"Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers"
+531,531,51-6092,Fabric and Apparel Patternmakers
+532,532,51-9140,Semiconductor Processors
+533,533,53-5030,Ship Engineers
