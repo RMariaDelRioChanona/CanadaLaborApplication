@@ -12,7 +12,7 @@ with open(join(this_dir, "requirements.txt")) as f:
 
 setup(
     name="labour-abm",
-    version="0.1.0",
+    version="0.1.1",
     description="Labour ABM",
     url="",
     long_description_content_type="text/markdown",
