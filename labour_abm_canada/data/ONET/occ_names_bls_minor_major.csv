@@ -1,0 +1,540 @@
+,OCC_CODE,OCC_TITLE,TOT_EMP,A_MEAN,class_minor,class_major,OCC_CODE_minor,OCC_TITLE_minor,TOT_EMP_minor,A_MEAN_minor,OCC_CODE_major,OCC_TITLE_major,TOT_EMP_major,A_MEAN_major
+0,11-1010,Chief Executives,195530,200140,11-1000,11-0000,11-1000,Top Executives,2535640,128240,11-0000,Management Occupations,7616650,121560
+1,11-1020,General and Operations Managers,2289770,123880,11-1000,11-0000,11-1000,Top Executives,2535640,128240,11-0000,Management Occupations,7616650,121560
+2,11-1030,Legislators,50330,47620,11-1000,11-0000,11-1000,Top Executives,2535640,128240,11-0000,Management Occupations,7616650,121560
+3,11-2010,Advertising and Promotions Managers,25260,133090,11-2000,11-0000,11-2000,"Advertising, Marketing, Promotions, Public Relations, and Sales Managers",717220,141500,11-0000,Management Occupations,7616650,121560
+4,11-2020,Marketing and Sales Managers,619500,143000,11-2000,11-0000,11-2000,"Advertising, Marketing, Promotions, Public Relations, and Sales Managers",717220,141500,11-0000,Management Occupations,7616650,121560
+5,11-2030,Public Relations and Fundraising Managers,72460,131570,11-2000,11-0000,11-2000,"Advertising, Marketing, Promotions, Public Relations, and Sales Managers",717220,141500,11-0000,Management Occupations,7616650,121560
+6,11-3010,Administrative Services Managers,283570,106050,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+7,11-3020,Computer and Information Systems Managers,391430,152860,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+8,11-3030,Financial Managers,608120,146830,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+9,11-3050,Industrial Production Managers,181310,113370,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+10,11-3060,Purchasing Managers,69490,125630,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+11,11-3070,"Transportation, Storage, and Distribution Managers",124810,102850,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+12,11-3110,Compensation and Benefits Managers,15660,132860,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+13,11-3120,Human Resources Managers,143580,126700,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+14,11-3130,Training and Development Managers,35690,121730,11-3000,11-0000,11-3000,Operations Specialties Managers,1853660,132680,11-0000,Management Occupations,7616650,121560
+15,11-9010,"Farmers, Ranchers, and Other Agricultural Managers",4770,79940,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+16,11-9020,Construction Managers,278460,103110,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+17,11-9030,Education Administrators,498200,97030,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+18,11-9040,Architectural and Engineering Managers,188290,148970,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+19,11-9050,Food Service Managers,219160,58960,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+20,11-9060,Funeral Service Managers,8400,93820,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+21,11-9070,Gaming Managers,4300,85260,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+22,11-9080,Lodging Managers,37050,62270,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+23,11-9110,Medical and Health Services Managers,372670,113730,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+24,11-9120,Natural Sciences Managers,60260,139680,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+25,11-9130,Postmasters and Mail Superintendents,13770,77040,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+26,11-9140,"Property, Real Estate, and Community Association Managers",202550,71730,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+27,11-9150,Social and Community Service Managers,149870,71670,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+28,11-9160,Emergency Management Directors,9550,82570,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+29,11-9190,Miscellaneous Managers,462840,115590,11-9000,11-0000,11-9000,Other Management Occupations,2510140,100900,11-0000,Management Occupations,7616650,121560
+30,13-1010,"Agents and Business Managers of Artists, Performers, and Athletes",14830,90930,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+31,13-1020,Buyers and Purchasing Agents,407410,67530,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+32,13-1030,"Claims Adjusters, Appraisers, Examiners, and Investigators",302930,67440,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+33,13-1040,Compliance Officers,300900,72520,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+34,13-1050,Cost Estimators,211600,69710,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+35,13-1070,Human Resources Workers,671140,67240,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+36,13-1080,Logisticians,169820,78730,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+37,13-1110,Management Analysts,684470,94390,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+38,13-1120,"Meeting, Convention, and Event Planners",110120,53730,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+39,13-1130,Fundraisers,75700,61610,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+40,13-1140,"Compensation, Benefits, and Job Analysis Specialists",83550,67910,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+41,13-1150,Training and Development Specialists,291380,65120,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+42,13-1160,Market Research Analysts and Marketing Specialists,638200,70960,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+43,13-1190,Miscellaneous Business Operations Specialists,1060580,76960,13-1000,13-0000,13-1000,Business Operations Specialists,5022640,73890,13-0000,Business and Financial Operations Occupations,7721300,76910
+44,13-2010,Accountants and Auditors,1259930,78820,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+45,13-2020,Appraisers and Assessors of Real Estate,57900,61870,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+46,13-2030,Budget Analysts,52810,79830,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+47,13-2040,Credit Analysts,74820,82300,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+48,13-2051,Financial Analysts,306200,100990,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+49,13-2052,Personal Financial Advisors,200260,121770,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+50,13-2053,Insurance Underwriters,96040,76880,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+51,13-2060,Financial Examiners,58590,90310,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+52,13-2070,Credit Counselors and Loan Officers,340690,73490,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+53,13-2081,"Tax Examiners and Collectors, and Revenue Agents",54550,60500,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+54,13-2082,Tax Preparers,68090,46860,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+55,13-2099,"Financial Specialists, All Other",128760,77580,13-2000,13-0000,13-2000,Financial Specialists,2698660,82550,13-0000,Business and Financial Operations Occupations,7721300,76910
+56,15-1110,Computer and Information Research Scientists,30070,123850,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+57,15-1120,Computer and Information Analysts,696030,94990,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+58,15-1131,Computer Programmers,230470,89580,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+59,15-1132,"Software Developers, Applications",903160,108080,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+60,15-1133,"Software Developers, Systems Software",405330,114000,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+61,15-1134,Web Developers,127300,75580,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+62,15-1141,Database Administrators,110090,92030,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+63,15-1142,Network and Computer Systems Administrators,366250,87070,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+64,15-1143,Computer Network Architects,152670,111130,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+65,15-1150,Computer Support Specialists,812060,57950,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+66,15-1190,Miscellaneous Computer Occupations,381380,93350,15-1100,15-0000,15-1100,Computer Occupations,4214820,91480,15-0000,Computer and Mathematical Occupations,4384300,91530
+67,15-2010,Actuaries,20760,116250,15-2000,15-0000,15-2000,Mathematical Science Occupations,169480,92830,15-0000,Computer and Mathematical Occupations,4384300,91530
+68,15-2020,Mathematicians,2580,104870,15-2000,15-0000,15-2000,Mathematical Science Occupations,169480,92830,15-0000,Computer and Mathematical Occupations,4384300,91530
+69,15-2030,Operations Research Analysts,104200,88350,15-2000,15-0000,15-2000,Mathematical Science Occupations,169480,92830,15-0000,Computer and Mathematical Occupations,4384300,91530
+70,15-2040,Statisticians,39920,92600,15-2000,15-0000,15-2000,Mathematical Science Occupations,169480,92830,15-0000,Computer and Mathematical Occupations,4384300,91530
+71,15-2090,Miscellaneous Mathematical Science Occupations,2010,72390,15-2000,15-0000,15-2000,Mathematical Science Occupations,169480,92830,15-0000,Computer and Mathematical Occupations,4384300,91530
+72,17-1010,"Architects, Except Naval",123020,86480,17-1000,17-0000,17-1000,"Architects, Surveyors, and Cartographers",179380,80300,17-0000,Architecture and Engineering Occupations,2556220,87370
+73,17-1020,"Surveyors, Cartographers, and Photogrammetrists",56360,66810,17-1000,17-0000,17-1000,"Architects, Surveyors, and Cartographers",179380,80300,17-0000,Architecture and Engineering Occupations,2556220,87370
+74,17-2010,Aerospace Engineers,63960,117100,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+75,17-2020,Agricultural Engineers,1630,79090,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+76,17-2030,Biomedical Engineers,18970,95090,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+77,17-2040,Chemical Engineers,32060,114470,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+78,17-2050,Civil Engineers,306030,93720,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+79,17-2060,Computer Hardware Engineers,60750,117840,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+80,17-2070,Electrical and Electronics Engineers,320610,104250,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+81,17-2080,Environmental Engineers,53070,92640,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+82,17-2110,"Industrial Engineers, Including Health and Safety",305780,91800,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+83,17-2120,Marine Engineers and Naval Architects,11350,98970,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+84,17-2130,Materials Engineers,26930,96930,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+85,17-2140,Mechanical Engineers,303440,92800,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+86,17-2150,"Mining and Geological Engineers, Including Mining Safety Engineers",5780,98420,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+87,17-2160,Nuclear Engineers,15980,110790,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+88,17-2170,Petroleum Engineers,32510,156370,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+89,17-2199,"Engineers, All Other",142030,99410,17-2000,17-0000,17-2000,Engineers,1700880,99230,17-0000,Architecture and Engineering Occupations,2556220,87370
+90,17-3010,Drafters,193260,58180,17-3000,17-0000,17-3000,"Drafters, Engineering Technicians, and Mapping Technicians",675960,59410,17-0000,Architecture and Engineering Occupations,2556220,87370
+91,17-3020,"Engineering Technicians, Except Drafters",430400,61380,17-3000,17-0000,17-3000,"Drafters, Engineering Technicians, and Mapping Technicians",675960,59410,17-0000,Architecture and Engineering Occupations,2556220,87370
+92,17-3030,Surveying and Mapping Technicians,52300,47690,17-3000,17-0000,17-3000,"Drafters, Engineering Technicians, and Mapping Technicians",675960,59410,17-0000,Architecture and Engineering Occupations,2556220,87370
+93,19-1010,Agricultural and Food Scientists,30880,71230,19-1000,19-0000,19-1000,Life Scientists,304750,86450,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+94,19-1020,Biological Scientists,109040,86390,19-1000,19-0000,19-1000,Life Scientists,304750,86450,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+95,19-1030,Conservation Scientists and Foresters,30600,64720,19-1000,19-0000,19-1000,Life Scientists,304750,86450,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+96,19-1040,Medical Scientists,127380,95270,19-1000,19-0000,19-1000,Life Scientists,304750,86450,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+97,19-1090,Miscellaneous Life Scientists,6850,89150,19-1000,19-0000,19-1000,Life Scientists,304750,86450,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+98,19-2010,Astronomers and Physicists,19770,123730,19-2000,19-0000,19-2000,Physical Scientists,254790,90470,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+99,19-2020,Atmospheric and Space Scientists,9310,95580,19-2000,19-0000,19-2000,Physical Scientists,254790,90470,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+100,19-2030,Chemists and Materials Scientists,92300,85400,19-2000,19-0000,19-2000,Physical Scientists,254790,90470,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+101,19-2040,Environmental Scientists and Geoscientists,116020,85480,19-2000,19-0000,19-2000,Physical Scientists,254790,90470,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+102,19-2090,Miscellaneous Physical Scientists,17380,110090,19-2000,19-0000,19-2000,Physical Scientists,254790,90470,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+103,19-3010,Economists,18650,116020,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+104,19-3020,Survey Researchers,11690,63240,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+105,19-3030,Psychologists,124750,86600,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+106,19-3040,Sociologists,2710,90290,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+107,19-3050,Urban and Regional Planners,37840,76240,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+108,19-3090,Miscellaneous Social Scientists and Related Workers,51640,85320,19-3000,19-0000,19-3000,Social Scientists and Related Workers,247290,85900,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+109,19-4010,Agricultural and Food Science Technicians,21290,44170,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+110,19-4020,Biological Technicians,77450,48060,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+111,19-4030,Chemical Technicians,65500,51670,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+112,19-4040,Geological and Petroleum Technicians,15060,62890,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+113,19-4050,Nuclear Technicians,7230,79970,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+114,19-4060,Social Science Research Assistants,34550,50420,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+115,19-4090,"Miscellaneous Life, Physical, and Social Science Technicians",144010,50720,19-4000,19-0000,19-4000,"Life, Physical, and Social Science Technicians",365080,50990,19-0000,"Life, Physical, and Social Science Occupations",1171910,76160
+116,21-1010,Counselors,735100,51920,21-1000,21-0000,21-1000,"Counselors, Social Workers, and Other Community and Social Service Specialists",2090700,49270,21-0000,Community and Social Service Occupations,2171820,49280
+117,21-1020,Social Workers,662550,53060,21-1000,21-0000,21-1000,"Counselors, Social Workers, and Other Community and Social Service Specialists",2090700,49270,21-0000,Community and Social Service Occupations,2171820,49280
+118,21-1090,Miscellaneous Community and Social Service Specialists,693040,42820,21-1000,21-0000,21-1000,"Counselors, Social Workers, and Other Community and Social Service Specialists",2090700,49270,21-0000,Community and Social Service Occupations,2171820,49280
+119,21-2010,Clergy,50960,53290,21-2000,21-0000,21-2000,Religious Workers,81120,49790,21-0000,Community and Social Service Occupations,2171820,49280
+120,21-2020,"Directors, Religious Activities and Education",21700,46980,21-2000,21-0000,21-2000,Religious Workers,81120,49790,21-0000,Community and Social Service Occupations,2171820,49280
+121,21-2090,Miscellaneous Religious Workers,8460,35860,21-2000,21-0000,21-2000,Religious Workers,81120,49790,21-0000,Community and Social Service Occupations,2171820,49280
+122,23-1011,Lawyers,642750,144230,23-1000,23-0000,23-1000,"Lawyers, Judges, and Related Workers",708140,139850,23-0000,Legal Occupations,1127900,108690
+123,23-1012,Judicial Law Clerks,16350,59540,23-1000,23-0000,23-1000,"Lawyers, Judges, and Related Workers",708140,139850,23-0000,Legal Occupations,1127900,108690
+124,23-1020,"Judges, Magistrates, and Other Judicial Workers",49040,109170,23-1000,23-0000,23-1000,"Lawyers, Judges, and Related Workers",708140,139850,23-0000,Legal Occupations,1127900,108690
+125,23-2010,Paralegals and Legal Assistants,309940,54500,23-2000,23-0000,23-2000,Legal Support Workers,419770,56130,23-0000,Legal Occupations,1127900,108690
+126,23-2090,Miscellaneous Legal Support Workers,109820,60710,23-2000,23-0000,23-2000,Legal Support Workers,419770,56130,23-0000,Legal Occupations,1127900,108690
+127,25-1000,Postsecondary Teachers,1517100,85190,25-1000,25-0000,25-1000,Postsecondary Teachers,1517100,85190,25-0000,"Education, Training, and Library Occupations",8779780,56620
+128,25-2010,Preschool and Kindergarten Teachers,555680,40070,25-2000,25-0000,25-2000,"Preschool, Primary, Secondary, and Special Education School Teachers",4193290,59980,25-0000,"Education, Training, and Library Occupations",8779780,56620
+129,25-2020,Elementary and Middle School Teachers,2032880,62150,25-2000,25-0000,25-2000,"Preschool, Primary, Secondary, and Special Education School Teachers",4193290,59980,25-0000,"Education, Training, and Library Occupations",8779780,56620
+130,25-2030,Secondary School Teachers,1129040,64230,25-2000,25-0000,25-2000,"Preschool, Primary, Secondary, and Special Education School Teachers",4193290,59980,25-0000,"Education, Training, and Library Occupations",8779780,56620
+131,25-2050,Special Education Teachers,475700,63890,25-2000,25-0000,25-2000,"Preschool, Primary, Secondary, and Special Education School Teachers",4193290,59980,25-0000,"Education, Training, and Library Occupations",8779780,56620
+132,25-3000,Other Teachers and Instructors,1203570,40250,25-3000,25-0000,25-3000,Other Teachers and Instructors,1203570,40250,25-0000,"Education, Training, and Library Occupations",8779780,56620
+133,25-4010,"Archivists, Curators, and Museum Technicians",31760,53280,25-4000,25-0000,25-4000,"Librarians, Curators, and Archivists",246200,51290,25-0000,"Education, Training, and Library Occupations",8779780,56620
+134,25-4020,Librarians,125750,61530,25-4000,25-0000,25-4000,"Librarians, Curators, and Archivists",246200,51290,25-0000,"Education, Training, and Library Occupations",8779780,56620
+135,25-4030,Library Technicians,88690,36080,25-4000,25-0000,25-4000,"Librarians, Curators, and Archivists",246200,51290,25-0000,"Education, Training, and Library Occupations",8779780,56620
+136,25-9010,Audio-Visual and Multimedia Collections Specialists,9540,52270,25-9000,25-0000,25-9000,"Other Education, Training, and Library Occupations",1619610,34110,25-0000,"Education, Training, and Library Occupations",8779780,56620
+137,25-9020,Farm and Home Management Advisors,8020,52700,25-9000,25-0000,25-9000,"Other Education, Training, and Library Occupations",1619610,34110,25-0000,"Education, Training, and Library Occupations",8779780,56620
+138,25-9030,Instructional Coordinators,163900,67490,25-9000,25-0000,25-9000,"Other Education, Training, and Library Occupations",1619610,34110,25-0000,"Education, Training, and Library Occupations",8779780,56620
+139,25-9040,Teacher Assistants,1331560,28750,25-9000,25-0000,25-9000,"Other Education, Training, and Library Occupations",1619610,34110,25-0000,"Education, Training, and Library Occupations",8779780,56620
+140,25-9090,"Miscellaneous Education, Training, and Library Workers",106590,46680,25-9000,25-0000,25-9000,"Other Education, Training, and Library Occupations",1619610,34110,25-0000,"Education, Training, and Library Occupations",8779780,56620
+141,27-1010,Artists and Related Workers,90990,84930,27-1000,27-0000,27-1000,Art and Design Workers,610180,55230,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+142,27-1020,Designers,519180,50020,27-1000,27-0000,27-1000,Art and Design Workers,610180,55230,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+143,27-2010,"Actors, Producers, and Directors",166060,81610,27-2000,27-0000,27-2000,"Entertainers and Performers, Sports and Related Workers",515310,59900,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+144,27-2020,"Athletes, Coaches, Umpires, and Related Workers",266860,45080,27-2000,27-0000,27-2000,"Entertainers and Performers, Sports and Related Workers",515310,59900,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+145,27-2030,Dancers and Choreographers,14810,46670,27-2000,27-0000,27-2000,"Entertainers and Performers, Sports and Related Workers",515310,59900,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+146,27-2040,"Musicians, Singers, and Related Workers",53840,59900,27-2000,27-0000,27-2000,"Entertainers and Performers, Sports and Related Workers",515310,59900,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+147,27-2090,"Miscellaneous Entertainers and Performers, Sports and Related Workers",13740,59900,27-2000,27-0000,27-2000,"Entertainers and Performers, Sports and Related Workers",515310,59900,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+148,27-3010,Announcers,35260,48960,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+149,27-3020,"News Analysts, Reporters and Correspondents",43030,60530,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+150,27-3030,Public Relations Specialists,239030,68440,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+151,27-3041,Editors,95750,69480,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+152,27-3042,Technical Writers,50350,75500,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+153,27-3043,Writers and Authors,45210,73090,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+154,27-3090,Miscellaneous Media and Communication Workers,77560,54490,27-3000,27-0000,27-3000,Media and Communication Workers,586190,65980,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+155,27-4010,Broadcast and Sound Engineering Technicians and Radio Operators,121890,49960,27-4000,27-0000,27-4000,Media and Communication Equipment Workers,239490,55970,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+156,27-4020,Photographers,49560,42770,27-4000,27-0000,27-4000,Media and Communication Equipment Workers,239490,55970,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+157,27-4030,"Television, Video, and Motion Picture Camera Operators and Editors",49240,76090,27-4000,27-0000,27-4000,Media and Communication Equipment Workers,239490,55970,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+158,27-4090,Miscellaneous Media and Communication Equipment Workers,18790,77080,27-4000,27-0000,27-4000,Media and Communication Equipment Workers,239490,55970,27-0000,"Arts, Design, Entertainment, Sports, and Media Occupations",1951170,59780
+159,29-1010,Chiropractors,34740,85870,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+160,29-1020,Dentists,128060,180590,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+161,29-1030,Dietitians and Nutritionists,64670,61210,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+162,29-1040,Optometrists,37220,119980,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+163,29-1050,Pharmacists,309550,123670,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+164,29-1060,Physicians and Surgeons,679280,210980,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+165,29-1070,Physician Assistants,114710,108430,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+166,29-1080,Podiatrists,9500,148220,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+167,29-1122,Occupational Therapists,126900,85350,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+168,29-1123,Physical Therapists,228600,88880,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+169,29-1124,Radiation Therapists,18260,86730,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+170,29-1125,Recreational Therapists,18840,50640,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+171,29-1126,Respiratory Therapists,129600,62500,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+172,29-1127,Speech-Language Pathologists,146900,80700,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+173,29-1128,Exercise Physiologists,6740,54760,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+174,29-1129,"Therapists, All Other",11950,57680,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+175,29-1130,Veterinarians,71060,105240,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+176,29-1140,Registered Nurses,2951960,75510,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+177,29-1150,Nurse Anesthetists,43520,174790,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+178,29-1160,Nurse Midwives,6250,106910,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+179,29-1170,Nurse Practitioners,179650,110030,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+180,29-1180,Audiologists,13300,82210,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+181,29-1199,"Health Diagnosing and Treating Practitioners, All Other",36680,85600,29-1000,29-0000,29-1000,Health Diagnosing and Treating Practitioners,5367930,101960,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+182,29-2010,Clinical Laboratory Technologists and Technicians,321220,53880,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+183,29-2020,Dental Hygienists,215150,75500,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+184,29-2030,Diagnostic Related Technologists and Technicians,390630,65260,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+185,29-2040,Emergency Medical Technicians and Paramedics,257210,37760,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+186,29-2050,Health Practitioner Support Technologists and Technicians,801590,36930,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+187,29-2060,Licensed Practical and Licensed Vocational Nurses,701690,47050,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+188,29-2070,Medical Records and Health Information Technicians,208650,44010,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+189,29-2080,"Opticians, Dispensing",72250,39930,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+190,29-2090,Miscellaneous Health Technologists and Technicians,141790,49540,29-2000,29-0000,29-2000,Health Technologists and Technicians,3110180,48380,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+191,29-9000,Other Healthcare Practitioners and Technical Occupations,168630,66590,29-9000,29-0000,29-9000,Other Healthcare Practitioners and Technical Occupations,168630,66590,29-0000,Healthcare Practitioners and Technical Occupations,8646730,82000
+192,31-1010,"Nursing, Psychiatric, and Home Health Aides",2355640,28180,31-1000,31-0000,31-1000,"Nursing, Psychiatric, and Home Health Aides",2355640,28180,31-0000,Healthcare Support Occupations,4117450,32380
+193,31-2010,Occupational Therapy Assistants and Aides,50360,56150,31-2000,31-0000,31-2000,Occupational Therapy and Physical Therapist Assistants and Aides,191870,50130,31-0000,Healthcare Support Occupations,4117450,32380
+194,31-2020,Physical Therapist Assistants and Aides,141510,47980,31-2000,31-0000,31-2000,Occupational Therapy and Physical Therapist Assistants and Aides,191870,50130,31-0000,Healthcare Support Occupations,4117450,32380
+195,31-9010,Massage Therapists,105160,45880,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+196,31-9091,Dental Assistants,341060,39770,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+197,31-9092,Medical Assistants,673660,34540,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+198,31-9093,Medical Equipment Preparers,55610,37990,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+199,31-9094,Medical Transcriptionists,53730,36350,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+200,31-9095,Pharmacy Aides,36970,29190,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+201,31-9096,Veterinary Assistants and Laboratory Animal Caretakers,89480,28690,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+202,31-9097,Phlebotomists,125280,35560,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+203,31-9099,"Healthcare Support Workers, All Other",88990,39110,31-9000,31-0000,31-9000,Other Healthcare Support Occupations,1569940,36500,31-0000,Healthcare Support Occupations,4117450,32380
+204,33-1011,First-Line Supervisors of Correctional Officers,43760,68350,33-1000,33-0000,33-1000,Supervisors of Protective Service Workers,304940,76380,33-0000,Protective Service Occupations,3437410,48580
+205,33-1012,First-Line Supervisors of Police and Detectives,116660,93100,33-1000,33-0000,33-1000,Supervisors of Protective Service Workers,304940,76380,33-0000,Protective Service Occupations,3437410,48580
+206,33-1020,First-Line Supervisors of Fire Fighting and Prevention Workers,65920,80310,33-1000,33-0000,33-1000,Supervisors of Protective Service Workers,304940,76380,33-0000,Protective Service Occupations,3437410,48580
+207,33-1090,"Miscellaneous First-Line Supervisors, Protective Service Workers",78610,52730,33-1000,33-0000,33-1000,Supervisors of Protective Service Workers,304940,76380,33-0000,Protective Service Occupations,3437410,48580
+208,33-2010,Firefighters,321570,53240,33-2000,33-0000,33-2000,Fire Fighting and Prevention Workers,336230,53630,33-0000,Protective Service Occupations,3437410,48580
+209,33-2020,Fire Inspectors,14660,62030,33-2000,33-0000,33-2000,Fire Fighting and Prevention Workers,336230,53630,33-0000,Protective Service Occupations,3437410,48580
+210,33-3010,"Bailiffs, Correctional Officers, and Jailers",433900,49320,33-3000,33-0000,33-3000,Law Enforcement Workers,1217260,61190,33-0000,Protective Service Occupations,3437410,48580
+211,33-3020,Detectives and Criminal Investigators,103450,85020,33-3000,33-0000,33-3000,Law Enforcement Workers,1217260,61190,33-0000,Protective Service Occupations,3437410,48580
+212,33-3030,Fish and Game Wardens,6040,59260,33-3000,33-0000,33-3000,Law Enforcement Workers,1217260,61190,33-0000,Protective Service Occupations,3437410,48580
+213,33-3040,Parking Enforcement Workers,8070,42200,33-3000,33-0000,33-3000,Law Enforcement Workers,1217260,61190,33-0000,Protective Service Occupations,3437410,48580
+214,33-3050,Police Officers,665800,65460,33-3000,33-0000,33-3000,Law Enforcement Workers,1217260,61190,33-0000,Protective Service Occupations,3437410,48580
+215,33-9010,Animal Control Workers,12080,38490,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+216,33-9020,Private Detectives and Investigators,30990,56810,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+217,33-9030,Security Guards and Gaming Surveillance Officers,1124610,32090,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+218,33-9091,Crossing Guards,79880,31970,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+219,33-9092,"Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers",144370,24420,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+220,33-9093,Transportation Security Screeners,45250,41860,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+221,33-9099,"Protective Service Workers, All Other",141790,34650,33-9000,33-0000,33-9000,Other Protective Service Workers,1578980,32430,33-0000,Protective Service Occupations,3437410,48580
+222,35-1011,Chefs and Head Cooks,128600,52160,35-1000,35-0000,35-1000,Supervisors of Food Preparation and Serving Workers,1093000,38070,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+223,35-1012,First-Line Supervisors of Food Preparation and Serving Workers,964400,36190,35-1000,35-0000,35-1000,Supervisors of Food Preparation and Serving Workers,1093000,38070,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+224,35-2010,Cooks,2403510,26560,35-2000,35-0000,35-2000,Cooks and Food Preparation Workers,3218110,26120,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+225,35-2020,Food Preparation Workers,814600,24830,35-2000,35-0000,35-2000,Cooks and Food Preparation Workers,3218110,26120,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+226,35-3010,Bartenders,631480,26780,35-3000,35-0000,35-3000,Food and Beverage Serving Workers,7630110,23940,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+227,35-3021,"Combined Food Preparation and Serving Workers, Including Fast Food",3676180,22140,35-3000,35-0000,35-3000,Food and Beverage Serving Workers,7630110,23940,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+228,35-3022,"Counter Attendants, Cafeteria, Food Concession, and Coffee Shop",473860,23240,35-3000,35-0000,35-3000,Food and Beverage Serving Workers,7630110,23940,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+229,35-3030,Waiters and Waitresses,2582410,25830,35-3000,35-0000,35-3000,Food and Beverage Serving Workers,7630110,23940,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+230,35-3040,"Food Servers, Nonrestaurant",266190,24980,35-3000,35-0000,35-3000,Food and Beverage Serving Workers,7630110,23940,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+231,35-9010,Dining Room and Cafeteria Attendants and Bartender Helpers,455700,23950,35-9000,35-0000,35-9000,Other Food Preparation and Serving Related Workers,1433400,23540,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+232,35-9020,Dishwashers,504770,23190,35-9000,35-0000,35-9000,Other Food Preparation and Serving Related Workers,1433400,23540,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+233,35-9030,"Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",416950,23260,35-9000,35-0000,35-9000,Other Food Preparation and Serving Related Workers,1433400,23540,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+234,35-9090,Miscellaneous Food Preparation and Serving Related Workers,55980,25430,35-9000,35-0000,35-9000,Other Food Preparation and Serving Related Workers,1433400,23540,35-0000,Food Preparation and Serving Related Occupations,13374620,25580
+235,37-1011,First-Line Supervisors of Housekeeping and Janitorial Workers,154180,43150,37-1000,37-0000,37-1000,Supervisors of Building and Grounds Cleaning and Maintenance Workers,255580,46380,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+236,37-1012,"First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",101390,51280,37-1000,37-0000,37-1000,Supervisors of Building and Grounds Cleaning and Maintenance Workers,255580,46380,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+237,37-2011,"Janitors and Cleaners, Except Maids and Housekeeping Cleaners",2156270,28950,37-2000,37-0000,37-2000,Building Cleaning and Pest Control Workers,3171520,28200,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+238,37-2012,Maids and Housekeeping Cleaners,924290,25570,37-2000,37-0000,37-2000,Building Cleaning and Pest Control Workers,3171520,28200,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+239,37-2019,"Building Cleaning Workers, All Other",13650,32710,37-2000,37-0000,37-2000,Building Cleaning and Pest Control Workers,3171520,28200,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+240,37-2020,Pest Control Workers,77300,37950,37-2000,37-0000,37-2000,Building Cleaning and Pest Control Workers,3171520,28200,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+241,37-3010,Grounds Maintenance Workers,994880,31600,37-3000,37-0000,37-3000,Grounds Maintenance Workers,994880,31600,37-0000,Building and Grounds Cleaning and Maintenance Occupations,4421980,30020
+242,39-1010,First-Line Supervisors of Gaming Workers,30330,50250,39-1000,39-0000,39-1000,Supervisors of Personal Care and Service Workers,258960,42710,39-0000,Personal Care and Service Occupations,5451330,28090
+243,39-1020,First-Line Supervisors of Personal Service Workers,228620,41710,39-1000,39-0000,39-1000,Supervisors of Personal Care and Service Workers,258960,42710,39-0000,Personal Care and Service Occupations,5451330,28090
+244,39-2010,Animal Trainers,14830,35260,39-2000,39-0000,39-2000,Animal Care and Service Workers,214680,26540,39-0000,Personal Care and Service Occupations,5451330,28090
+245,39-2020,Nonfarm Animal Caretakers,199850,25890,39-2000,39-0000,39-2000,Animal Care and Service Workers,214680,26540,39-0000,Personal Care and Service Occupations,5451330,28090
+246,39-3010,Gaming Services Workers,113640,24240,39-3000,39-0000,39-3000,Entertainment Attendants and Related Workers,601890,24050,39-0000,Personal Care and Service Occupations,5451330,28090
+247,39-3020,Motion Picture Projectionists,4840,25820,39-3000,39-0000,39-3000,Entertainment Attendants and Related Workers,601890,24050,39-0000,Personal Care and Service Occupations,5451330,28090
+248,39-3030,"Ushers, Lobby Attendants, and Ticket Takers",133970,23610,39-3000,39-0000,39-3000,Entertainment Attendants and Related Workers,601890,24050,39-0000,Personal Care and Service Occupations,5451330,28090
+249,39-3090,Miscellaneous Entertainment Attendants and Related Workers,349440,24140,39-3000,39-0000,39-3000,Entertainment Attendants and Related Workers,601890,24050,39-0000,Personal Care and Service Occupations,5451330,28090
+250,39-4010,Embalmers,4070,46640,39-4000,39-0000,39-4000,Funeral Service Workers,65150,41130,39-0000,Personal Care and Service Occupations,5451330,28090
+251,39-4020,Funeral Attendants,35340,28480,39-4000,39-0000,39-4000,Funeral Service Workers,65150,41130,39-0000,Personal Care and Service Occupations,5451330,28090
+252,39-4030,"Morticians, Undertakers, and Funeral Directors",25740,57620,39-4000,39-0000,39-4000,Funeral Service Workers,65150,41130,39-0000,Personal Care and Service Occupations,5451330,28090
+253,39-5011,Barbers,20130,33220,39-5000,39-0000,39-5000,Personal Appearance Workers,575110,30040,39-0000,Personal Care and Service Occupations,5451330,28090
+254,39-5012,"Hairdressers, Hairstylists, and Cosmetologists",377210,30190,39-5000,39-0000,39-5000,Personal Appearance Workers,575110,30040,39-0000,Personal Care and Service Occupations,5451330,28090
+255,39-5090,Miscellaneous Personal Appearance Workers,177770,29380,39-5000,39-0000,39-5000,Personal Appearance Workers,575110,30040,39-0000,Personal Care and Service Occupations,5451330,28090
+256,39-6010,"Baggage Porters, Bellhops, and Concierges",79840,30070,39-6000,39-0000,39-6000,"Baggage Porters, Bellhops, and Concierges",79840,30070,39-0000,Personal Care and Service Occupations,5451330,28090
+257,39-7010,Tour and Travel Guides,49740,29630,39-7000,39-0000,39-7000,Tour and Travel Guides,49740,29630,39-0000,Personal Care and Service Occupations,5451330,28090
+258,39-9010,Childcare Workers,564630,24610,39-9000,39-0000,39-9000,Other Personal Care and Service Workers,3605950,27190,39-0000,Personal Care and Service Occupations,5451330,28090
+259,39-9020,Personal Care Aides,2211950,25090,39-9000,39-0000,39-9000,Other Personal Care and Service Workers,3605950,27190,39-0000,Personal Care and Service Occupations,5451330,28090
+260,39-9030,Recreation and Fitness Workers,662040,35890,39-9000,39-0000,39-9000,Other Personal Care and Service Workers,3605950,27190,39-0000,Personal Care and Service Occupations,5451330,28090
+261,39-9040,Residential Advisors,108380,29970,39-9000,39-0000,39-9000,Other Personal Care and Service Workers,3605950,27190,39-0000,Personal Care and Service Occupations,5451330,28090
+262,39-9090,Miscellaneous Personal Care and Service Workers,58970,28270,39-9000,39-0000,39-9000,Other Personal Care and Service Workers,3605950,27190,39-0000,Personal Care and Service Occupations,5451330,28090
+263,41-1010,First-Line Supervisors of Sales Workers,1429100,51930,41-1000,41-0000,41-1000,Supervisors of Sales Workers,1429100,51930,41-0000,Sales and Related Occupations,14542290,41790
+264,41-2010,Cashiers,3657570,23270,41-2000,41-0000,41-2000,Retail Sales Workers,8787270,26520,41-0000,Sales and Related Occupations,14542290,41790
+265,41-2021,Counter and Rental Clerks,426700,31200,41-2000,41-0000,41-2000,Retail Sales Workers,8787270,26520,41-0000,Sales and Related Occupations,14542290,41790
+266,41-2022,Parts Salespersons,254870,34080,41-2000,41-0000,41-2000,Retail Sales Workers,8787270,26520,41-0000,Sales and Related Occupations,14542290,41790
+267,41-2030,Retail Salespersons,4448120,28310,41-2000,41-0000,41-2000,Retail Sales Workers,8787270,26520,41-0000,Sales and Related Occupations,14542290,41790
+268,41-3010,Advertising Sales Agents,133110,63360,41-3000,41-0000,41-3000,"Sales Representatives, Services",2046120,71490,41-0000,Sales and Related Occupations,14542290,41790
+269,41-3020,Insurance Sales Agents,393830,67890,41-3000,41-0000,41-3000,"Sales Representatives, Services",2046120,71490,41-0000,Sales and Related Occupations,14542290,41790
+270,41-3030,"Securities, Commodities, and Financial Services Sales Agents",415890,98770,41-3000,41-0000,41-3000,"Sales Representatives, Services",2046120,71490,41-0000,Sales and Related Occupations,14542290,41790
+271,41-3040,Travel Agents,69480,42720,41-3000,41-0000,41-3000,"Sales Representatives, Services",2046120,71490,41-0000,Sales and Related Occupations,14542290,41790
+272,41-3090,"Miscellaneous Sales Representatives, Services",1033820,64860,41-3000,41-0000,41-3000,"Sales Representatives, Services",2046120,71490,41-0000,Sales and Related Occupations,14542290,41790
+273,41-4010,"Sales Representatives, Wholesale and Manufacturing",1663160,73680,41-4000,41-0000,41-4000,"Sales Representatives, Wholesale and Manufacturing",1663160,73680,41-0000,Sales and Related Occupations,14542290,41790
+274,41-9010,"Models, Demonstrators, and Product Promoters",84560,33200,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+275,41-9020,Real Estate Brokers and Sales Agents,197080,65240,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+276,41-9030,Sales Engineers,65720,108610,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+277,41-9040,Telemarketers,164160,28550,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+278,41-9091,"Door-to-Door Sales Workers, News and Street Vendors, and Related Workers",9430,34120,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+279,41-9099,"Sales and Related Workers, All Other",95690,40480,41-9000,41-0000,41-9000,Other Sales and Related Workers,616650,51380,41-0000,Sales and Related Occupations,14542290,41790
+280,43-1010,First-Line Supervisors of Office and Administrative Support Workers,1477560,59340,43-1000,43-0000,43-1000,Supervisors of Office and Administrative Support Workers,1477560,59340,43-0000,Office and Administrative Support Occupations,21828990,38990
+281,43-2010,"Switchboard Operators, Including Answering Service",71600,31290,43-2000,43-0000,43-2000,Communications Equipment Operators,78860,32140,43-0000,Office and Administrative Support Occupations,21828990,38990
+282,43-2020,Telephone Operators,5160,39360,43-2000,43-0000,43-2000,Communications Equipment Operators,78860,32140,43-0000,Office and Administrative Support Occupations,21828990,38990
+283,43-2090,Miscellaneous Communications Equipment Operators,2100,43410,43-2000,43-0000,43-2000,Communications Equipment Operators,78860,32140,43-0000,Office and Administrative Support Occupations,21828990,38990
+284,43-3010,Bill and Account Collectors,251330,38220,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+285,43-3020,Billing and Posting Clerks,469250,39520,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+286,43-3030,"Bookkeeping, Accounting, and Auditing Clerks",1530430,42110,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+287,43-3040,Gaming Cage Workers,16020,28980,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+288,43-3050,Payroll and Timekeeping Clerks,144030,46110,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+289,43-3060,Procurement Clerks,68100,43180,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+290,43-3070,Tellers,468470,30140,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+291,43-3090,Miscellaneous Financial Clerks,31010,43670,43-3000,43-0000,43-3000,Financial Clerks,2978640,39660,43-0000,Office and Administrative Support Occupations,21828990,38990
+292,43-4010,Brokerage Clerks,55100,53940,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+293,43-4020,Correspondence Clerks,5460,38990,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+294,43-4030,"Court, Municipal, and License Clerks",142350,41100,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+295,43-4040,"Credit Authorizers, Checkers, and Clerks",29980,40670,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+296,43-4050,Customer Service Representatives,2871400,36470,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+297,43-4060,"Eligibility Interviewers, Government Programs",137830,46480,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+298,43-4070,File Clerks,110020,33810,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+299,43-4080,"Hotel, Motel, and Resort Desk Clerks",260780,25130,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+300,43-4110,"Interviewers, Except Eligibility and Loan",192820,35520,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+301,43-4120,"Library Assistants, Clerical",88970,28960,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+302,43-4130,Loan Interviewers and Clerks,222620,41310,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+303,43-4140,New Accounts Clerks,41500,37000,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+304,43-4150,Order Clerks,159210,35790,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+305,43-4160,"Human Resources Assistants, Except Payroll and Timekeeping",124600,41620,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+306,43-4170,Receptionists and Information Clerks,1043630,30350,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+307,43-4180,Reservation and Transportation Ticket Agents and Travel Clerks,132050,41730,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+308,43-4190,Miscellaneous Information and Record Clerks,155220,41900,43-4000,43-0000,43-4000,Information and Record Clerks,5773540,35750,43-0000,Office and Administrative Support Occupations,21828990,38990
+309,43-5010,Cargo and Freight Agents,92280,46070,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+310,43-5020,Couriers and Messengers,75720,30620,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+311,43-5030,Dispatchers,294900,43050,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+312,43-5040,"Meter Readers, Utilities",33570,44640,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+313,43-5051,Postal Service Clerks,78830,50860,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+314,43-5052,Postal Service Mail Carriers,342410,51780,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+315,43-5053,"Postal Service Mail Sorters, Processors, and Processing Machine Operators",103830,51250,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+316,43-5060,"Production, Planning, and Expediting Clerks",350150,50020,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+317,43-5070,"Shipping, Receiving, and Traffic Clerks",655590,34980,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+318,43-5080,Stock Clerks and Order Fillers,2056030,28520,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+319,43-5110,"Weighers, Measurers, Checkers, and Samplers, Recordkeeping",65830,34100,43-5000,43-0000,43-5000,"Material Recording, Scheduling, Dispatching, and Distributing Workers",4149140,35950,43-0000,Office and Administrative Support Occupations,21828990,38990
+320,43-6010,Secretaries and Administrative Assistants,3498120,42320,43-6000,43-0000,43-6000,Secretaries and Administrative Assistants,3498120,42320,43-0000,Office and Administrative Support Occupations,21828990,38990
+321,43-9010,Computer Operators,34700,46750,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+322,43-9021,Data Entry Keyers,174930,33740,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+323,43-9022,Word Processors and Typists,53130,41160,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+324,43-9030,Desktop Publishers,10740,46750,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+325,43-9040,Insurance Claims and Policy Processing Clerks,274560,42150,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+326,43-9050,"Mail Clerks and Mail Machine Operators, Except Postal Service",86150,32040,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+327,43-9060,"Office Clerks, General",2972930,35200,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+328,43-9070,"Office Machine Operators, Except Computer",48580,34530,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+329,43-9080,Proofreaders and Copy Markers,9820,41950,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+330,43-9110,Statistical Assistants,11010,50110,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+331,43-9190,Miscellaneous Office and Administrative Support Workers,196570,37480,43-9000,43-0000,43-9000,Other Office and Administrative Support Workers,3873130,35940,43-0000,Office and Administrative Support Occupations,21828990,38990
+332,45-1010,"First-Line Supervisors of Farming, Fishing, and Forestry Workers",21800,50790,45-1000,45-0000,45-1000,"Supervisors of Farming, Fishing, and Forestry Workers",21800,50790,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+333,45-2010,Agricultural Inspectors,13240,45970,45-2000,45-0000,45-2000,Agricultural Workers,411460,27910,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+334,45-2020,Animal Breeders,2160,43080,45-2000,45-0000,45-2000,Agricultural Workers,411460,27910,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+335,45-2040,"Graders and Sorters, Agricultural Products",38210,26510,45-2000,45-0000,45-2000,Agricultural Workers,411460,27910,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+336,45-2090,Miscellaneous Agricultural Workers,357850,27290,45-2000,45-0000,45-2000,Agricultural Workers,411460,27910,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+337,45-4010,Forest and Conservation Workers,7510,31320,45-4000,45-0000,45-4000,"Forest, Conservation, and Logging Workers",44910,40500,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+338,45-4020,Logging Workers,37400,42340,45-4000,45-0000,45-4000,"Forest, Conservation, and Logging Workers",44910,40500,45-0000,"Farming, Fishing, and Forestry Occupations",480130,30140
+339,47-1010,First-Line Supervisors of Construction Trades and Extraction Workers,598210,70540,47-1000,47-0000,47-1000,Supervisors of Construction and Extraction Workers,598210,70540,47-0000,Construction and Extraction Occupations,5962640,51220
+340,47-2010,Boilermakers,13870,63240,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+341,47-2020,"Brickmasons, Blockmasons, and Stonemasons",76240,52810,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+342,47-2030,Carpenters,718730,51120,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+343,47-2040,"Carpet, Floor, and Tile Installers and Finishers",83740,45330,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+344,47-2050,"Cement Masons, Concrete Finishers, and Terrazzo Workers",189130,47340,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+345,47-2060,Construction Laborers,1001470,40350,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+346,47-2071,"Paving, Surfacing, and Tamping Equipment Operators",46760,44360,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+347,47-2072,Pile-Driver Operators,3450,64360,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+348,47-2073,Operating Engineers and Other Construction Equipment Operators,383480,53030,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+349,47-2080,"Drywall Installers, Ceiling Tile Installers, and Tapers",120220,50420,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+350,47-2110,Electricians,655840,59190,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+351,47-2120,Glaziers,50940,48620,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+352,47-2130,Insulation Workers,56440,46910,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+353,47-2141,"Painters, Construction and Maintenance",228420,43050,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+354,47-2142,Paperhangers,2780,40840,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+355,47-2150,"Pipelayers, Plumbers, Pipefitters, and Steamfitters",476140,56980,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+356,47-2160,Plasterers and Stucco Masons,24870,47610,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+357,47-2170,Reinforcing Iron and Rebar Workers,18360,54670,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+358,47-2180,Roofers,128680,43870,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+359,47-2210,Sheet Metal Workers,131570,52710,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+360,47-2220,Structural Iron and Steel Workers,77410,58170,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+361,47-2230,Solar Photovoltaic Installers,8950,46010,47-2000,47-0000,47-2000,Construction Trades Workers,4497490,49850,47-0000,Construction and Extraction Occupations,5962640,51220
+362,47-3010,"Helpers, Construction Trades",233580,32900,47-3000,47-0000,47-3000,"Helpers, Construction Trades",233580,32900,47-0000,Construction and Extraction Occupations,5962640,51220
+363,47-4010,Construction and Building Inspectors,104090,63150,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+364,47-4020,Elevator Installers and Repairers,26830,79370,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+365,47-4030,Fence Erectors,23530,37650,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+366,47-4040,Hazardous Materials Removal Workers,44000,47050,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+367,47-4050,Highway Maintenance Workers,149260,41440,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+368,47-4060,Rail-Track Laying and Maintenance Equipment Operators,14410,57120,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+369,47-4070,Septic Tank Servicers and Sewer Pipe Cleaners,27090,41530,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+370,47-4090,Miscellaneous Construction and Related Workers,33340,43000,47-4000,47-0000,47-4000,Other Construction and Related Workers,422540,50240,47-0000,Construction and Extraction Occupations,5962640,51220
+371,47-5010,"Derrick, Rotary Drill, and Service Unit Operators, Oil, Gas, and Mining",79030,52950,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+372,47-5020,"Earth Drillers, Except Oil and Gas",18270,47570,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+373,47-5030,"Explosives Workers, Ordnance Handling Experts, and Blasters",5640,52780,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+374,47-5040,Mining Machine Operators,22910,53090,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+375,47-5050,"Rock Splitters, Quarry",4870,35760,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+376,47-5060,"Roof Bolters, Mining",3250,59090,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+377,47-5070,"Roustabouts, Oil and Gas",54810,40220,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+378,47-5080,Helpers--Extraction Workers,15930,37660,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+379,47-5090,Miscellaneous Extraction Workers,6110,54300,47-5000,47-0000,47-5000,Extraction Workers,210820,47760,47-0000,Construction and Extraction Occupations,5962640,51220
+380,49-1010,"First-Line Supervisors of Mechanics, Installers, and Repairers",471820,69320,49-1000,49-0000,49-1000,"Supervisors of Installation, Maintenance, and Repair Workers",471820,69320,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+381,49-2010,"Computer, Automated Teller, and Office Machine Repairers",102810,40880,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+382,49-2020,Radio and Telecommunications Equipment Installers and Repairers,243820,57030,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+383,49-2091,Avionics Technicians,18860,65330,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+384,49-2092,"Electric Motor, Power Tool, and Related Repairers",15800,45770,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+385,49-2093,"Electrical and Electronics Installers and Repairers, Transportation Equipment",11680,61460,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+386,49-2094,"Electrical and Electronics Repairers, Commercial and Industrial Equipment",59520,59210,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+387,49-2095,"Electrical and Electronics Repairers, Powerhouse, Substation, and Relay",22980,80040,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+388,49-2096,"Electronic Equipment Installers and Repairers, Motor Vehicles",10880,36750,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+389,49-2097,Electronic Home Entertainment Equipment Installers and Repairers,26070,39800,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+390,49-2098,Security and Fire Alarm Systems Installers,70900,48540,49-2000,49-0000,49-2000,"Electrical and Electronic Equipment Mechanics, Installers, and Repairers",583310,53190,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+391,49-3010,Aircraft Mechanics and Service Technicians,131690,65230,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+392,49-3021,Automotive Body and Related Repairers,142060,46460,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+393,49-3022,Automotive Glass Installers and Repairers,19640,36370,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+394,49-3023,Automotive Service Technicians and Mechanics,648050,43730,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+395,49-3030,Bus and Truck Mechanics and Diesel Engine Specialists,264860,49150,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+396,49-3040,Heavy Vehicle and Mobile Equipment Service Technicians and Mechanics,199280,51780,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+397,49-3050,Small Engine Mechanics,69130,39180,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+398,49-3090,"Miscellaneous Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",139370,30780,49-3000,49-0000,49-3000,"Vehicle and Mobile Equipment Mechanics, Installers, and Repairers",1614070,46200,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+399,49-9010,Control and Valve Installers and Repairers,74400,53460,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+400,49-9020,"Heating, Air Conditioning, and Refrigeration Mechanics and Installers",324310,50160,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+401,49-9030,Home Appliance Repairers,31130,41020,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+402,49-9041,Industrial Machinery Mechanics,362440,54000,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+403,49-9043,"Maintenance Workers, Machinery",80270,48720,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+404,49-9044,Millwrights,43810,56250,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+405,49-9045,"Refractory Materials Repairers, Except Brickmasons",1120,52510,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+406,49-9051,Electrical Power-Line Installers and Repairers,114800,70240,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+407,49-9052,Telecommunications Line Installers and Repairers,118200,59000,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+408,49-9060,Precision Instrument and Equipment Repairers,72010,51120,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+409,49-9070,"Maintenance and Repair Workers, General",1384240,41020,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+410,49-9080,Wind Turbine Service Technicians,5580,58000,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+411,49-9091,"Coin, Vending, and Amusement Machine Servicers and Repairers",32920,36390,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+412,49-9092,Commercial Divers,3380,59470,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+413,49-9093,"Fabric Menders, Except Garment",400,33550,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+414,49-9094,Locksmiths and Safe Repairers,16970,43740,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+415,49-9095,Manufactured Building and Mobile Home Installers,2920,32910,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+416,49-9096,Riggers,20970,51330,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+417,49-9097,Signal and Track Switch Repairers,7730,67800,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+418,49-9098,"Helpers--Installation, Maintenance, and Repair Workers",105040,31390,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+419,49-9099,"Installation, Maintenance, and Repair Workers, All Other",157030,43050,49-9000,49-0000,49-9000,"Other Installation, Maintenance, and Repair Occupations",2959670,46380,49-0000,"Installation, Maintenance, and Repair Occupations",5628880,48960
+420,51-1010,First-Line Supervisors of Production and Operating Workers,622790,64340,51-1000,51-0000,51-1000,Supervisors of Production Workers,622790,64340,51-0000,Production Occupations,9115530,39190
+421,51-2010,"Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",43150,55530,51-2000,51-0000,51-2000,Assemblers and Fabricators,1831200,35650,51-0000,Production Occupations,9115530,39190
+422,51-2020,"Electrical, Electronics, and Electromechanical Assemblers",287630,35910,51-2000,51-0000,51-2000,Assemblers and Fabricators,1831200,35650,51-0000,Production Occupations,9115530,39190
+423,51-2030,Engine and Other Machine Assemblers,48200,45330,51-2000,51-0000,51-2000,Assemblers and Fabricators,1831200,35650,51-0000,Production Occupations,9115530,39190
+424,51-2040,Structural Metal Fabricators and Fitters,76090,41640,51-2000,51-0000,51-2000,Assemblers and Fabricators,1831200,35650,51-0000,Production Occupations,9115530,39190
+425,51-2090,Miscellaneous Assemblers and Fabricators,1376130,34300,51-2000,51-0000,51-2000,Assemblers and Fabricators,1831200,35650,51-0000,Production Occupations,9115530,39190
+426,51-3010,Bakers,180010,28660,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+427,51-3020,"Butchers and Other Meat, Poultry, and Fish Processing Workers",365660,29910,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+428,51-3091,"Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",21060,32730,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+429,51-3092,Food Batchmakers,160160,32090,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+430,51-3093,Food Cooking Machine Operators and Tenders,32260,31690,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+431,51-3099,"Food Processing Workers, All Other",42620,27590,51-3000,51-0000,51-3000,Food Processing Workers,801770,30090,51-0000,Production Occupations,9115530,39190
+432,51-4010,Computer Control Programmers and Operators,171920,43940,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+433,51-4021,"Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic",75610,36620,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+434,51-4022,"Forging Machine Setters, Operators, and Tenders, Metal and Plastic",18330,40770,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+435,51-4023,"Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",26700,40790,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+436,51-4031,"Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",186640,36180,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+437,51-4032,"Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",11400,41490,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+438,51-4033,"Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic",71870,36690,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+439,51-4034,"Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",29510,41090,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+440,51-4035,"Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",19440,44490,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+441,51-4040,Machinists,384350,45250,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+442,51-4050,"Metal Furnace Operators, Tenders, Pourers, and Casters",25520,41160,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+443,51-4060,"Model Makers and Patternmakers, Metal and Plastic",8090,53430,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+444,51-4070,"Molders and Molding Machine Setters, Operators, and Tenders, Metal and Plastic",179710,34200,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+445,51-4080,"Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic",133840,37510,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+446,51-4110,Tool and Die Makers,72700,53650,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+447,51-4120,"Welding, Soldering, and Brazing Workers",424270,43930,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+448,51-4191,"Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic",19690,39050,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+449,51-4192,"Layout Workers, Metal and Plastic",8170,47380,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+450,51-4193,"Plating and Coating Machine Setters, Operators, and Tenders, Metal and Plastic",40070,34830,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+451,51-4194,"Tool Grinders, Filers, and Sharpeners",7070,40890,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+452,51-4199,"Metal Workers and Plastic Workers, All Other",25470,38140,51-4000,51-0000,51-4000,Metal Workers and Plastic Workers,1940370,41480,51-0000,Production Occupations,9115530,39190
+453,51-5111,Prepress Technicians and Workers,29990,42240,51-5100,51-0000,51-5100,Printing Workers,249140,38260,51-0000,Production Occupations,9115530,39190
+454,51-5112,Printing Press Operators,173470,38470,51-5100,51-0000,51-5100,Printing Workers,249140,38260,51-0000,Production Occupations,9115530,39190
+455,51-5113,Print Binding and Finishing Workers,45690,34850,51-5100,51-0000,51-5100,Printing Workers,249140,38260,51-0000,Production Occupations,9115530,39190
+456,51-6010,Laundry and Dry-Cleaning Workers,213350,24480,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+457,51-6020,"Pressers, Textile, Garment, and Related Materials",38320,24060,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+458,51-6030,Sewing Machine Operators,136450,26990,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+459,51-6041,Shoe and Leather Workers and Repairers,8640,29800,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+460,51-6042,Shoe Machine Operators and Tenders,3810,30110,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+461,51-6050,"Tailors, Dressmakers, and Sewers",26500,33350,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+462,51-6061,Textile Bleaching and Dyeing Machine Operators and Tenders,9330,29930,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+463,51-6062,"Textile Cutting Machine Setters, Operators, and Tenders",13310,29440,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+464,51-6063,"Textile Knitting and Weaving Machine Setters, Operators, and Tenders",21190,30470,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+465,51-6064,"Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders",31650,29660,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+466,51-6091,"Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers",18130,35500,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+467,51-6092,Fabric and Apparel Patternmakers,5220,49180,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+468,51-6093,Upholsterers,32870,35920,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+469,51-6099,"Textile, Apparel, and Furnishings Workers, All Other",15360,31070,51-6000,51-0000,51-6000,"Textile, Apparel, and Furnishings Workers",574130,27690,51-0000,Production Occupations,9115530,39190
+470,51-7010,Cabinetmakers and Bench Carpenters,102100,36580,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+471,51-7020,Furniture Finishers,17250,33850,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+472,51-7030,"Model Makers and Patternmakers, Wood",1280,55540,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+473,51-7041,"Sawing Machine Setters, Operators, and Tenders, Wood",52260,31200,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+474,51-7042,"Woodworking Machine Setters, Operators, and Tenders, Except Sawing",78980,31110,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+475,51-7090,Miscellaneous Woodworkers,5970,34530,51-7000,51-0000,51-7000,Woodworkers,257840,33680,51-0000,Production Occupations,9115530,39190
+476,51-8010,"Power Plant Operators, Distributors, and Dispatchers",51820,81760,51-8000,51-0000,51-8000,Plant and System Operators,301200,61820,51-0000,Production Occupations,9115530,39190
+477,51-8020,Stationary Engineers and Boiler Operators,31710,63690,51-8000,51-0000,51-8000,Plant and System Operators,301200,61820,51-0000,Production Occupations,9115530,39190
+478,51-8030,Water and Wastewater Treatment Plant and System Operators,123650,49490,51-8000,51-0000,51-8000,Plant and System Operators,301200,61820,51-0000,Production Occupations,9115530,39190
+479,51-8090,Miscellaneous Plant and System Operators,94010,66430,51-8000,51-0000,51-8000,Plant and System Operators,301200,61820,51-0000,Production Occupations,9115530,39190
+480,51-9010,"Chemical Processing Machine Setters, Operators, and Tenders",132660,48470,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+481,51-9020,"Crushing, Grinding, Polishing, Mixing, and Blending Workers",190770,37960,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+482,51-9030,Cutting Workers,71420,35090,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+483,51-9040,"Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders",72870,36800,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+484,51-9050,"Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders",17730,40610,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+485,51-9060,"Inspectors, Testers, Sorters, Samplers, and Weighers",557510,42010,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+486,51-9070,Jewelers and Precious Stone and Metal Workers,25910,43570,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+487,51-9080,"Medical, Dental, and Ophthalmic Laboratory Technicians",77110,39840,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+488,51-9110,Packaging and Filling Machine Operators and Tenders,395330,32740,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+489,51-9120,Painting Workers,156470,39850,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+490,51-9140,Semiconductor Processors,25730,39810,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+491,51-9150,Photographic Process Workers and Processing Machine Operators,16680,34910,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+492,51-9191,Adhesive Bonding Machine Operators and Tenders,16310,35850,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+493,51-9192,"Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",17630,33090,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+494,51-9193,Cooling and Freezing Equipment Operators and Tenders,8820,34520,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+495,51-9194,Etchers and Engravers,8600,34550,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+496,51-9195,"Molders, Shapers, and Casters, Except Metal and Plastic",42500,35190,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+497,51-9196,"Paper Goods Machine Setters, Operators, and Tenders",97960,40320,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+498,51-9197,Tire Builders,23920,45530,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+499,51-9198,Helpers--Production Workers,350410,29380,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+500,51-9199,"Production Workers, All Other",230760,34490,51-9000,51-0000,51-9000,Other Production Occupations,2537090,37270,51-0000,Production Occupations,9115530,39190
+501,53-1000,Supervisors of Transportation and Material Moving Workers,419980,58070,53-1000,53-0000,53-1000,Supervisors of Transportation and Material Moving Workers,419980,58070,53-0000,Transportation and Material Moving Occupations,10244260,38290
+502,53-2010,Aircraft Pilots and Flight Engineers,120760,146660,53-2000,53-0000,53-2000,Air Transportation Workers,271890,101910,53-0000,Transportation and Material Moving Occupations,10244260,38290
+503,53-2020,Air Traffic Controllers and Airfield Operations Specialists,32360,101100,53-2000,53-0000,53-2000,Air Transportation Workers,271890,101910,53-0000,Transportation and Material Moving Occupations,10244260,38290
+504,53-2030,Flight Attendants,118770,56630,53-2000,53-0000,53-2000,Air Transportation Workers,271890,101910,53-0000,Transportation and Material Moving Occupations,10244260,38290
+505,53-3010,"Ambulance Drivers and Attendants, Except Emergency Medical Technicians",15380,29010,53-3000,53-0000,53-3000,Motor Vehicle Operators,4088870,39400,53-0000,Transportation and Material Moving Occupations,10244260,38290
+506,53-3020,Bus Drivers,678260,36280,53-3000,53-0000,53-3000,Motor Vehicle Operators,4088870,39400,53-0000,Transportation and Material Moving Occupations,10244260,38290
+507,53-3030,Driver/Sales Workers and Truck Drivers,3130500,40920,53-3000,53-0000,53-3000,Motor Vehicle Operators,4088870,39400,53-0000,Transportation and Material Moving Occupations,10244260,38290
+508,53-3040,Taxi Drivers and Chauffeurs,207920,28450,53-3000,53-0000,53-3000,Motor Vehicle Operators,4088870,39400,53-0000,Transportation and Material Moving Occupations,10244260,38290
+509,53-3090,Miscellaneous Motor Vehicle Operators,56810,35640,53-3000,53-0000,53-3000,Motor Vehicle Operators,4088870,39400,53-0000,Transportation and Material Moving Occupations,10244260,38290
+510,53-4010,Locomotive Engineers and Operators,41090,65240,53-4000,53-0000,53-4000,Rail Transportation Workers,109460,64380,53-0000,Transportation and Material Moving Occupations,10244260,38290
+511,53-4020,"Railroad Brake, Signal, and Switch Operators",14270,58890,53-4000,53-0000,53-4000,Rail Transportation Workers,109460,64380,53-0000,Transportation and Material Moving Occupations,10244260,38290
+512,53-4030,Railroad Conductors and Yardmasters,42360,66080,53-4000,53-0000,53-4000,Rail Transportation Workers,109460,64380,53-0000,Transportation and Material Moving Occupations,10244260,38290
+513,53-4040,Subway and Streetcar Operators,8850,62970,53-4000,53-0000,53-4000,Rail Transportation Workers,109460,64380,53-0000,Transportation and Material Moving Occupations,10244260,38290
+514,53-4090,Miscellaneous Rail Transportation Workers,2890,58490,53-4000,53-0000,53-4000,Rail Transportation Workers,109460,64380,53-0000,Transportation and Material Moving Occupations,10244260,38290
+515,53-5010,Sailors and Marine Oilers,32220,46180,53-5000,53-0000,53-5000,Water Transportation Workers,79860,66040,53-0000,Transportation and Material Moving Occupations,10244260,38290
+516,53-5020,Ship and Boat Captains and Operators,38910,80310,53-5000,53-0000,53-5000,Water Transportation Workers,79860,66040,53-0000,Transportation and Material Moving Occupations,10244260,38290
+517,53-5030,Ship Engineers,8740,75710,53-5000,53-0000,53-5000,Water Transportation Workers,79860,66040,53-0000,Transportation and Material Moving Occupations,10244260,38290
+518,53-6010,Bridge and Lock Tenders,3170,47660,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+519,53-6020,Parking Lot Attendants,145900,25130,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+520,53-6030,Automotive and Watercraft Service Attendants,113760,25940,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+521,53-6040,Traffic Technicians,7290,50700,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+522,53-6050,Transportation Inspectors,29990,75330,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+523,53-6060,"Transportation Attendants, Except Flight Attendants",25460,30640,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+524,53-6090,Miscellaneous Transportation Workers,37560,42870,53-6000,53-0000,53-6000,Other Transportation Workers,363130,32460,53-0000,Transportation and Material Moving Occupations,10244260,38290
+525,53-7010,Conveyor Operators and Tenders,23390,35110,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+526,53-7020,Crane and Tower Operators,44410,58160,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+527,53-7030,"Dredge, Excavating, and Loading Machine Operators",49780,48790,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+528,53-7040,Hoist and Winch Operators,3180,56390,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+529,53-7050,Industrial Truck and Tractor Operators,604130,36480,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+530,53-7061,Cleaners of Vehicles and Equipment,378850,26900,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+531,53-7062,"Laborers and Freight, Stock, and Material Movers, Hand",2893180,30890,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+532,53-7063,Machine Feeders and Offbearers,66380,31710,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+533,53-7064,"Packers and Packagers, Hand",663970,26490,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+534,53-7070,Pumping Station Operators,27560,52510,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+535,53-7080,Refuse and Recyclable Material Collectors,118520,40560,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+536,53-7110,Mine Shuttle Car Operators,1690,56150,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+537,53-7120,"Tank Car, Truck, and Ship Loaders",9000,42330,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290
+538,53-7190,Miscellaneous Material Moving Workers,27010,35000,53-7000,53-0000,53-7000,Material Moving Workers,4911060,31560,53-0000,Transportation and Material Moving Occupations,10244260,38290

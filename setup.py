@@ -11,9 +11,9 @@ with open(join(this_dir, "requirements.txt")) as f:
     requirements = f.read().split("\n")
 
 setup(
-    name="labor-abm",
-    version="0.1.0",
-    description="Labor ABM",
+    name="labour-abm",
+    version="0.1.1",
+    description="Labour ABM",
     url="",
     long_description_content_type="text/markdown",
     long_description=long_description,
@@ -22,5 +22,7 @@ setup(
     license="CCBY4",
     install_requires=requirements,
     packages=find_packages(exclude=["docs"]),
+    package_data={"labour_abm_canada": ["data/*", "*.yaml"]},
     include_package_data=True,
+    entry_points={"console_scripts": ["labour_abm_canada=labour_abm_canada.__main__:main"]},
 )
